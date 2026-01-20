@@ -1,0 +1,797 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/rdip#"
+     xml:base="https://w3id.org/rdip"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:org="http://www.w3.org/ns/org#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:pav="http://purl.org/pav/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:adms="http://www.w3.org/ns/adms#"
+     xmlns:bibo="http://purl.org/ontology/bibo/"
+     xmlns:dcam="http://purl.org/dc/dcam/"
+     xmlns:dcat="http://www.w3.org/ns/dcat#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:prov="http://www.w3.org/ns/prov#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:skos1="http://www.w3.org/2008/05/skos#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:vitro="http://vitro.mannlib.cornell.edu/ns/vitro/0.7#"
+     xmlns:vocab="http://www.w3.org/1999/xhtml/vocab#"
+     xmlns:schema="http://schema.org/"
+     xmlns:statistics="http://purl.org/net/OCRe/statistics.owl#"
+     xmlns:geopolitical="http://aims.fao.org/aos/geopolitical.owl#"
+     xmlns:study_protocol="http://purl.org/net/OCRe/study_protocol.owl#"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#">
+    <owl:Ontology rdf:about="https://w3id.org/rdip">
+        <owl:versionIRI rdf:resource="https://w3id.org/rdip/1.0.0"/>
+        <owl:imports rdf:resource="http://purl.org/ontology/bibo/"/>
+        <owl:imports rdf:resource="http://purl.org/spar/cito/"/>
+        <owl:imports rdf:resource="http://vivoweb.org/ontology/core"/>
+        <owl:imports rdf:resource="http://www.w3.org/ns/dcat#"/>
+        <owl:imports rdf:resource="http://www.w3.org/ns/prov-o#"/>
+        <dc:description xml:lang="en">A project-centric ontology for representing the research lifecycle, provenance, and contextual links between activities, software, and datasets.</dc:description>
+        <dc:title xml:lang="en">RDIP: Research Data Intelligence Platform Ontology</dc:title>
+        <terms:license rdf:resource="https://opensource.org/licenses/MIT"/>
+        <vann:preferredNamespacePrefix>rdip</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri>https://w3id.org/rdip/</vann:preferredNamespaceUri>
+        <rdfs:comment>Core ontology for representing research projects, activities, datasets, software and publications on an open science platform.</rdfs:comment>
+        <owl:versionInfo>1.0.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://schema.org/contributor -->
+
+
+    <owl:ObjectProperty rdf:about="https://schema.org/contributor"/>
+    
+
+
+    <!-- https://schema.org/isPartOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://schema.org/isPartOf"/>
+    
+
+
+    <!-- https://schema.org/name -->
+
+
+    <owl:ObjectProperty rdf:about="https://schema.org/name"/>
+    
+
+
+    <!-- https://schema.org/result -->
+
+
+    <owl:ObjectProperty rdf:about="https://schema.org/result"/>
+    
+
+
+    <!-- https://schema.org/sponsor -->
+
+
+    <owl:ObjectProperty rdf:about="https://schema.org/sponsor"/>
+    
+
+
+    <!-- https://schema.org/url -->
+
+
+    <owl:ObjectProperty rdf:about="https://schema.org/url"/>
+    
+
+
+    <!-- https://w3id.org/rdip/citesDataset -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/rdip/citesDataset">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/spar/cito/citesAsDataSource"/>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
+        <rdfs:label>cites dataset</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/generatesDataset -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/rdip/generatesDataset">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#generated"/>
+        <rdfs:domain rdf:resource="https://w3id.org/rdip/ResearchActivity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
+        <rdfs:label>generates dataset</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/generatesPublication -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/rdip/generatesPublication">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#generated"/>
+        <rdfs:domain rdf:resource="https://w3id.org/rdip/PublicationActivity"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:label>generates publication</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/generatesSoftware -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/rdip/generatesSoftware">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#generated"/>
+        <rdfs:domain rdf:resource="https://w3id.org/rdip/SoftwareDevelopmentActivity"/>
+        <rdfs:range rdf:resource="https://w3id.org/rdip/SoftwareApplication"/>
+        <rdfs:label>generates software</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/hasActivity -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/rdip/hasActivity">
+        <owl:inverseOf rdf:resource="https://w3id.org/rdip/isPartOfProject"/>
+        <rdfs:domain rdf:resource="https://w3id.org/rdip/ResearchProject"/>
+        <rdfs:range rdf:resource="https://w3id.org/rdip/ResearchActivity"/>
+        <rdfs:label>has activity</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/hasActivityRole -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/rdip/hasActivityRole">
+        <rdfs:domain rdf:resource="https://w3id.org/rdip/ResearchActivity"/>
+        <rdfs:range rdf:resource="https://w3id.org/rdip/RoleInActivity"/>
+        <rdfs:label>has activity role</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/hasLeadOrganization -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/rdip/hasLeadOrganization">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://schema.org/sponsor"/>
+        <rdfs:domain rdf:resource="https://w3id.org/rdip/ResearchProject"/>
+        <rdfs:range rdf:resource="http://vivoweb.org/ontology/core#Organization"/>
+        <rdfs:label>has lead organization</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/hasOutput -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/rdip/hasOutput">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#generated"/>
+        <rdfs:subPropertyOf rdf:resource="https://schema.org/result"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/rdip/isOutputOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/rdip/ResearchProject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:label>has output</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/hasParticipant -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/rdip/hasParticipant">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#agent"/>
+        <rdfs:subPropertyOf rdf:resource="https://schema.org/contributor"/>
+        <rdfs:domain rdf:resource="https://w3id.org/rdip/ResearchProject"/>
+        <rdfs:range rdf:resource="http://vivoweb.org/ontology/core#Person"/>
+        <rdfs:label>has participant</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/isDocumentedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/rdip/isDocumentedBy">
+        <rdfs:domain rdf:resource="https://w3id.org/rdip/ResearchActivity"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <rdfs:label>is documented by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/isOutputOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/rdip/isOutputOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy"/>
+        <rdfs:subPropertyOf rdf:resource="https://schema.org/isPartOf"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/rdip/ResearchProject"/>
+        <rdfs:label>is output of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/isPartOfProject -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/rdip/isPartOfProject">
+        <rdfs:domain rdf:resource="https://w3id.org/rdip/ResearchActivity"/>
+        <rdfs:range rdf:resource="https://w3id.org/rdip/ResearchProject"/>
+        <rdfs:label>is part of project</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/landingPage -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/rdip/landingPage">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/dcat#landingPage"/>
+        <rdfs:subPropertyOf rdf:resource="https://schema.org/url"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/rolePerformedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/rdip/rolePerformedBy">
+        <rdfs:domain rdf:resource="https://w3id.org/rdip/RoleInActivity"/>
+        <rdfs:range rdf:resource="http://vivoweb.org/ontology/core#Person"/>
+        <rdfs:label>role performed by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/title -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/rdip/title">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/title"/>
+        <rdfs:subPropertyOf rdf:resource="https://schema.org/name"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/usedDataset -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/rdip/usedDataset">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#used"/>
+        <rdfs:domain rdf:resource="https://w3id.org/rdip/ResearchActivity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
+        <rdfs:label>used dataset</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/usedMethod -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/rdip/usedMethod">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#used"/>
+        <rdfs:domain rdf:resource="https://w3id.org/rdip/ResearchActivity"/>
+        <rdfs:range rdf:resource="https://w3id.org/rdip/Method"/>
+        <rdfs:label>used method</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/usedSoftware -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/rdip/usedSoftware">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#used"/>
+        <rdfs:domain rdf:resource="https://w3id.org/rdip/ResearchActivity"/>
+        <rdfs:range rdf:resource="https://w3id.org/rdip/SoftwareApplication"/>
+        <rdfs:label>used software</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://schema.org/conditionsOfAccess -->
+
+
+    <owl:DatatypeProperty rdf:about="https://schema.org/conditionsOfAccess"/>
+    
+
+
+    <!-- https://schema.org/description -->
+
+
+    <owl:DatatypeProperty rdf:about="https://schema.org/description"/>
+    
+
+
+    <!-- https://schema.org/endDate -->
+
+
+    <owl:DatatypeProperty rdf:about="https://schema.org/endDate"/>
+    
+
+
+    <!-- https://schema.org/identifier -->
+
+
+    <owl:DatatypeProperty rdf:about="https://schema.org/identifier"/>
+    
+
+
+    <!-- https://schema.org/startDate -->
+
+
+    <owl:DatatypeProperty rdf:about="https://schema.org/startDate"/>
+    
+
+
+    <!-- https://schema.org/version -->
+
+
+    <owl:DatatypeProperty rdf:about="https://schema.org/version"/>
+    
+
+
+    <!-- https://w3id.org/rdip/accessLevel -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/rdip/accessLevel">
+        <rdfs:subPropertyOf rdf:resource="https://schema.org/conditionsOfAccess"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>access level</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/activityDescription -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/rdip/activityDescription">
+        <rdfs:domain rdf:resource="https://w3id.org/rdip/ResearchActivity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>activity description</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/activityEnd -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/rdip/activityEnd">
+        <rdfs:subPropertyOf rdf:resource="https://schema.org/endDate"/>
+        <rdfs:domain rdf:resource="https://w3id.org/rdip/ResearchActivity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:label>activity end</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/activityStart -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/rdip/activityStart">
+        <rdfs:subPropertyOf rdf:resource="https://schema.org/startDate"/>
+        <rdfs:domain rdf:resource="https://w3id.org/rdip/ResearchActivity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:label>activity start</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/description -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/rdip/description">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/description"/>
+        <rdfs:subPropertyOf rdf:resource="https://schema.org/description"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>description</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/identifier -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/rdip/identifier">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/identifier"/>
+        <rdfs:subPropertyOf rdf:resource="https://schema.org/identifier"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>identifier</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/landingPage -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/rdip/landingPage">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/projectEnd -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/rdip/projectEnd">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#endedAtTime"/>
+        <rdfs:subPropertyOf rdf:resource="https://schema.org/endDate"/>
+        <rdfs:domain rdf:resource="https://w3id.org/rdip/ResearchProject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:label>project end</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/projectStart -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/rdip/projectStart">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#startedAtTime"/>
+        <rdfs:subPropertyOf rdf:resource="https://schema.org/startDate"/>
+        <rdfs:domain rdf:resource="https://w3id.org/rdip/ResearchProject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:label>project start</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/roleLabel -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/rdip/roleLabel">
+        <rdfs:domain rdf:resource="https://w3id.org/rdip/RoleInActivity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>role label</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/title -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/rdip/title">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/rdip/version -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/rdip/version">
+        <rdfs:subPropertyOf rdf:resource="https://schema.org/version"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>version</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/ontology/bibo/Article -->
+
+
+    <owl:Class rdf:about="http://purl.org/ontology/bibo/Article">
+        <rdfs:subClassOf rdf:resource="https://schema.org/ScholarlyArticle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vivoweb.org/ontology/core#Organization -->
+
+
+    <owl:Class rdf:about="http://vivoweb.org/ontology/core#Organization">
+        <owl:equivalentClass rdf:resource="https://schema.org/Organization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vivoweb.org/ontology/core#Person -->
+
+
+    <owl:Class rdf:about="http://vivoweb.org/ontology/core#Person">
+        <owl:equivalentClass rdf:resource="https://schema.org/Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/dcat#Dataset -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/ns/dcat#Dataset">
+        <owl:equivalentClass rdf:resource="https://schema.org/Dataset"/>
+    </owl:Class>
+    
+
+
+    <!-- https://schema.org/Action -->
+
+
+    <owl:Class rdf:about="https://schema.org/Action"/>
+    
+
+
+    <!-- https://schema.org/CreativeWork -->
+
+
+    <owl:Class rdf:about="https://schema.org/CreativeWork"/>
+    
+
+
+    <!-- https://schema.org/Dataset -->
+
+
+    <owl:Class rdf:about="https://schema.org/Dataset"/>
+    
+
+
+    <!-- https://schema.org/Organization -->
+
+
+    <owl:Class rdf:about="https://schema.org/Organization"/>
+    
+
+
+    <!-- https://schema.org/Person -->
+
+
+    <owl:Class rdf:about="https://schema.org/Person"/>
+    
+
+
+    <!-- https://schema.org/Project -->
+
+
+    <owl:Class rdf:about="https://schema.org/Project">
+        <owl:equivalentClass rdf:resource="https://w3id.org/rdip/ResearchProject"/>
+    </owl:Class>
+    
+
+
+    <!-- https://schema.org/ScholarlyArticle -->
+
+
+    <owl:Class rdf:about="https://schema.org/ScholarlyArticle"/>
+    
+
+
+    <!-- https://schema.org/SoftwareApplication -->
+
+
+    <owl:Class rdf:about="https://schema.org/SoftwareApplication">
+        <owl:equivalentClass rdf:resource="https://w3id.org/rdip/SoftwareApplication"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/rdip/DataAnalysisActivity -->
+
+
+    <owl:Class rdf:about="https://w3id.org/rdip/DataAnalysisActivity">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/rdip/ResearchActivity"/>
+        <rdfs:comment>Activities that analyse datasets to derive results, statistics, models or other derived knowledge artifacts.</rdfs:comment>
+        <rdfs:label>Data analysis activity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/rdip/DataCollectionActivity -->
+
+
+    <owl:Class rdf:about="https://w3id.org/rdip/DataCollectionActivity">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/rdip/ResearchActivity"/>
+        <rdfs:comment>Activities that collect or capture raw data, such as experiments, surveys, interviews, observations or sensor measurements.</rdfs:comment>
+        <rdfs:label>Data collection activity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/rdip/DataPreservationActivity -->
+
+
+    <owl:Class rdf:about="https://w3id.org/rdip/DataPreservationActivity">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/rdip/ResearchActivity"/>
+        <rdfs:comment>Activities that preserve datasets for the long term.</rdfs:comment>
+        <rdfs:label>Data preservation activity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/rdip/DataProcessingActivity -->
+
+
+    <owl:Class rdf:about="https://w3id.org/rdip/DataProcessingActivity">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/rdip/ResearchActivity"/>
+        <rdfs:comment>Activities that clean, transform, integrate, anonymize or otherwise modify existing datasets.</rdfs:comment>
+        <rdfs:label>Data processing activity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/rdip/DataProductionActivity -->
+
+
+    <owl:Class rdf:about="https://w3id.org/rdip/DataProductionActivity">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/rdip/ResearchActivity"/>
+        <rdfs:comment>Activities that produce one or more datasets from instruments, simulations or integrated data pipelines.</rdfs:comment>
+        <rdfs:label>Data production activity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/rdip/DataPublishingActivity -->
+
+
+    <owl:Class rdf:about="https://w3id.org/rdip/DataPublishingActivity">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/rdip/ResearchActivity"/>
+        <rdfs:comment>Activities that publish or share datasets, e.g. depositing into repositories.</rdfs:comment>
+        <rdfs:label>Data publishing activity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/rdip/Method -->
+
+
+    <owl:Class rdf:about="https://w3id.org/rdip/Method">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Plan"/>
+        <rdfs:subClassOf rdf:resource="https://schema.org/CreativeWork"/>
+        <rdfs:comment>A formal method, protocol, or workflow specification followed by one or more research activities.</rdfs:comment>
+        <rdfs:label>Research method or protocol</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/rdip/PlanningActivity -->
+
+
+    <owl:Class rdf:about="https://w3id.org/rdip/PlanningActivity">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/rdip/ResearchActivity"/>
+        <rdfs:comment>Activities concerned with planning and designing research, including study design, protocol development and ethical review preparation.</rdfs:comment>
+        <rdfs:label>Planning activity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/rdip/PublicationActivity -->
+
+
+    <owl:Class rdf:about="https://w3id.org/rdip/PublicationActivity">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/rdip/ResearchActivity"/>
+        <rdfs:comment>Activities that produce scholarly publications such as journal articles.</rdfs:comment>
+        <rdfs:label>Publication activity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/rdip/ResearchActivity -->
+
+
+    <owl:Class rdf:about="https://w3id.org/rdip/ResearchActivity">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:subClassOf rdf:resource="https://schema.org/Action"/>
+        <rdfs:comment>Any activity in the research lifecycle, including planning, data collection, processing, analysis, publishing and preservation.</rdfs:comment>
+        <rdfs:label>Research activity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/rdip/ResearchProject -->
+
+
+    <owl:Class rdf:about="https://w3id.org/rdip/ResearchProject">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:comment>A research project that groups together activities, participants and outputs such as datasets, software and publications.</rdfs:comment>
+        <rdfs:label>Research project</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/rdip/RoleInActivity -->
+
+
+    <owl:Class rdf:about="https://w3id.org/rdip/RoleInActivity">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Role"/>
+        <rdfs:comment>The specific role that a person has within a particular research activity.</rdfs:comment>
+        <rdfs:label>Role in activity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/rdip/SoftwareApplication -->
+
+
+    <owl:Class rdf:about="https://w3id.org/rdip/SoftwareApplication">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:comment>Software or computational tools used during research activities or produced as outputs.</rdfs:comment>
+        <rdfs:label>Research software</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/rdip/SoftwareDevelopmentActivity -->
+
+
+    <owl:Class rdf:about="https://w3id.org/rdip/SoftwareDevelopmentActivity">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/rdip/ResearchActivity"/>
+        <rdfs:comment>Activities that design, implement, test or maintain research software.</rdfs:comment>
+        <rdfs:label>Software development activity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description rdf:about="https://w3id.org/rdip/landingPage">
+        <rdfs:label>landing page</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://w3id.org/rdip/title">
+        <rdfs:label>title</rdfs:label>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/ -->
+
+

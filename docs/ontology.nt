@@ -1,0 +1,424 @@
+<https://w3id.org/rdip> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://w3id.org/rdip> <http://www.w3.org/2002/07/owl#versionIRI> <https://w3id.org/rdip/1.0.0> .
+<https://w3id.org/rdip> <http://www.w3.org/2002/07/owl#imports> <http://purl.org/ontology/bibo/> .
+<https://w3id.org/rdip> <http://www.w3.org/2002/07/owl#imports> <http://purl.org/spar/cito/> .
+<https://w3id.org/rdip> <http://www.w3.org/2002/07/owl#imports> <http://vivoweb.org/ontology/core> .
+<https://w3id.org/rdip> <http://www.w3.org/2002/07/owl#imports> <http://www.w3.org/ns/dcat#> .
+<https://w3id.org/rdip> <http://www.w3.org/2002/07/owl#imports> <http://www.w3.org/ns/prov-o#> .
+<https://w3id.org/rdip> <http://purl.org/dc/elements/1.1/description> "A project-centric ontology for representing the research lifecycle, provenance, and contextual links between activities, software, and datasets."@en .
+<https://w3id.org/rdip> <http://purl.org/dc/elements/1.1/title> "RDIP: Research Data Intelligence Platform Ontology"@en .
+<https://w3id.org/rdip> <http://purl.org/dc/terms/license> <https://opensource.org/licenses/MIT> .
+<https://w3id.org/rdip> <http://purl.org/vocab/vann/preferredNamespacePrefix> "rdip" .
+<https://w3id.org/rdip> <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/rdip/" .
+<https://w3id.org/rdip> <http://www.w3.org/2000/01/rdf-schema#comment> "Core ontology for representing research projects, activities, datasets, software and publications on an open science platform." .
+<https://w3id.org/rdip> <http://www.w3.org/2002/07/owl#versionInfo> "1.0.0" .
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# https://schema.org/contributor
+<https://schema.org/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# https://schema.org/isPartOf
+<https://schema.org/isPartOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# https://schema.org/name
+<https://schema.org/name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# https://schema.org/result
+<https://schema.org/result> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# https://schema.org/sponsor
+<https://schema.org/sponsor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# https://schema.org/url
+<https://schema.org/url> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# https://w3id.org/rdip/citesDataset
+<https://w3id.org/rdip/citesDataset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdip/citesDataset> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/spar/cito/citesAsDataSource> .
+<https://w3id.org/rdip/citesDataset> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/bibo/Document> .
+<https://w3id.org/rdip/citesDataset> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/dcat#Dataset> .
+<https://w3id.org/rdip/citesDataset> <http://www.w3.org/2000/01/rdf-schema#label> "cites dataset" .
+# 
+# https://w3id.org/rdip/generatesDataset
+<https://w3id.org/rdip/generatesDataset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdip/generatesDataset> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#generated> .
+<https://w3id.org/rdip/generatesDataset> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdip/ResearchActivity> .
+<https://w3id.org/rdip/generatesDataset> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/dcat#Dataset> .
+<https://w3id.org/rdip/generatesDataset> <http://www.w3.org/2000/01/rdf-schema#label> "generates dataset" .
+# 
+# https://w3id.org/rdip/generatesPublication
+<https://w3id.org/rdip/generatesPublication> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdip/generatesPublication> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#generated> .
+<https://w3id.org/rdip/generatesPublication> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdip/PublicationActivity> .
+<https://w3id.org/rdip/generatesPublication> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/bibo/Document> .
+<https://w3id.org/rdip/generatesPublication> <http://www.w3.org/2000/01/rdf-schema#label> "generates publication" .
+# 
+# https://w3id.org/rdip/generatesSoftware
+<https://w3id.org/rdip/generatesSoftware> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdip/generatesSoftware> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#generated> .
+<https://w3id.org/rdip/generatesSoftware> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdip/SoftwareDevelopmentActivity> .
+<https://w3id.org/rdip/generatesSoftware> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/rdip/SoftwareApplication> .
+<https://w3id.org/rdip/generatesSoftware> <http://www.w3.org/2000/01/rdf-schema#label> "generates software" .
+# 
+# https://w3id.org/rdip/hasActivity
+<https://w3id.org/rdip/hasActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdip/hasActivity> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/rdip/isPartOfProject> .
+<https://w3id.org/rdip/hasActivity> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdip/ResearchProject> .
+<https://w3id.org/rdip/hasActivity> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/rdip/ResearchActivity> .
+<https://w3id.org/rdip/hasActivity> <http://www.w3.org/2000/01/rdf-schema#label> "has activity" .
+# 
+# https://w3id.org/rdip/hasActivityRole
+<https://w3id.org/rdip/hasActivityRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdip/hasActivityRole> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdip/ResearchActivity> .
+<https://w3id.org/rdip/hasActivityRole> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/rdip/RoleInActivity> .
+<https://w3id.org/rdip/hasActivityRole> <http://www.w3.org/2000/01/rdf-schema#label> "has activity role" .
+# 
+# https://w3id.org/rdip/hasLeadOrganization
+<https://w3id.org/rdip/hasLeadOrganization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdip/hasLeadOrganization> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasAssociatedWith> .
+<https://w3id.org/rdip/hasLeadOrganization> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.org/sponsor> .
+<https://w3id.org/rdip/hasLeadOrganization> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdip/ResearchProject> .
+<https://w3id.org/rdip/hasLeadOrganization> <http://www.w3.org/2000/01/rdf-schema#range> <http://vivoweb.org/ontology/core#Organization> .
+<https://w3id.org/rdip/hasLeadOrganization> <http://www.w3.org/2000/01/rdf-schema#label> "has lead organization" .
+# 
+# https://w3id.org/rdip/hasOutput
+<https://w3id.org/rdip/hasOutput> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdip/hasOutput> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#generated> .
+<https://w3id.org/rdip/hasOutput> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.org/result> .
+<https://w3id.org/rdip/hasOutput> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/rdip/isOutputOf> .
+<https://w3id.org/rdip/hasOutput> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdip/ResearchProject> .
+<https://w3id.org/rdip/hasOutput> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/prov#Entity> .
+<https://w3id.org/rdip/hasOutput> <http://www.w3.org/2000/01/rdf-schema#label> "has output" .
+# 
+# https://w3id.org/rdip/hasParticipant
+<https://w3id.org/rdip/hasParticipant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdip/hasParticipant> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#agent> .
+<https://w3id.org/rdip/hasParticipant> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.org/contributor> .
+<https://w3id.org/rdip/hasParticipant> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdip/ResearchProject> .
+<https://w3id.org/rdip/hasParticipant> <http://www.w3.org/2000/01/rdf-schema#range> <http://vivoweb.org/ontology/core#Person> .
+<https://w3id.org/rdip/hasParticipant> <http://www.w3.org/2000/01/rdf-schema#label> "has participant" .
+# 
+# https://w3id.org/rdip/isDocumentedBy
+<https://w3id.org/rdip/isDocumentedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdip/isDocumentedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdip/ResearchActivity> .
+<https://w3id.org/rdip/isDocumentedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/bibo/Document> .
+<https://w3id.org/rdip/isDocumentedBy> <http://www.w3.org/2000/01/rdf-schema#label> "is documented by" .
+# 
+# https://w3id.org/rdip/isOutputOf
+<https://w3id.org/rdip/isOutputOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdip/isOutputOf> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasGeneratedBy> .
+<https://w3id.org/rdip/isOutputOf> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.org/isPartOf> .
+<https://w3id.org/rdip/isOutputOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Entity> .
+<https://w3id.org/rdip/isOutputOf> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/rdip/ResearchProject> .
+<https://w3id.org/rdip/isOutputOf> <http://www.w3.org/2000/01/rdf-schema#label> "is output of" .
+# 
+# https://w3id.org/rdip/isPartOfProject
+<https://w3id.org/rdip/isPartOfProject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdip/isPartOfProject> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdip/ResearchActivity> .
+<https://w3id.org/rdip/isPartOfProject> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/rdip/ResearchProject> .
+<https://w3id.org/rdip/isPartOfProject> <http://www.w3.org/2000/01/rdf-schema#label> "is part of project" .
+# 
+# https://w3id.org/rdip/landingPage
+<https://w3id.org/rdip/landingPage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdip/landingPage> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/dcat#landingPage> .
+<https://w3id.org/rdip/landingPage> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.org/url> .
+<https://w3id.org/rdip/landingPage> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/dcat#Dataset> .
+# 
+# https://w3id.org/rdip/rolePerformedBy
+<https://w3id.org/rdip/rolePerformedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdip/rolePerformedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdip/RoleInActivity> .
+<https://w3id.org/rdip/rolePerformedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://vivoweb.org/ontology/core#Person> .
+<https://w3id.org/rdip/rolePerformedBy> <http://www.w3.org/2000/01/rdf-schema#label> "role performed by" .
+# 
+# https://w3id.org/rdip/title
+<https://w3id.org/rdip/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdip/title> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/dc/terms/title> .
+<https://w3id.org/rdip/title> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.org/name> .
+<https://w3id.org/rdip/title> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Entity> .
+# 
+# https://w3id.org/rdip/usedDataset
+<https://w3id.org/rdip/usedDataset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdip/usedDataset> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#used> .
+<https://w3id.org/rdip/usedDataset> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdip/ResearchActivity> .
+<https://w3id.org/rdip/usedDataset> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/dcat#Dataset> .
+<https://w3id.org/rdip/usedDataset> <http://www.w3.org/2000/01/rdf-schema#label> "used dataset" .
+# 
+# https://w3id.org/rdip/usedMethod
+<https://w3id.org/rdip/usedMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdip/usedMethod> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#used> .
+<https://w3id.org/rdip/usedMethod> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdip/ResearchActivity> .
+<https://w3id.org/rdip/usedMethod> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/rdip/Method> .
+<https://w3id.org/rdip/usedMethod> <http://www.w3.org/2000/01/rdf-schema#label> "used method" .
+# 
+# https://w3id.org/rdip/usedSoftware
+<https://w3id.org/rdip/usedSoftware> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdip/usedSoftware> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#used> .
+<https://w3id.org/rdip/usedSoftware> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdip/ResearchActivity> .
+<https://w3id.org/rdip/usedSoftware> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/rdip/SoftwareApplication> .
+<https://w3id.org/rdip/usedSoftware> <http://www.w3.org/2000/01/rdf-schema#label> "used software" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# https://schema.org/conditionsOfAccess
+<https://schema.org/conditionsOfAccess> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+# 
+# https://schema.org/description
+<https://schema.org/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+# 
+# https://schema.org/endDate
+<https://schema.org/endDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+# 
+# https://schema.org/identifier
+<https://schema.org/identifier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+# 
+# https://schema.org/startDate
+<https://schema.org/startDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+# 
+# https://schema.org/version
+<https://schema.org/version> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+# 
+# https://w3id.org/rdip/accessLevel
+<https://w3id.org/rdip/accessLevel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdip/accessLevel> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.org/conditionsOfAccess> .
+<https://w3id.org/rdip/accessLevel> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/dcat#Dataset> .
+<https://w3id.org/rdip/accessLevel> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/rdip/accessLevel> <http://www.w3.org/2000/01/rdf-schema#label> "access level" .
+# 
+# https://w3id.org/rdip/activityDescription
+<https://w3id.org/rdip/activityDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdip/activityDescription> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdip/ResearchActivity> .
+<https://w3id.org/rdip/activityDescription> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/rdip/activityDescription> <http://www.w3.org/2000/01/rdf-schema#label> "activity description" .
+# 
+# https://w3id.org/rdip/activityEnd
+<https://w3id.org/rdip/activityEnd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdip/activityEnd> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.org/endDate> .
+<https://w3id.org/rdip/activityEnd> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdip/ResearchActivity> .
+<https://w3id.org/rdip/activityEnd> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://w3id.org/rdip/activityEnd> <http://www.w3.org/2000/01/rdf-schema#label> "activity end" .
+# 
+# https://w3id.org/rdip/activityStart
+<https://w3id.org/rdip/activityStart> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdip/activityStart> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.org/startDate> .
+<https://w3id.org/rdip/activityStart> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdip/ResearchActivity> .
+<https://w3id.org/rdip/activityStart> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://w3id.org/rdip/activityStart> <http://www.w3.org/2000/01/rdf-schema#label> "activity start" .
+# 
+# https://w3id.org/rdip/description
+<https://w3id.org/rdip/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdip/description> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/dc/terms/description> .
+<https://w3id.org/rdip/description> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.org/description> .
+<https://w3id.org/rdip/description> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Entity> .
+<https://w3id.org/rdip/description> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/rdip/description> <http://www.w3.org/2000/01/rdf-schema#label> "description" .
+# 
+# https://w3id.org/rdip/identifier
+<https://w3id.org/rdip/identifier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdip/identifier> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/dc/terms/identifier> .
+<https://w3id.org/rdip/identifier> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.org/identifier> .
+<https://w3id.org/rdip/identifier> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Entity> .
+<https://w3id.org/rdip/identifier> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/rdip/identifier> <http://www.w3.org/2000/01/rdf-schema#label> "identifier" .
+# 
+# https://w3id.org/rdip/landingPage
+<https://w3id.org/rdip/landingPage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdip/landingPage> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
+# 
+# https://w3id.org/rdip/projectEnd
+<https://w3id.org/rdip/projectEnd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdip/projectEnd> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#endedAtTime> .
+<https://w3id.org/rdip/projectEnd> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.org/endDate> .
+<https://w3id.org/rdip/projectEnd> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdip/ResearchProject> .
+<https://w3id.org/rdip/projectEnd> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://w3id.org/rdip/projectEnd> <http://www.w3.org/2000/01/rdf-schema#label> "project end" .
+# 
+# https://w3id.org/rdip/projectStart
+<https://w3id.org/rdip/projectStart> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdip/projectStart> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#startedAtTime> .
+<https://w3id.org/rdip/projectStart> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.org/startDate> .
+<https://w3id.org/rdip/projectStart> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdip/ResearchProject> .
+<https://w3id.org/rdip/projectStart> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://w3id.org/rdip/projectStart> <http://www.w3.org/2000/01/rdf-schema#label> "project start" .
+# 
+# https://w3id.org/rdip/roleLabel
+<https://w3id.org/rdip/roleLabel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdip/roleLabel> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdip/RoleInActivity> .
+<https://w3id.org/rdip/roleLabel> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/rdip/roleLabel> <http://www.w3.org/2000/01/rdf-schema#label> "role label" .
+# 
+# https://w3id.org/rdip/title
+<https://w3id.org/rdip/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdip/title> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# https://w3id.org/rdip/version
+<https://w3id.org/rdip/version> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdip/version> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.org/version> .
+<https://w3id.org/rdip/version> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Entity> .
+<https://w3id.org/rdip/version> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/rdip/version> <http://www.w3.org/2000/01/rdf-schema#label> "version" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/ontology/bibo/Article
+<http://purl.org/ontology/bibo/Article> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/bibo/Article> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/ScholarlyArticle> .
+<https://schema.org/ScholarlyArticle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://vivoweb.org/ontology/core#Organization
+<http://vivoweb.org/ontology/core#Organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://vivoweb.org/ontology/core#Organization> <http://www.w3.org/2002/07/owl#equivalentClass> <https://schema.org/Organization> .
+<https://schema.org/Organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://vivoweb.org/ontology/core#Person
+<http://vivoweb.org/ontology/core#Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://vivoweb.org/ontology/core#Person> <http://www.w3.org/2002/07/owl#equivalentClass> <https://schema.org/Person> .
+<https://schema.org/Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://www.w3.org/ns/dcat#Dataset
+<http://www.w3.org/ns/dcat#Dataset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/dcat#Dataset> <http://www.w3.org/2002/07/owl#equivalentClass> <https://schema.org/Dataset> .
+<https://schema.org/Dataset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://schema.org/Action
+<https://schema.org/Action> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://schema.org/CreativeWork
+<https://schema.org/CreativeWork> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://schema.org/Dataset
+# 
+# https://schema.org/Organization
+# 
+# https://schema.org/Person
+# 
+# https://schema.org/Project
+<https://schema.org/Project> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.org/Project> <http://www.w3.org/2002/07/owl#equivalentClass> <https://w3id.org/rdip/ResearchProject> .
+# 
+# https://schema.org/ScholarlyArticle
+# 
+# https://schema.org/SoftwareApplication
+<https://schema.org/SoftwareApplication> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://schema.org/SoftwareApplication> <http://www.w3.org/2002/07/owl#equivalentClass> <https://w3id.org/rdip/SoftwareApplication> .
+# 
+# https://w3id.org/rdip/DataAnalysisActivity
+<https://w3id.org/rdip/DataAnalysisActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/rdip/DataAnalysisActivity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/rdip/ResearchActivity> .
+<https://w3id.org/rdip/DataAnalysisActivity> <http://www.w3.org/2000/01/rdf-schema#comment> "Activities that analyse datasets to derive results, statistics, models or other derived knowledge artifacts." .
+<https://w3id.org/rdip/DataAnalysisActivity> <http://www.w3.org/2000/01/rdf-schema#label> "Data analysis activity" .
+# 
+# https://w3id.org/rdip/DataCollectionActivity
+<https://w3id.org/rdip/DataCollectionActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/rdip/DataCollectionActivity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/rdip/ResearchActivity> .
+<https://w3id.org/rdip/DataCollectionActivity> <http://www.w3.org/2000/01/rdf-schema#comment> "Activities that collect or capture raw data, such as experiments, surveys, interviews, observations or sensor measurements." .
+<https://w3id.org/rdip/DataCollectionActivity> <http://www.w3.org/2000/01/rdf-schema#label> "Data collection activity" .
+# 
+# https://w3id.org/rdip/DataPreservationActivity
+<https://w3id.org/rdip/DataPreservationActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/rdip/DataPreservationActivity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/rdip/ResearchActivity> .
+<https://w3id.org/rdip/DataPreservationActivity> <http://www.w3.org/2000/01/rdf-schema#comment> "Activities that preserve datasets for the long term." .
+<https://w3id.org/rdip/DataPreservationActivity> <http://www.w3.org/2000/01/rdf-schema#label> "Data preservation activity" .
+# 
+# https://w3id.org/rdip/DataProcessingActivity
+<https://w3id.org/rdip/DataProcessingActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/rdip/DataProcessingActivity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/rdip/ResearchActivity> .
+<https://w3id.org/rdip/DataProcessingActivity> <http://www.w3.org/2000/01/rdf-schema#comment> "Activities that clean, transform, integrate, anonymize or otherwise modify existing datasets." .
+<https://w3id.org/rdip/DataProcessingActivity> <http://www.w3.org/2000/01/rdf-schema#label> "Data processing activity" .
+# 
+# https://w3id.org/rdip/DataProductionActivity
+<https://w3id.org/rdip/DataProductionActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/rdip/DataProductionActivity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/rdip/ResearchActivity> .
+<https://w3id.org/rdip/DataProductionActivity> <http://www.w3.org/2000/01/rdf-schema#comment> "Activities that produce one or more datasets from instruments, simulations or integrated data pipelines." .
+<https://w3id.org/rdip/DataProductionActivity> <http://www.w3.org/2000/01/rdf-schema#label> "Data production activity" .
+# 
+# https://w3id.org/rdip/DataPublishingActivity
+<https://w3id.org/rdip/DataPublishingActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/rdip/DataPublishingActivity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/rdip/ResearchActivity> .
+<https://w3id.org/rdip/DataPublishingActivity> <http://www.w3.org/2000/01/rdf-schema#comment> "Activities that publish or share datasets, e.g. depositing into repositories." .
+<https://w3id.org/rdip/DataPublishingActivity> <http://www.w3.org/2000/01/rdf-schema#label> "Data publishing activity" .
+# 
+# https://w3id.org/rdip/Method
+<https://w3id.org/rdip/Method> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/rdip/Method> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Plan> .
+<https://w3id.org/rdip/Method> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/CreativeWork> .
+<https://w3id.org/rdip/Method> <http://www.w3.org/2000/01/rdf-schema#comment> "A formal method, protocol, or workflow specification followed by one or more research activities." .
+<https://w3id.org/rdip/Method> <http://www.w3.org/2000/01/rdf-schema#label> "Research method or protocol" .
+# 
+# https://w3id.org/rdip/PlanningActivity
+<https://w3id.org/rdip/PlanningActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/rdip/PlanningActivity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/rdip/ResearchActivity> .
+<https://w3id.org/rdip/PlanningActivity> <http://www.w3.org/2000/01/rdf-schema#comment> "Activities concerned with planning and designing research, including study design, protocol development and ethical review preparation." .
+<https://w3id.org/rdip/PlanningActivity> <http://www.w3.org/2000/01/rdf-schema#label> "Planning activity" .
+# 
+# https://w3id.org/rdip/PublicationActivity
+<https://w3id.org/rdip/PublicationActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/rdip/PublicationActivity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/rdip/ResearchActivity> .
+<https://w3id.org/rdip/PublicationActivity> <http://www.w3.org/2000/01/rdf-schema#comment> "Activities that produce scholarly publications such as journal articles." .
+<https://w3id.org/rdip/PublicationActivity> <http://www.w3.org/2000/01/rdf-schema#label> "Publication activity" .
+# 
+# https://w3id.org/rdip/ResearchActivity
+<https://w3id.org/rdip/ResearchActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/rdip/ResearchActivity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Activity> .
+<https://w3id.org/rdip/ResearchActivity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Action> .
+<https://w3id.org/rdip/ResearchActivity> <http://www.w3.org/2000/01/rdf-schema#comment> "Any activity in the research lifecycle, including planning, data collection, processing, analysis, publishing and preservation." .
+<https://w3id.org/rdip/ResearchActivity> <http://www.w3.org/2000/01/rdf-schema#label> "Research activity" .
+# 
+# https://w3id.org/rdip/ResearchProject
+<https://w3id.org/rdip/ResearchProject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/rdip/ResearchProject> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<https://w3id.org/rdip/ResearchProject> <http://www.w3.org/2000/01/rdf-schema#comment> "A research project that groups together activities, participants and outputs such as datasets, software and publications." .
+<https://w3id.org/rdip/ResearchProject> <http://www.w3.org/2000/01/rdf-schema#label> "Research project" .
+# 
+# https://w3id.org/rdip/RoleInActivity
+<https://w3id.org/rdip/RoleInActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/rdip/RoleInActivity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Role> .
+<https://w3id.org/rdip/RoleInActivity> <http://www.w3.org/2000/01/rdf-schema#comment> "The specific role that a person has within a particular research activity." .
+<https://w3id.org/rdip/RoleInActivity> <http://www.w3.org/2000/01/rdf-schema#label> "Role in activity" .
+# 
+# https://w3id.org/rdip/SoftwareApplication
+<https://w3id.org/rdip/SoftwareApplication> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/rdip/SoftwareApplication> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<https://w3id.org/rdip/SoftwareApplication> <http://www.w3.org/2000/01/rdf-schema#comment> "Software or computational tools used during research activities or produced as outputs." .
+<https://w3id.org/rdip/SoftwareApplication> <http://www.w3.org/2000/01/rdf-schema#label> "Research software" .
+# 
+# https://w3id.org/rdip/SoftwareDevelopmentActivity
+<https://w3id.org/rdip/SoftwareDevelopmentActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/rdip/SoftwareDevelopmentActivity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/rdip/ResearchActivity> .
+<https://w3id.org/rdip/SoftwareDevelopmentActivity> <http://www.w3.org/2000/01/rdf-schema#comment> "Activities that design, implement, test or maintain research software." .
+<https://w3id.org/rdip/SoftwareDevelopmentActivity> <http://www.w3.org/2000/01/rdf-schema#label> "Software development activity" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Annotations
+# #
+# #################################################################
+# 
+# 
+<https://w3id.org/rdip/landingPage> <http://www.w3.org/2000/01/rdf-schema#label> "landing page" .
+# 
+<https://w3id.org/rdip/title> <http://www.w3.org/2000/01/rdf-schema#label> "title" .
+# 
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
