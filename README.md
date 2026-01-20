@@ -1,12 +1,12 @@
 # Research Data Intelligence Platform (RDIP) Ontology
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Documentation](https://img.shields.io/badge/docs-widoco-blue)](docs/index-en.html)
+[![Documentation](https://img.shields.io/badge/docs-widoco-blue)](docs/index.html)
 
 > **A project-centric knowledge model designed as a target schema for AI-driven research provenance.**
 
 ## Quick Links
-- ** [HTML Documentation (Widoco)](docs/index.html)**: Browse classes, properties, and visualizations.
+- ** [HTML Documentation](https://open-rdip.github.io/core-ontology/)**: Browse classes, properties, and visualizations.
 - ** [Ontology File (Turtle)](ontology/rdip.ttl)**: The raw source code.
 
 ---
@@ -72,13 +72,26 @@ To ensure transparency and reproducibility (addressing the "black box" nature of
 
 ## Usage
 
-### Permanent URI
+## Usage
 
-The ontology is identified by the permanent URI: https://w3id.org/rdip
+### Permanent URI
+The ontology is identified by the permanent URI:
+**`https://w3id.org/rdip`**
 
 ### Import into Protégé
+Because this URI is permanently resolvable, you can import it directly without downloading files:
+1. Open **Protégé**.
+2. Select **File** $\to$ **Import...**
+3. Select **"Import an ontology contained in a document located at the URI"**.
+4. Enter: `https://w3id.org/rdip`
 
-You can directly import the ontology into Protégé or other editors using the [ttl file](ontology/rdip.ttl)
+### Verifying Content Negotiation (Test via CLI)
+You can verify that the URI correctly redirects to the machine-readable Turtle file using `curl`:
+
+```bash
+# Request the Turtle file explicitly
+curl -L -H "Accept: text/turtle" [https://w3id.org/rdip](https://w3id.org/rdip)
+```
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
