@@ -1,7 +1,7 @@
 # Research Data Intelligence Platform (RDIP) Ontology
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Documentation](https://img.shields.io/badge/docs-widoco-blue)](docs/index.html)
+[![Documentation](https://img.shields.io/badge/docs-widoco-blue)](https://open-rdip.github.io/core-ontology/)
 
 > **A project-centric knowledge model designed as a target schema for AI-driven research provenance.**
 
