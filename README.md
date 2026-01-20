@@ -6,7 +6,7 @@
 > **A project-centric knowledge model designed as a target schema for AI-driven research provenance.**
 
 ## Quick Links
-- ** [HTML Documentation (Widoco)](docs/index-en.html)**: Browse classes, properties, and visualizations.
+- ** [HTML Documentation (Widoco)](docs/index.html)**: Browse classes, properties, and visualizations.
 - ** [Ontology File (Turtle)](ontology/rdip.ttl)**: The raw source code.
 
 ---
