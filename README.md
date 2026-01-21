@@ -90,7 +90,7 @@ You can verify that the URI correctly redirects to the machine-readable Turtle f
 
 ```bash
 # Request the Turtle file explicitly
-curl -L -H "Accept: text/turtle" [https://w3id.org/rdip](https://w3id.org/rdip)
+curl -L -H "Accept: text/turtle" https://w3id.org/rdip
 ```
 
 ## License
