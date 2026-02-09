@@ -1,0 +1,1510 @@
+[
+    {
+        "title": "The Gene Ontology resource: enriching a GOld mine",
+        "doi": "https://doi.org/10.1093/nar/gkaa1113",
+        "venue": "Nucleic Acids Research",
+        "venue_type": "journal",
+        "year": 2020,
+        "citations": 3662,
+        "concepts": [
+            "Annotation",
+            "Traceability",
+            "Documentation"
+        ],
+        "pdf_url": "https://academic.oup.com/nar/article-pdf/49/D1/D325/35364517/gkaa1113.pdf"
+    },
+    {
+        "title": "Deep learning based detection and analysis of COVID-19 on chest X-ray images",
+        "doi": "https://doi.org/10.1007/s10489-020-01902-1",
+        "venue": "Applied Intelligence",
+        "venue_type": "journal",
+        "year": 2020,
+        "citations": 507,
+        "concepts": [
+            "Coronavirus disease 2019 (COVID-19)",
+            "Radiography",
+            "Deep learning"
+        ],
+        "pdf_url": "https://link.springer.com/content/pdf/10.1007/s10489-020-01902-1.pdf"
+    },
+    {
+        "title": "Detection of coronavirus Disease (COVID-19) based on Deep Features and Support Vector Machine",
+        "doi": "https://doi.org/10.33889/ijmems.2020.5.4.052",
+        "venue": "International Journal of Mathematical Engineering and Management Sciences",
+        "venue_type": "journal",
+        "year": 2020,
+        "citations": 367,
+        "concepts": [
+            "Support vector machine",
+            "Artificial intelligence",
+            "Coronavirus disease 2019 (COVID-19)"
+        ],
+        "pdf_url": "https://doi.org/10.33889/ijmems.2020.5.4.052"
+    },
+    {
+        "title": "sAMPpred-GAT: prediction of antimicrobial peptide by graph attention network and predicted peptide structure",
+        "doi": "https://doi.org/10.1093/bioinformatics/btac715",
+        "venue": "Bioinformatics",
+        "venue_type": "journal",
+        "year": 2022,
+        "citations": 200,
+        "concepts": [
+            "Computer science",
+            "Discriminative model",
+            "Web server"
+        ],
+        "pdf_url": "https://academic.oup.com/bioinformatics/article-pdf/39/1/btac715/48448854/btac715.pdf"
+    },
+    {
+        "title": "Twelve years of SAMtools and BCFtools",
+        "doi": "https://doi.org/10.1093/gigascience/giab008",
+        "venue": "GigaScience",
+        "venue_type": "journal",
+        "year": 2021,
+        "citations": 14040,
+        "concepts": [
+            "Documentation",
+            "Computer science",
+            "Software"
+        ],
+        "pdf_url": "https://academic.oup.com/gigascience/article-pdf/10/2/giab008/36332246/giab008.pdf"
+    },
+    {
+        "title": "ColabFold: making protein folding accessible to all",
+        "doi": "https://doi.org/10.1038/s41592-022-01488-1",
+        "venue": "Nature Methods",
+        "venue_type": "journal",
+        "year": 2022,
+        "citations": 9004,
+        "concepts": [
+            "Computer science",
+            "Protein folding",
+            "Folding (DSP implementation)"
+        ],
+        "pdf_url": "https://www.nature.com/articles/s41592-022-01488-1.pdf"
+    },
+    {
+        "title": "GNINA 1.0: molecular docking with deep learning",
+        "doi": "https://doi.org/10.1186/s13321-021-00522-2",
+        "venue": "Journal of Cheminformatics",
+        "venue_type": "journal",
+        "year": 2021,
+        "citations": 706,
+        "concepts": [
+            "Docking (animal)",
+            "AutoDock",
+            "Computer science"
+        ],
+        "pdf_url": "https://jcheminf.biomedcentral.com/track/pdf/10.1186/s13321-021-00522-2"
+    },
+    {
+        "title": "NetMHCpan-4.1 and NetMHCIIpan-4.0: improved predictions of MHC antigen presentation by concurrent motif deconvolution and integration of MS MHC eluted ligand data",
+        "doi": "https://doi.org/10.1093/nar/gkaa379",
+        "venue": "Nucleic Acids Research",
+        "venue_type": "journal",
+        "year": 2020,
+        "citations": 2105,
+        "concepts": [
+            "Biology",
+            "Major histocompatibility complex",
+            "Antigen processing"
+        ],
+        "pdf_url": "https://academic.oup.com/nar/article-pdf/48/W1/W449/33433048/gkaa379.pdf"
+    },
+    {
+        "title": "HH-suite3 for fast remote homology detection and deep protein annotation",
+        "doi": "https://doi.org/10.1186/s12859-019-3019-7",
+        "venue": "BMC Bioinformatics",
+        "venue_type": "journal",
+        "year": 2019,
+        "citations": 1204,
+        "concepts": [
+            "Computer science",
+            "Hidden Markov model",
+            "Software suite"
+        ],
+        "pdf_url": "https://bmcbioinformatics.biomedcentral.com/track/pdf/10.1186/s12859-019-3019-7"
+    },
+    {
+        "title": "Rfam 14: expanded coverage of metagenomic, viral and microRNA families",
+        "doi": "https://doi.org/10.1093/nar/gkaa1047",
+        "venue": "Nucleic Acids Research",
+        "venue_type": "journal",
+        "year": 2020,
+        "citations": 1056,
+        "concepts": [
+            "Computational biology",
+            "Metagenomics",
+            "Biology"
+        ],
+        "pdf_url": "https://academic.oup.com/nar/article-pdf/49/D1/D192/35364695/gkaa1047.pdf"
+    },
+    {
+        "title": "ProteinBERT: a universal deep-learning model of protein sequence and function",
+        "doi": "https://doi.org/10.1093/bioinformatics/btac020",
+        "venue": "Bioinformatics",
+        "venue_type": "journal",
+        "year": 2022,
+        "citations": 864,
+        "concepts": [
+            "Computer science",
+            "Artificial intelligence",
+            "Deep learning"
+        ],
+        "pdf_url": "https://academic.oup.com/bioinformatics/article-pdf/38/8/2102/49009610/btac020.pdf"
+    },
+    {
+        "title": "DeepConv-DTI: Prediction of drug-target interactions via deep learning with convolution on protein sequences",
+        "doi": "https://doi.org/10.1371/journal.pcbi.1007129",
+        "venue": "PLoS Computational Biology",
+        "venue_type": "journal",
+        "year": 2019,
+        "citations": 653,
+        "concepts": [
+            "Computer science",
+            "In silico",
+            "Convolutional neural network"
+        ],
+        "pdf_url": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1007129&type=printable"
+    },
+    {
+        "title": "New functionalities in the TCGAbiolinks package for the study and integration of cancer data from GDC and GTEx",
+        "doi": "https://doi.org/10.1371/journal.pcbi.1006701",
+        "venue": "PLoS Computational Biology",
+        "venue_type": "journal",
+        "year": 2019,
+        "citations": 584,
+        "concepts": [
+            "Computer science",
+            "Context (archaeology)",
+            "Genomics"
+        ],
+        "pdf_url": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1006701&type=printable"
+    },
+    {
+        "title": "WeatherBench: A Benchmark Data Set for Data\u2010Driven Weather Forecasting",
+        "doi": "https://doi.org/10.1029/2020ms002203",
+        "venue": "Journal of Advances in Modeling Earth Systems",
+        "venue_type": "journal",
+        "year": 2020,
+        "citations": 372,
+        "concepts": [],
+        "pdf_url": "https://agupubs.onlinelibrary.wiley.com/doi/pdfdirect/10.1029/2020MS002203"
+    },
+    {
+        "title": "ChatGPT for Robotics: Design Principles and Model Abilities",
+        "doi": "https://doi.org/10.1109/access.2024.3387941",
+        "venue": "IEEE Access",
+        "venue_type": "journal",
+        "year": 2024,
+        "citations": 368,
+        "concepts": [
+            "Robotics",
+            "Artificial intelligence",
+            "Computer science"
+        ],
+        "pdf_url": "https://ieeexplore.ieee.org/ielx7/6287639/6514899/10500490.pdf"
+    },
+    {
+        "title": "Automating Procurement Contracts in the Healthcare Supply Chain Using Blockchain Smart Contracts",
+        "doi": "https://doi.org/10.1109/access.2021.3062471",
+        "venue": "IEEE Access",
+        "venue_type": "journal",
+        "year": 2021,
+        "citations": 236,
+        "concepts": [
+            "Smart contract",
+            "Supply chain",
+            "Computer science"
+        ],
+        "pdf_url": "https://ieeexplore.ieee.org/ielx7/6287639/9312710/09363880.pdf"
+    },
+    {
+        "title": "Fuzzy rank-based fusion of CNN models using Gompertz function for screening COVID-19 CT-scans",
+        "doi": "https://doi.org/10.1038/s41598-021-93658-y",
+        "venue": "Scientific Reports",
+        "venue_type": "journal",
+        "year": 2021,
+        "citations": 100,
+        "concepts": [
+            "Computer science",
+            "Convolutional neural network",
+            "Reliability (semiconductor)"
+        ],
+        "pdf_url": "https://www.nature.com/articles/s41598-021-93658-y.pdf"
+    },
+    {
+        "title": "Blockchain-Based Traceability for the Fishery Supply Chain",
+        "doi": "https://doi.org/10.1109/access.2022.3196162",
+        "venue": "IEEE Access",
+        "venue_type": "journal",
+        "year": 2022,
+        "citations": 79,
+        "concepts": [
+            "Traceability",
+            "Blockchain",
+            "Supply chain"
+        ],
+        "pdf_url": "https://ieeexplore.ieee.org/ielx7/6287639/6514899/09848459.pdf"
+    },
+    {
+        "title": "<i>PRISMA2020</i> : An R package and Shiny app for producing PRISMA 2020\u2010compliant flow diagrams, with interactivity for optimised digital transparency and Open Synthesis",
+        "doi": "https://doi.org/10.1002/cl2.1230",
+        "venue": "Campbell Systematic Reviews",
+        "venue_type": "journal",
+        "year": 2022,
+        "citations": 2603,
+        "concepts": [
+            "Interactivity",
+            "Transparency (behavior)",
+            "Computer science"
+        ],
+        "pdf_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/cl2.1230"
+    },
+    {
+        "title": "MitoHiFi: a python pipeline for mitochondrial genome assembly from PacBio high fidelity reads",
+        "doi": "https://doi.org/10.1186/s12859-023-05385-y",
+        "venue": "BMC Bioinformatics",
+        "venue_type": "journal",
+        "year": 2023,
+        "citations": 1604,
+        "concepts": [
+            "Genome",
+            "Biology",
+            "Mitochondrial DNA"
+        ],
+        "pdf_url": "https://bmcbioinformatics.biomedcentral.com/counter/pdf/10.1186/s12859-023-05385-y"
+    },
+    {
+        "title": "The NHGRI-EBI GWAS Catalog: knowledgebase and deposition resource",
+        "doi": "https://doi.org/10.1093/nar/gkac1010",
+        "venue": "Nucleic Acids Research",
+        "venue_type": "journal",
+        "year": 2022,
+        "citations": 1589,
+        "concepts": [
+            "Genome-wide association study",
+            "Interoperability",
+            "Biology"
+        ],
+        "pdf_url": "https://academic.oup.com/nar/article-pdf/51/D1/D977/48440802/gkac1010.pdf"
+    },
+    {
+        "title": "miRNet 2.0: network-based visual analytics for miRNA functional analysis and systems biology",
+        "doi": "https://doi.org/10.1093/nar/gkaa467",
+        "venue": "Nucleic Acids Research",
+        "venue_type": "journal",
+        "year": 2020,
+        "citations": 864,
+        "concepts": [
+            "Biology",
+            "Workflow",
+            "microRNA"
+        ],
+        "pdf_url": "https://academic.oup.com/nar/article-pdf/48/W1/W244/33433388/gkaa467.pdf"
+    },
+    {
+        "title": "cblaster: a remote search tool for rapid identification and visualization of homologous gene clusters",
+        "doi": "https://doi.org/10.1093/bioadv/vbab016",
+        "venue": "Bioinformatics Advances",
+        "venue_type": "journal",
+        "year": 2021,
+        "citations": 262,
+        "concepts": [
+            "Computer science",
+            "Python (programming language)",
+            "Toolbox"
+        ],
+        "pdf_url": "https://academic.oup.com/bioinformaticsadvances/article-pdf/1/1/vbab016/40303796/vbab016.pdf"
+    },
+    {
+        "title": "NetCoMi: network construction and comparison for microbiome data in R",
+        "doi": "https://doi.org/10.1093/bib/bbaa290",
+        "venue": "Briefings in Bioinformatics",
+        "venue_type": "journal",
+        "year": 2020,
+        "citations": 514,
+        "concepts": [
+            "Workflow",
+            "Computer science",
+            "Microbiome"
+        ],
+        "pdf_url": "https://academic.oup.com/bib/article-pdf/22/4/bbaa290/39129182/bbaa290.pdf"
+    },
+    {
+        "title": "Ranking programming languages by energy efficiency",
+        "doi": "https://doi.org/10.1016/j.scico.2021.102609",
+        "venue": "Science of Computer Programming",
+        "venue_type": "journal",
+        "year": 2021,
+        "citations": 158,
+        "concepts": [
+            "Computer science",
+            "Benchmarking",
+            "Efficient energy use"
+        ],
+        "pdf_url": "https://www.sciencedirect.com/science/article/pii/S0167642321000022"
+    },
+    {
+        "title": "A Machine Learning-Based Classification and Prediction Technique for DDoS Attacks",
+        "doi": "https://doi.org/10.1109/access.2022.3152577",
+        "venue": "IEEE Access",
+        "venue_type": "journal",
+        "year": 2022,
+        "citations": 129,
+        "concepts": [
+            "Denial-of-service attack",
+            "Computer science",
+            "Random forest"
+        ],
+        "pdf_url": "https://ieeexplore.ieee.org/ielx7/6287639/9668973/09716094.pdf"
+    },
+    {
+        "title": "gapseq: informed prediction of bacterial metabolic pathways and reconstruction of accurate metabolic models",
+        "doi": "https://doi.org/10.1186/s13059-021-02295-1",
+        "venue": "Genome biology",
+        "venue_type": "journal",
+        "year": 2021,
+        "citations": 270,
+        "concepts": [
+            "Biology",
+            "Human genetics",
+            "Computational biology"
+        ],
+        "pdf_url": "https://genomebiology.biomedcentral.com/counter/pdf/10.1186/s13059-021-02295-1"
+    },
+    {
+        "title": "Hands-on reservoir computing: a tutorial for practical implementation",
+        "doi": "https://doi.org/10.1088/2634-4386/ac7db7",
+        "venue": "Neuromorphic Computing and Engineering",
+        "venue_type": "journal",
+        "year": 2022,
+        "citations": 172,
+        "concepts": [
+            "Reservoir computing",
+            "Computer science",
+            "Field (mathematics)"
+        ],
+        "pdf_url": "https://iopscience.iop.org/article/10.1088/2634-4386/ac7db7/pdf"
+    },
+    {
+        "title": "Worldwide version-controlled database of glacier thickness observations",
+        "doi": "https://doi.org/10.5194/essd-12-3039-2020",
+        "venue": "Earth system science data",
+        "venue_type": "journal",
+        "year": 2020,
+        "citations": 92,
+        "concepts": [
+            "Glacier",
+            "Metadata",
+            "Geology"
+        ],
+        "pdf_url": "https://essd.copernicus.org/articles/12/3039/2020/essd-12-3039-2020.pdf"
+    },
+    {
+        "title": "Automated and optimally FRET-assisted structural modeling",
+        "doi": "https://doi.org/10.1038/s41467-020-19023-1",
+        "venue": "Nature Communications",
+        "venue_type": "journal",
+        "year": 2020,
+        "citations": 66,
+        "concepts": [
+            "F\u00f6rster resonance energy transfer",
+            "Computer science",
+            "Single-molecule FRET"
+        ],
+        "pdf_url": "https://www.nature.com/articles/s41467-020-19023-1.pdf"
+    },
+    {
+        "title": "SpatialDB: a database for spatially resolved transcriptomes",
+        "doi": "https://doi.org/10.1093/nar/gkz934",
+        "venue": "Nucleic Acids Research",
+        "venue_type": "journal",
+        "year": 2019,
+        "citations": 126,
+        "concepts": [
+            "Transcriptome",
+            "Biology",
+            "Annotation"
+        ],
+        "pdf_url": "https://academic.oup.com/nar/article-pdf/48/D1/D233/31697351/gkz934.pdf"
+    },
+    {
+        "title": "Decomposability of soil organic matter over time: the Soil Incubation Database (SIDb, version 1.0) and guidance for incubation procedures",
+        "doi": "https://doi.org/10.5194/essd-12-1511-2020",
+        "venue": "Earth system science data",
+        "venue_type": "journal",
+        "year": 2020,
+        "citations": 60,
+        "concepts": [
+            "Environmental science",
+            "Soil water",
+            "Organic matter"
+        ],
+        "pdf_url": "https://essd.copernicus.org/articles/12/1511/2020/essd-12-1511-2020.pdf"
+    },
+    {
+        "title": "FFA-Net: Feature Fusion Attention Network for Single Image Dehazing",
+        "doi": "https://doi.org/10.1609/aaai.v34i07.6865",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2020,
+        "citations": 1507,
+        "concepts": [
+            "Feature (linguistics)",
+            "Residual",
+            "Computer science"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/6865/6719"
+    },
+    {
+        "title": "Nystr\u00f6mformer: A Nystr\u00f6m-based Algorithm for Approximating Self-Attention",
+        "doi": "https://doi.org/10.1609/aaai.v35i16.17664",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2021,
+        "citations": 280,
+        "concepts": [
+            "Scalability",
+            "Computer science",
+            "Sequence (biology)"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/17664/17471"
+    },
+    {
+        "title": "Deep Graph Clustering via Dual Correlation Reduction",
+        "doi": "https://doi.org/10.1609/aaai.v36i7.20726",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 206,
+        "concepts": [
+            "Discriminative model",
+            "Computer science",
+            "Cluster analysis"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/20726/20485"
+    },
+    {
+        "title": "Cluster-Guided Contrastive Graph Clustering Network",
+        "doi": "https://doi.org/10.1609/aaai.v37i9.26285",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2023,
+        "citations": 105,
+        "concepts": [
+            "Cluster analysis",
+            "Computer science",
+            "Clustering coefficient"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/26285/26057"
+    },
+    {
+        "title": "MS\u02c62: Multi-Document Summarization of Medical Studies",
+        "doi": "https://doi.org/10.18653/v1/2021.emnlp-main.594",
+        "venue": "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
+        "venue_type": "conference",
+        "year": 2021,
+        "citations": 81,
+        "concepts": [
+            "Automatic summarization",
+            "Computer science",
+            "Multi-document summarization"
+        ],
+        "pdf_url": "https://aclanthology.org/2021.emnlp-main.594.pdf"
+    },
+    {
+        "title": "CoMPM: Context Modeling with Speaker\u2019s Pre-trained Memory Tracking for Emotion Recognition in Conversation",
+        "doi": "https://doi.org/10.18653/v1/2022.naacl-main.416",
+        "venue": "Proceedings of the 2022 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 72,
+        "concepts": [
+            "Computer science",
+            "Conversation",
+            "Leverage (statistics)"
+        ],
+        "pdf_url": "https://aclanthology.org/2022.naacl-main.416.pdf"
+    },
+    {
+        "title": "Un-mix: Rethinking Image Mixtures for Unsupervised Visual Representation Learning",
+        "doi": "https://doi.org/10.1609/aaai.v36i2.20119",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 68,
+        "concepts": [
+            "Overfitting",
+            "Computer science",
+            "Unsupervised learning"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/20119/19878"
+    },
+    {
+        "title": "Text Gestalt: Stroke-Aware Scene Text Image Super-resolution",
+        "doi": "https://doi.org/10.1609/aaai.v36i1.19904",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 65,
+        "concepts": [
+            "Computer science",
+            "Gestalt psychology",
+            "Artificial intelligence"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/19904/19663"
+    },
+    {
+        "title": "Practical automated detection of malicious npm packages",
+        "doi": "https://doi.org/10.1145/3510003.3510104",
+        "venue": "Proceedings of the 44th International Conference on Software Engineering",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 63,
+        "concepts": [
+            "Computer science",
+            "JavaScript",
+            "Malware"
+        ],
+        "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/3510003.3510104"
+    },
+    {
+        "title": "Defending against Model Stealing via Verifying Embedded External Features",
+        "doi": "https://doi.org/10.1609/aaai.v36i2.20036",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 55,
+        "concepts": [
+            "Computer science",
+            "Process (computing)",
+            "Classifier (UML)"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/20036/19795"
+    },
+    {
+        "title": "ACDNet: Adaptively Combined Dilated Convolution for Monocular Panorama Depth Estimation",
+        "doi": "https://doi.org/10.1609/aaai.v36i3.20278",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 52,
+        "concepts": [
+            "Panorama",
+            "Computer science",
+            "Artificial intelligence"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/20278/20037"
+    },
+    {
+        "title": "SSDA3D: Semi-supervised Domain Adaptation for 3D Object Detection from Point Cloud",
+        "doi": "https://doi.org/10.1609/aaai.v37i3.25370",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2023,
+        "citations": 43,
+        "concepts": [
+            "Computer science",
+            "Point cloud",
+            "Artificial intelligence"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/25370/25142"
+    },
+    {
+        "title": "Are Attribute Inference Attacks Just Imputation?",
+        "doi": "https://doi.org/10.1145/3548606.3560663",
+        "venue": "Proceedings of the 2022 ACM SIGSAC Conference on Computer and Communications Security",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 41,
+        "concepts": [
+            "Inference",
+            "Computer science",
+            "Adversary"
+        ],
+        "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/3548606.3560663"
+    },
+    {
+        "title": "FFT-Based Dynamic Token Mixer for Vision",
+        "doi": "https://doi.org/10.1609/aaai.v38i14.29457",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2024,
+        "citations": 39,
+        "concepts": [
+            "Fast Fourier transform",
+            "Computer science",
+            "Security token"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/29457/30746"
+    },
+    {
+        "title": "Dual Label-Guided Graph Refinement for Multi-View Graph Clustering",
+        "doi": "https://doi.org/10.1609/aaai.v37i7.26057",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2023,
+        "citations": 35,
+        "concepts": [
+            "Computer science",
+            "Cluster analysis",
+            "Theoretical computer science"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/26057/25829"
+    },
+    {
+        "title": "SemAttack: Natural Textual Attacks via Different Semantic Spaces",
+        "doi": "https://doi.org/10.18653/v1/2022.findings-naacl.14",
+        "venue": "Findings of the Association for Computational Linguistics: NAACL 2022",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 34,
+        "concepts": [
+            "Adversarial system",
+            "Embedding",
+            "Computer science"
+        ],
+        "pdf_url": "https://aclanthology.org/2022.findings-naacl.14.pdf"
+    },
+    {
+        "title": "Multilingual Code Snippets Training for Program Translation",
+        "doi": "https://doi.org/10.1609/aaai.v36i10.21434",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 32,
+        "concepts": [
+            "Snippet",
+            "Computer science",
+            "Machine translation"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/21434/21183"
+    },
+    {
+        "title": "AltDiffusion: A Multilingual Text-to-Image Diffusion Model",
+        "doi": "https://doi.org/10.1609/aaai.v38i7.28487",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2024,
+        "citations": 21,
+        "concepts": [
+            "Diffusion",
+            "Image (mathematics)",
+            "Computer science"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/28487/28948"
+    },
+    {
+        "title": "Transmission-Guided Bayesian Generative Model for Smoke Segmentation",
+        "doi": "https://doi.org/10.1609/aaai.v36i3.20207",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 19,
+        "concepts": [
+            "Computer science",
+            "Segmentation",
+            "Artificial intelligence"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/20207/19966"
+    },
+    {
+        "title": "AUC Maximization for Low-Resource Named Entity Recognition",
+        "doi": "https://doi.org/10.1609/aaai.v37i11.26571",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2023,
+        "citations": 15,
+        "concepts": [
+            "Named-entity recognition",
+            "Maximization",
+            "Computer science"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/26571/26343"
+    },
+    {
+        "title": "Segatron: Segment-Aware Transformer for Language Modeling and Understanding",
+        "doi": "https://doi.org/10.1609/aaai.v35i14.17485",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2021,
+        "citations": 13,
+        "concepts": [
+            "Computer science",
+            "Transformer",
+            "Language model"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/17485/17292"
+    },
+    {
+        "title": "Flexible Non-Autoregressive Extractive Summarization with Threshold: How to Extract a Non-Fixed Number of Summary Sentences",
+        "doi": "https://doi.org/10.1609/aaai.v35i14.17552",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2021,
+        "citations": 13,
+        "concepts": [
+            "Automatic summarization",
+            "Computer science",
+            "Sorting"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/17552/17359"
+    },
+    {
+        "title": "A Study of Computational Reproducibility using URLs Linking to Open Access Datasets and Software",
+        "doi": "https://doi.org/10.1145/3487553.3524658",
+        "venue": "Companion Proceedings of the Web Conference 2022",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 13,
+        "concepts": [
+            "Computer science",
+            "Classifier (UML)",
+            "Software"
+        ],
+        "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/3487553.3524658"
+    },
+    {
+        "title": "DRGCN: Dynamic Evolving Initial Residual for Deep Graph Convolutional Networks",
+        "doi": "https://doi.org/10.1609/aaai.v37i9.26332",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2023,
+        "citations": 11,
+        "concepts": [
+            "Residual",
+            "Computer science",
+            "Smoothing"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/26332/26104"
+    },
+    {
+        "title": "LLMEval: A Preliminary Study on How to Evaluate Large Language Models",
+        "doi": "https://doi.org/10.1609/aaai.v38i17.29934",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2024,
+        "citations": 11,
+        "concepts": [
+            "Computer science",
+            "Natural language processing",
+            "Psychology"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/29934/31632"
+    },
+    {
+        "title": "Deep Incomplete Multi-View Learning Network with Insufficient Label Information",
+        "doi": "https://doi.org/10.1609/aaai.v38i11.29189",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2024,
+        "citations": 11,
+        "concepts": [
+            "Computer science",
+            "Artificial intelligence",
+            "Complete information"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/29189/30248"
+    },
+    {
+        "title": "CodeT5: Identifier-aware Unified Pre-trained Encoder-Decoder Models for Code Understanding and Generation",
+        "doi": "https://doi.org/10.18653/v1/2021.emnlp-main.685",
+        "venue": "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
+        "venue_type": "conference",
+        "year": 2021,
+        "citations": 1107,
+        "concepts": [
+            "Computer science",
+            "Identifier",
+            "Encoder"
+        ],
+        "pdf_url": "https://aclanthology.org/2021.emnlp-main.685.pdf"
+    },
+    {
+        "title": "What makes a good commit message?",
+        "doi": "https://doi.org/10.1145/3510003.3510205",
+        "venue": "Proceedings of the 44th International Conference on Software Engineering",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 84,
+        "concepts": [
+            "Commit",
+            "Computer science",
+            "Programming language"
+        ],
+        "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/3510003.3510205"
+    },
+    {
+        "title": "Understanding and Overcoming the Challenges of Efficient Transformer Quantization",
+        "doi": "https://doi.org/10.18653/v1/2021.emnlp-main.627",
+        "venue": "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
+        "venue_type": "conference",
+        "year": 2021,
+        "citations": 72,
+        "concepts": [
+            "Quantization (signal processing)",
+            "Computer science",
+            "Transformer"
+        ],
+        "pdf_url": "https://aclanthology.org/2021.emnlp-main.627.pdf"
+    },
+    {
+        "title": "The art and practice of data science pipelines",
+        "doi": "https://doi.org/10.1145/3510003.3510057",
+        "venue": "Proceedings of the 44th International Conference on Software Engineering",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 58,
+        "concepts": [
+            "Pipeline (software)",
+            "Computer science",
+            "Data science"
+        ],
+        "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/3510003.3510057"
+    },
+    {
+        "title": "MAB-Malware",
+        "doi": "https://doi.org/10.1145/3488932.3497768",
+        "venue": "Proceedings of the 2022 ACM on Asia Conference on Computer and Communications Security",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 47,
+        "concepts": [
+            "Computer science",
+            "Malware",
+            "Evasion (ethics)"
+        ],
+        "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/3488932.3497768"
+    },
+    {
+        "title": "DeepDiagnosis",
+        "doi": "https://doi.org/10.1145/3510003.3510071",
+        "venue": "Proceedings of the 44th International Conference on Software Engineering",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 45,
+        "concepts": [
+            "Debugging",
+            "Computer science",
+            "Software bug"
+        ],
+        "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/3510003.3510071"
+    },
+    {
+        "title": "AttentionRank: Unsupervised Keyphrase Extraction using Self and Cross Attentions",
+        "doi": "https://doi.org/10.18653/v1/2021.emnlp-main.146",
+        "venue": "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
+        "venue_type": "conference",
+        "year": 2021,
+        "citations": 44,
+        "concepts": [
+            "Computer science",
+            "Context (archaeology)",
+            "Natural language processing"
+        ],
+        "pdf_url": "https://aclanthology.org/2021.emnlp-main.146.pdf"
+    },
+    {
+        "title": "JuCify",
+        "doi": "https://doi.org/10.1145/3510003.3512766",
+        "venue": "Proceedings of the 44th International Conference on Software Engineering",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 39,
+        "concepts": [
+            "Bytecode",
+            "Computer science",
+            "Android (operating system)"
+        ],
+        "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/3510003.3512766"
+    },
+    {
+        "title": "Recommending good first issues in GitHub OSS projects",
+        "doi": "https://doi.org/10.1145/3510003.3510196",
+        "venue": "Proceedings of the 44th International Conference on Software Engineering",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 35,
+        "concepts": [
+            "Computer science",
+            "Ground truth",
+            "Classifier (UML)"
+        ],
+        "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/3510003.3510196"
+    },
+    {
+        "title": "23 shades of self-admitted technical debt: an empirical study on machine learning software",
+        "doi": "https://doi.org/10.1145/3540250.3549088",
+        "venue": "Proceedings of the 30th ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 24,
+        "concepts": [
+            "Technical debt",
+            "Workaround",
+            "Computer science"
+        ],
+        "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/3540250.3549088"
+    },
+    {
+        "title": "On the vulnerability proneness of multilingual code",
+        "doi": "https://doi.org/10.1145/3540250.3549173",
+        "venue": "Proceedings of the 30th ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 18,
+        "concepts": [
+            "Computer science",
+            "Selection (genetic algorithm)",
+            "Code (set theory)"
+        ],
+        "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/3540250.3549173"
+    },
+    {
+        "title": "Low Latency Live Streaming Implementation in DASH and HLS",
+        "doi": "https://doi.org/10.1145/3503161.3548544",
+        "venue": "Proceedings of the 30th ACM International Conference on Multimedia",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 16,
+        "concepts": [
+            "Dash",
+            "Dynamic Adaptive Streaming over HTTP",
+            "Computer science"
+        ],
+        "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/3503161.3548544"
+    },
+    {
+        "title": "Reproducibility as a Mechanism for Teaching Fairness, Accountability, Confidentiality, and Transparency in Artificial Intelligence",
+        "doi": "https://doi.org/10.1609/aaai.v36i11.21558",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 14,
+        "concepts": [
+            "Transparency (behavior)",
+            "Accountability",
+            "Confidentiality"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/21558/21307"
+    },
+    {
+        "title": "TS2Vec: Towards Universal Representation of Time Series",
+        "doi": "https://doi.org/10.1609/aaai.v36i8.20881",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 561,
+        "concepts": [
+            "Timestamp",
+            "Computer science",
+            "Representation (politics)"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/20881/20640"
+    },
+    {
+        "title": "TrOCR: Transformer-Based Optical Character Recognition with Pre-trained Models",
+        "doi": "https://doi.org/10.1609/aaai.v37i11.26538",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2023,
+        "citations": 300,
+        "concepts": [
+            "Transformer",
+            "Computer science",
+            "AKA"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/26538/26310"
+    },
+    {
+        "title": "ADAHESSIAN: An Adaptive Second Order Optimizer for Machine Learning",
+        "doi": "https://doi.org/10.1609/aaai.v35i12.17275",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2021,
+        "citations": 170,
+        "concepts": [
+            "Hessian matrix",
+            "Computer science",
+            "Algorithm"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/17275/17082"
+    },
+    {
+        "title": "Body Part-Based Representation Learning for Occluded Person Re-Identification",
+        "doi": "https://doi.org/10.1109/wacv56688.2023.00166",
+        "venue": "2023 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)",
+        "venue_type": "conference",
+        "year": 2023,
+        "citations": 160,
+        "concepts": [
+            "Discriminative model",
+            "Computer science",
+            "Artificial intelligence"
+        ],
+        "pdf_url": "http://infoscience.epfl.ch/record/299956"
+    },
+    {
+        "title": "AraT5: Text-to-Text Transformers for Arabic Language Generation",
+        "doi": "https://doi.org/10.18653/v1/2022.acl-long.47",
+        "venue": "Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 90,
+        "concepts": [
+            "Computer science",
+            "Transformer",
+            "Arabic"
+        ],
+        "pdf_url": "https://aclanthology.org/2022.acl-long.47.pdf"
+    },
+    {
+        "title": "Neural Path Hunter: Reducing Hallucination in Dialogue Systems via Path Grounding",
+        "doi": "https://doi.org/10.18653/v1/2021.emnlp-main.168",
+        "venue": "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
+        "venue_type": "conference",
+        "year": 2021,
+        "citations": 71,
+        "concepts": [
+            "Computer science",
+            "Path (computing)",
+            "Security token"
+        ],
+        "pdf_url": "https://aclanthology.org/2021.emnlp-main.168.pdf"
+    },
+    {
+        "title": "Task-Aware Monocular Depth Estimation for 3D Object Detection",
+        "doi": "https://doi.org/10.1609/aaai.v34i07.6908",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2020,
+        "citations": 69,
+        "concepts": [
+            "Monocular",
+            "Artificial intelligence",
+            "Computer science"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/6908/6762"
+    },
+    {
+        "title": "Continual Learning in Task-Oriented Dialogue Systems",
+        "doi": "https://doi.org/10.18653/v1/2021.emnlp-main.590",
+        "venue": "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
+        "venue_type": "conference",
+        "year": 2021,
+        "citations": 66,
+        "concepts": [
+            "Computer science",
+            "Task (project management)",
+            "Artificial intelligence"
+        ],
+        "pdf_url": "https://aclanthology.org/2021.emnlp-main.590.pdf"
+    },
+    {
+        "title": "Curriculum-Meta Learning for Order-Robust Continual Relation Extraction",
+        "doi": "https://doi.org/10.1609/aaai.v35i12.17241",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2021,
+        "citations": 64,
+        "concepts": [
+            "Computer science",
+            "Robustness (evolution)",
+            "Relationship extraction"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/17241/17048"
+    },
+    {
+        "title": "Hierarchical Consistent Contrastive Learning for Skeleton-Based Action Recognition with Growing Augmentations",
+        "doi": "https://doi.org/10.1609/aaai.v37i3.25451",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2023,
+        "citations": 53,
+        "concepts": [
+            "Computer science",
+            "Generalizability theory",
+            "Consistency (knowledge bases)"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/25451/25223"
+    },
+    {
+        "title": "Towards Good Practices for Missing Modality Robust Action Recognition",
+        "doi": "https://doi.org/10.1609/aaai.v37i3.25378",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2023,
+        "citations": 47,
+        "concepts": [
+            "Modality (human\u2013computer interaction)",
+            "Inference",
+            "Computer science"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/25378/25150"
+    },
+    {
+        "title": "BAT: Behavior-Aware Human-Like Trajectory Prediction for Autonomous Driving",
+        "doi": "https://doi.org/10.1609/aaai.v38i9.28900",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2024,
+        "citations": 42,
+        "concepts": [
+            "Trajectory",
+            "Computer science",
+            "Artificial intelligence"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/28900/29712"
+    },
+    {
+        "title": "Open Vocabulary Electroencephalography-to-Text Decoding and Zero-Shot Sentiment Classification",
+        "doi": "https://doi.org/10.1609/aaai.v36i5.20472",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 45,
+        "concepts": [
+            "Computer science",
+            "Decoding methods",
+            "Electroencephalography"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/20472/20231"
+    },
+    {
+        "title": "AlphaHoldem: High-Performance Artificial Intelligence for Heads-Up No-Limit Poker via End-to-End Reinforcement Learning",
+        "doi": "https://doi.org/10.1609/aaai.v36i4.20394",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 37,
+        "concepts": [
+            "Reinforcement learning",
+            "Computer science",
+            "Regret"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/20394/20153"
+    },
+    {
+        "title": "Root Cause Analysis in Microservice Using Neural Granger Causal Discovery",
+        "doi": "https://doi.org/10.1609/aaai.v38i1.27772",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2024,
+        "citations": 13,
+        "concepts": [
+            "Root cause analysis",
+            "Root cause",
+            "Granger causality"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/27772/27584"
+    },
+    {
+        "title": "CoCoS: Enhancing Semi-supervised Learning on Graphs with Unlabeled Data via Contrastive Context Sharing",
+        "doi": "https://doi.org/10.1609/aaai.v36i4.20347",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 4,
+        "concepts": [
+            "Computer science",
+            "Machine learning",
+            "Semi-supervised learning"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/20347/20106"
+    },
+    {
+        "title": "A Call to Create an Open-source Project Initiative for Cybersecurity Virtual Labs",
+        "doi": "https://doi.org/10.18260/1-2--36554",
+        "venue": "2021 ASEE Virtual Annual Conference Content Access Proceedings",
+        "venue_type": "conference",
+        "year": 2021,
+        "citations": 0,
+        "concepts": [
+            "Presentation (obstetrics)",
+            "Work (physics)",
+            "Computer science"
+        ],
+        "pdf_url": "https://216.185.13.174/36554.pdf"
+    },
+    {
+        "title": "Understanding skills for OSS communities on GitHub",
+        "doi": "https://doi.org/10.1145/3540250.3549082",
+        "venue": "Proceedings of the 30th ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 26,
+        "concepts": [
+            "Documentation",
+            "Social skills",
+            "Set (abstract data type)"
+        ],
+        "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/3540250.3549082"
+    },
+    {
+        "title": "Well-Classified Examples Are Underestimated in Classification with Deep Neural Networks",
+        "doi": "https://doi.org/10.1609/aaai.v36i8.20904",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 15,
+        "concepts": [
+            "Counterexample",
+            "Artificial intelligence",
+            "Computer science"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/20904/20663"
+    },
+    {
+        "title": "Research Reproducibility as a Survival Analysis",
+        "doi": "https://doi.org/10.1609/aaai.v35i1.16124",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2021,
+        "citations": 8,
+        "concepts": [
+            "Reproducibility",
+            "Computer science",
+            "Perspective (graphical)"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/16124/15931"
+    },
+    {
+        "title": "Xaitk-Saliency: An Open Source Explainable AI Toolkit for Saliency",
+        "doi": "https://doi.org/10.1609/aaai.v37i13.26871",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2023,
+        "citations": 8,
+        "concepts": [
+            "Computer science",
+            "Saliency map",
+            "Source code"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/26871/26643"
+    },
+    {
+        "title": "Learning to Describe Solutions for Bug Reports Based on Developer Discussions",
+        "doi": "https://doi.org/10.18653/v1/2022.findings-acl.231",
+        "venue": "Findings of the Association for Computational Linguistics: ACL 2022",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 6,
+        "concepts": [
+            "Computer science",
+            "Task (project management)",
+            "Testbed"
+        ],
+        "pdf_url": "https://aclanthology.org/2022.findings-acl.231.pdf"
+    },
+    {
+        "title": "IISERB Brains at SemEval-2022 Task 6: A Deep-learning Framework to Identify Intended Sarcasm in English",
+        "doi": "https://doi.org/10.18653/v1/2022.semeval-1.131",
+        "venue": "Proceedings of the 16th International Workshop on Semantic Evaluation (SemEval-2022)",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 5,
+        "concepts": [
+            "SemEval",
+            "Sarcasm",
+            "Task (project management)"
+        ],
+        "pdf_url": "https://aclanthology.org/2022.semeval-1.131.pdf"
+    },
+    {
+        "title": "Ethical Perspectives in AI: A Two-folded Exploratory Study From Literature and Active Development Projects",
+        "doi": "https://doi.org/10.24251/hicss.2021.639",
+        "venue": "Proceedings of the ... Annual Hawaii International Conference on System Sciences/Proceedings of the Annual Hawaii International Conference on System Sciences",
+        "venue_type": "conference",
+        "year": 2021,
+        "citations": 8,
+        "concepts": [
+            "Computer science",
+            "Pace",
+            "Agile software development"
+        ],
+        "pdf_url": "http://scholarspace.manoa.hawaii.edu/bitstream/10125/71257/1/0513.pdf"
+    },
+    {
+        "title": "\"This is damn slick!\"",
+        "doi": "https://doi.org/10.1145/3510003.3510121",
+        "venue": "Proceedings of the 44th International Conference on Software Engineering",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 16,
+        "concepts": [
+            "Popularity",
+            "Social media",
+            "Computer science"
+        ],
+        "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/3510003.3510121"
+    },
+    {
+        "title": "HEROS-GAN: Honed-Energy Regularized and Optimal Supervised GAN for Enhancing Accuracy and Range of Low-Cost Accelerometers",
+        "doi": "https://doi.org/10.1609/aaai.v39i20.35435",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2025,
+        "citations": 9,
+        "concepts": [
+            "Accelerometer",
+            "Range (aeronautics)",
+            "Energy (signal processing)"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/35435/37590"
+    },
+    {
+        "title": "Sharing Open Deep Learning Models",
+        "doi": "https://doi.org/10.24251/hicss.2019.256",
+        "venue": "Proceedings of the ... Annual Hawaii International Conference on System Sciences/Proceedings of the Annual Hawaii International Conference on System Sciences",
+        "venue_type": "conference",
+        "year": 2019,
+        "citations": 8,
+        "concepts": [
+            "Computer science",
+            "Reputation",
+            "Permission"
+        ],
+        "pdf_url": "http://scholarspace.manoa.hawaii.edu/bitstream/10125/59650/1/0210.pdf"
+    },
+    {
+        "title": "Make Lossy Compression Meaningful for Low-Light Images",
+        "doi": "https://doi.org/10.1609/aaai.v38i8.28664",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2024,
+        "citations": 7,
+        "concepts": [
+            "Lossy compression",
+            "Compression (physics)",
+            "Computer vision"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/28664/29289"
+    },
+    {
+        "title": "Visual Exploration of Literature with <scp>Argo Scholar</scp>",
+        "doi": "https://doi.org/10.1145/3511808.3557177",
+        "venue": "Proceedings of the 31st ACM International Conference on Information &amp; Knowledge Management",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 5,
+        "concepts": [
+            "Argo",
+            "Computer science",
+            "Visualization"
+        ],
+        "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/3511808.3557177"
+    },
+    {
+        "title": "Data-Driven Selection of Security Application Frameworks During Architectural Design",
+        "doi": "https://doi.org/10.24251/hicss.2019.880",
+        "venue": "Proceedings of the ... Annual Hawaii International Conference on System Sciences/Proceedings of the Annual Hawaii International Conference on System Sciences",
+        "venue_type": "conference",
+        "year": 2019,
+        "citations": 5,
+        "concepts": [
+            "Computer science",
+            "Selection (genetic algorithm)",
+            "Satisficing"
+        ],
+        "pdf_url": "http://scholarspace.manoa.hawaii.edu/bitstream/10125/60170/1/0730.pdf"
+    },
+    {
+        "title": "COVID-19 Community Archives and the Platformization of Digital Cultural Memory",
+        "doi": "https://doi.org/10.24251/hicss.2021.312",
+        "venue": "Proceedings of the ... Annual Hawaii International Conference on System Sciences/Proceedings of the Annual Hawaii International Conference on System Sciences",
+        "venue_type": "conference",
+        "year": 2021,
+        "citations": 5,
+        "concepts": [
+            "World Wide Web",
+            "Censorship",
+            "Documentation"
+        ],
+        "pdf_url": "https://scholarspace.manoa.hawaii.edu/bitstreams/c12f7e52-f2e7-46c4-ad69-5aeadd269d70/download"
+    },
+    {
+        "title": "Perturbation CheckLists for Evaluating NLG Evaluation Metrics",
+        "doi": "https://doi.org/10.18653/v1/2021.emnlp-main.575",
+        "venue": "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
+        "venue_type": "conference",
+        "year": 2021,
+        "citations": 32,
+        "concepts": [
+            "Computer science",
+            "Fluency",
+            "Natural language generation"
+        ],
+        "pdf_url": "https://aclanthology.org/2021.emnlp-main.575.pdf"
+    },
+    {
+        "title": "Manas",
+        "doi": "https://doi.org/10.1145/3510003.3510052",
+        "venue": "Proceedings of the 44th International Conference on Software Engineering",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 14,
+        "concepts": [
+            "Computer science",
+            "Convolutional neural network",
+            "Deep learning"
+        ],
+        "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/3510003.3510052"
+    },
+    {
+        "title": "GitHub sponsors",
+        "doi": "https://doi.org/10.1145/3510003.3510116",
+        "venue": "Proceedings of the 44th International Conference on Software Engineering",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 9,
+        "concepts": [
+            "Work (physics)",
+            "Open source software",
+            "Qualitative research"
+        ],
+        "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/3510003.3510116"
+    },
+    {
+        "title": "Leveraging Expert Guided Adversarial Augmentation For Improving Generalization in Named Entity Recognition",
+        "doi": "https://doi.org/10.18653/v1/2022.findings-acl.154",
+        "venue": "Findings of the Association for Computational Linguistics: ACL 2022",
+        "venue_type": "conference",
+        "year": 2022,
+        "citations": 6,
+        "concepts": [
+            "Computer science",
+            "Adversarial system",
+            "Artificial intelligence"
+        ],
+        "pdf_url": "https://aclanthology.org/2022.findings-acl.154.pdf"
+    },
+    {
+        "title": "SeqGPT: An Out-of-the-Box Large Language Model for Open Domain Sequence Understanding",
+        "doi": "https://doi.org/10.1609/aaai.v38i17.29917",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2024,
+        "citations": 6,
+        "concepts": [
+            "Sequence (biology)",
+            "Domain (mathematical analysis)",
+            "Computer science"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/29917/31604"
+    },
+    {
+        "title": "Tail-STEAK: Improve Friend Recommendation for Tail Users via Self-Training Enhanced Knowledge Distillation",
+        "doi": "https://doi.org/10.1609/aaai.v38i8.28737",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_type": "conference",
+        "year": 2024,
+        "citations": 5,
+        "concepts": [
+            "Training (meteorology)",
+            "Distillation",
+            "Computer science"
+        ],
+        "pdf_url": "https://ojs.aaai.org/index.php/AAAI/article/download/28737/29421"
+    }
+]
