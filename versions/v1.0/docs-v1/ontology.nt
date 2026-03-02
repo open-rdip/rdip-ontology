@@ -1,5 +1,5 @@
 <https://w3id.org/rdip> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
-<https://w3id.org/rdip> <http://www.w3.org/2002/07/owl#versionIRI> <https://w3id.org/rdip/1.0.0> .
+<https://w3id.org/rdip> <http://www.w3.org/2002/07/owl#versionIRI> <https://w3id.org/rdip/1.0.0/> .
 <https://w3id.org/rdip> <http://www.w3.org/2002/07/owl#imports> <http://purl.org/ontology/bibo/> .
 <https://w3id.org/rdip> <http://www.w3.org/2002/07/owl#imports> <http://purl.org/spar/cito/> .
 <https://w3id.org/rdip> <http://www.w3.org/2002/07/owl#imports> <http://vivoweb.org/ontology/core> .
@@ -45,6 +45,13 @@
 <https://w3id.org/rdip/citesDataset> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/bibo/Document> .
 <https://w3id.org/rdip/citesDataset> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/dcat#Dataset> .
 <https://w3id.org/rdip/citesDataset> <http://www.w3.org/2000/01/rdf-schema#label> "cites dataset" .
+# 
+# https://w3id.org/rdip/executedIn
+<https://w3id.org/rdip/executedIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdip/executedIn> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdip/ResearchActivity> .
+<https://w3id.org/rdip/executedIn> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/rdip/ComputingEnvironment> .
+<https://w3id.org/rdip/executedIn> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a computational activity to the environment it ran in." .
+<https://w3id.org/rdip/executedIn> <http://www.w3.org/2000/01/rdf-schema#label> "executed in" .
 # 
 # https://w3id.org/rdip/generatesDataset
 <https://w3id.org/rdip/generatesDataset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
@@ -97,6 +104,13 @@
 <https://w3id.org/rdip/hasOutput> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/prov#Entity> .
 <https://w3id.org/rdip/hasOutput> <http://www.w3.org/2000/01/rdf-schema#label> "has output" .
 # 
+# https://w3id.org/rdip/hasParameter
+<https://w3id.org/rdip/hasParameter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdip/hasParameter> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdip/ResearchActivity> .
+<https://w3id.org/rdip/hasParameter> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/rdip/Parameter> .
+<https://w3id.org/rdip/hasParameter> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an activity to its specific hyperparameters or settings." .
+<https://w3id.org/rdip/hasParameter> <http://www.w3.org/2000/01/rdf-schema#label> "has parameter" .
+# 
 # https://w3id.org/rdip/hasParticipant
 <https://w3id.org/rdip/hasParticipant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <https://w3id.org/rdip/hasParticipant> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#agent> .
@@ -130,6 +144,11 @@
 <https://w3id.org/rdip/landingPage> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/dcat#landingPage> .
 <https://w3id.org/rdip/landingPage> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.org/url> .
 <https://w3id.org/rdip/landingPage> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/dcat#Dataset> .
+# 
+# https://w3id.org/rdip/parameterName
+<https://w3id.org/rdip/parameterName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/rdip/parameterName> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.org/name> .
+<https://w3id.org/rdip/parameterName> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdip/Parameter> .
 # 
 # https://w3id.org/rdip/rolePerformedBy
 <https://w3id.org/rdip/rolePerformedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
@@ -188,6 +207,9 @@
 # https://schema.org/startDate
 <https://schema.org/startDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 # 
+# https://schema.org/value
+<https://schema.org/value> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+# 
 # https://schema.org/version
 <https://schema.org/version> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 # 
@@ -226,6 +248,12 @@
 <https://w3id.org/rdip/description> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <https://w3id.org/rdip/description> <http://www.w3.org/2000/01/rdf-schema#label> "description" .
 # 
+# https://w3id.org/rdip/hardwareSpec
+<https://w3id.org/rdip/hardwareSpec> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdip/hardwareSpec> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdip/ComputingEnvironment> .
+<https://w3id.org/rdip/hardwareSpec> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/rdip/hardwareSpec> <http://www.w3.org/2000/01/rdf-schema#label> "hardware specification" .
+# 
 # https://w3id.org/rdip/identifier
 <https://w3id.org/rdip/identifier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <https://w3id.org/rdip/identifier> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/dc/terms/identifier> .
@@ -237,6 +265,23 @@
 # https://w3id.org/rdip/landingPage
 <https://w3id.org/rdip/landingPage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <https://w3id.org/rdip/landingPage> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
+# 
+# https://w3id.org/rdip/osVersion
+<https://w3id.org/rdip/osVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdip/osVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdip/ComputingEnvironment> .
+<https://w3id.org/rdip/osVersion> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/rdip/osVersion> <http://www.w3.org/2000/01/rdf-schema#label> "OS version" .
+# 
+# https://w3id.org/rdip/parameterName
+<https://w3id.org/rdip/parameterName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdip/parameterName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+# 
+# https://w3id.org/rdip/parameterValue
+<https://w3id.org/rdip/parameterValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/rdip/parameterValue> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://schema.org/value> .
+<https://w3id.org/rdip/parameterValue> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/rdip/Parameter> .
+<https://w3id.org/rdip/parameterValue> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/rdip/parameterValue> <http://www.w3.org/2000/01/rdf-schema#label> "parameter value" .
 # 
 # https://w3id.org/rdip/projectEnd
 <https://w3id.org/rdip/projectEnd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
@@ -316,11 +361,24 @@
 <https://schema.org/Project> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://schema.org/Project> <http://www.w3.org/2002/07/owl#equivalentClass> <https://w3id.org/rdip/ResearchProject> .
 # 
+# https://schema.org/PropertyValue
+<https://schema.org/PropertyValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
 # https://schema.org/ScholarlyArticle
 # 
 # https://schema.org/SoftwareApplication
 <https://schema.org/SoftwareApplication> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://schema.org/SoftwareApplication> <http://www.w3.org/2002/07/owl#equivalentClass> <https://w3id.org/rdip/SoftwareApplication> .
+# 
+# https://schema.org/Thing
+<https://schema.org/Thing> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://w3id.org/rdip/ComputingEnvironment
+<https://w3id.org/rdip/ComputingEnvironment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/rdip/ComputingEnvironment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<https://w3id.org/rdip/ComputingEnvironment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Thing> .
+<https://w3id.org/rdip/ComputingEnvironment> <http://www.w3.org/2000/01/rdf-schema#comment> "The hardware and OS context where the software was executed (e.g., GPU model, RAM, OS version)." .
+<https://w3id.org/rdip/ComputingEnvironment> <http://www.w3.org/2000/01/rdf-schema#label> "Computing Environment" .
 # 
 # https://w3id.org/rdip/DataAnalysisActivity
 <https://w3id.org/rdip/DataAnalysisActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -364,6 +422,13 @@
 <https://w3id.org/rdip/Method> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/CreativeWork> .
 <https://w3id.org/rdip/Method> <http://www.w3.org/2000/01/rdf-schema#comment> "A formal method, protocol, or workflow specification followed by one or more research activities." .
 <https://w3id.org/rdip/Method> <http://www.w3.org/2000/01/rdf-schema#label> "Research method or protocol" .
+# 
+# https://w3id.org/rdip/Parameter
+<https://w3id.org/rdip/Parameter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/rdip/Parameter> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<https://w3id.org/rdip/Parameter> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/PropertyValue> .
+<https://w3id.org/rdip/Parameter> <http://www.w3.org/2000/01/rdf-schema#comment> "A specific setting, hyperparameter, or configuration value used in an activity." .
+<https://w3id.org/rdip/Parameter> <http://www.w3.org/2000/01/rdf-schema#label> "Research Parameter" .
 # 
 # https://w3id.org/rdip/PlanningActivity
 <https://w3id.org/rdip/PlanningActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -418,6 +483,8 @@
 # 
 # 
 <https://w3id.org/rdip/landingPage> <http://www.w3.org/2000/01/rdf-schema#label> "landing page" .
+# 
+<https://w3id.org/rdip/parameterName> <http://www.w3.org/2000/01/rdf-schema#label> "parameter name" .
 # 
 <https://w3id.org/rdip/title> <http://www.w3.org/2000/01/rdf-schema#label> "title" .
 # 

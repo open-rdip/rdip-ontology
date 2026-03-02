@@ -44,6 +44,9 @@
     "@id" : "https://w3id.org/rdip/ResearchProject"
   } ]
 }, {
+  "@id" : "https://schema.org/PropertyValue",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
   "@id" : "https://schema.org/ScholarlyArticle",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
@@ -52,6 +55,9 @@
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
     "@id" : "https://w3id.org/rdip/SoftwareApplication"
   } ]
+}, {
+  "@id" : "https://schema.org/Thing",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
   "@id" : "https://schema.org/conditionsOfAccess",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ]
@@ -85,6 +91,9 @@
 }, {
   "@id" : "https://schema.org/url",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://schema.org/value",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ]
 }, {
   "@id" : "https://schema.org/version",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ]
@@ -123,10 +132,24 @@
     "@id" : "http://www.w3.org/ns/prov-o#"
   } ],
   "http://www.w3.org/2002/07/owl#versionIRI" : [ {
-    "@id" : "https://w3id.org/rdip/1.0.0"
+    "@id" : "https://w3id.org/rdip/1.0.0/"
   } ],
   "http://www.w3.org/2002/07/owl#versionInfo" : [ {
     "@value" : "1.0.0"
+  } ]
+}, {
+  "@id" : "https://w3id.org/rdip/ComputingEnvironment",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The hardware and OS context where the software was executed (e.g., GPU model, RAM, OS version)."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Computing Environment"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/prov#Entity"
+  }, {
+    "@id" : "https://schema.org/Thing"
   } ]
 }, {
   "@id" : "https://w3id.org/rdip/DataAnalysisActivity",
@@ -213,6 +236,20 @@
     "@id" : "http://www.w3.org/ns/prov#Plan"
   }, {
     "@id" : "https://schema.org/CreativeWork"
+  } ]
+}, {
+  "@id" : "https://w3id.org/rdip/Parameter",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A specific setting, hyperparameter, or configuration value used in an activity."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Research Parameter"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/prov#Entity"
+  }, {
+    "@id" : "https://schema.org/PropertyValue"
   } ]
 }, {
   "@id" : "https://w3id.org/rdip/PlanningActivity",
@@ -390,6 +427,21 @@
     "@id" : "https://schema.org/description"
   } ]
 }, {
+  "@id" : "https://w3id.org/rdip/executedIn",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Links a computational activity to the environment it ran in."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/rdip/ResearchActivity"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "executed in"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/rdip/ComputingEnvironment"
+  } ]
+}, {
   "@id" : "https://w3id.org/rdip/generatesDataset",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
@@ -433,6 +485,18 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
     "@id" : "http://www.w3.org/ns/prov#generated"
+  } ]
+}, {
+  "@id" : "https://w3id.org/rdip/hardwareSpec",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/rdip/ComputingEnvironment"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "hardware specification"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ]
 }, {
   "@id" : "https://w3id.org/rdip/hasActivity",
@@ -497,6 +561,21 @@
   } ],
   "http://www.w3.org/2002/07/owl#inverseOf" : [ {
     "@id" : "https://w3id.org/rdip/isOutputOf"
+  } ]
+}, {
+  "@id" : "https://w3id.org/rdip/hasParameter",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Links an activity to its specific hyperparameters or settings."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/rdip/ResearchActivity"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "has parameter"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/rdip/Parameter"
   } ]
 }, {
   "@id" : "https://w3id.org/rdip/hasParticipant",
@@ -589,6 +668,48 @@
     "@id" : "http://www.w3.org/ns/dcat#landingPage"
   }, {
     "@id" : "https://schema.org/url"
+  } ]
+}, {
+  "@id" : "https://w3id.org/rdip/osVersion",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/rdip/ComputingEnvironment"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "OS version"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+}, {
+  "@id" : "https://w3id.org/rdip/parameterName",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/rdip/Parameter"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "parameter name"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://schema.org/name"
+  } ]
+}, {
+  "@id" : "https://w3id.org/rdip/parameterValue",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/rdip/Parameter"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "parameter value"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://schema.org/value"
   } ]
 }, {
   "@id" : "https://w3id.org/rdip/projectEnd",

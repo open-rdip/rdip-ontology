@@ -7,7 +7,7 @@
 @base <https://w3id.org/rdip#> .
 
 <https://w3id.org/rdip> rdf:type owl:Ontology ;
-                         owl:versionIRI <https://w3id.org/rdip/1.0.0> ;
+                         owl:versionIRI <https://w3id.org/rdip/1.0.0/> ;
                          owl:imports <http://purl.org/ontology/bibo/> ,
                                      <http://purl.org/spar/cito/> ,
                                      <http://vivoweb.org/ontology/core> ,
@@ -55,6 +55,14 @@
                                      rdfs:domain <http://purl.org/ontology/bibo/Document> ;
                                      rdfs:range <http://www.w3.org/ns/dcat#Dataset> ;
                                      rdfs:label "cites dataset" .
+
+
+###  https://w3id.org/rdip/executedIn
+<https://w3id.org/rdip/executedIn> rdf:type owl:ObjectProperty ;
+                                   rdfs:domain <https://w3id.org/rdip/ResearchActivity> ;
+                                   rdfs:range <https://w3id.org/rdip/ComputingEnvironment> ;
+                                   rdfs:comment "Links a computational activity to the environment it ran in." ;
+                                   rdfs:label "executed in" .
 
 
 ###  https://w3id.org/rdip/generatesDataset
@@ -115,6 +123,14 @@
                                   rdfs:label "has output" .
 
 
+###  https://w3id.org/rdip/hasParameter
+<https://w3id.org/rdip/hasParameter> rdf:type owl:ObjectProperty ;
+                                     rdfs:domain <https://w3id.org/rdip/ResearchActivity> ;
+                                     rdfs:range <https://w3id.org/rdip/Parameter> ;
+                                     rdfs:comment "Links an activity to its specific hyperparameters or settings." ;
+                                     rdfs:label "has parameter" .
+
+
 ###  https://w3id.org/rdip/hasParticipant
 <https://w3id.org/rdip/hasParticipant> rdf:type owl:ObjectProperty ;
                                        rdfs:subPropertyOf <http://www.w3.org/ns/prov#agent> ,
@@ -152,6 +168,12 @@
                                     rdfs:subPropertyOf <http://www.w3.org/ns/dcat#landingPage> ,
                                                        <https://schema.org/url> ;
                                     rdfs:domain <http://www.w3.org/ns/dcat#Dataset> .
+
+
+###  https://w3id.org/rdip/parameterName
+<https://w3id.org/rdip/parameterName> rdf:type owl:ObjectProperty ;
+                                      rdfs:subPropertyOf <https://schema.org/name> ;
+                                      rdfs:domain <https://w3id.org/rdip/Parameter> .
 
 
 ###  https://w3id.org/rdip/rolePerformedBy
@@ -216,6 +238,10 @@
 <https://schema.org/startDate> rdf:type owl:DatatypeProperty .
 
 
+###  https://schema.org/value
+<https://schema.org/value> rdf:type owl:DatatypeProperty .
+
+
 ###  https://schema.org/version
 <https://schema.org/version> rdf:type owl:DatatypeProperty .
 
@@ -260,6 +286,13 @@
                                     rdfs:label "description" .
 
 
+###  https://w3id.org/rdip/hardwareSpec
+<https://w3id.org/rdip/hardwareSpec> rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain <https://w3id.org/rdip/ComputingEnvironment> ;
+                                     rdfs:range xsd:string ;
+                                     rdfs:label "hardware specification" .
+
+
 ###  https://w3id.org/rdip/identifier
 <https://w3id.org/rdip/identifier> rdf:type owl:DatatypeProperty ;
                                    rdfs:subPropertyOf <http://purl.org/dc/terms/identifier> ,
@@ -272,6 +305,26 @@
 ###  https://w3id.org/rdip/landingPage
 <https://w3id.org/rdip/landingPage> rdf:type owl:DatatypeProperty ;
                                     rdfs:range xsd:anyURI .
+
+
+###  https://w3id.org/rdip/osVersion
+<https://w3id.org/rdip/osVersion> rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain <https://w3id.org/rdip/ComputingEnvironment> ;
+                                  rdfs:range xsd:string ;
+                                  rdfs:label "OS version" .
+
+
+###  https://w3id.org/rdip/parameterName
+<https://w3id.org/rdip/parameterName> rdf:type owl:DatatypeProperty ;
+                                      rdfs:range xsd:string .
+
+
+###  https://w3id.org/rdip/parameterValue
+<https://w3id.org/rdip/parameterValue> rdf:type owl:DatatypeProperty ;
+                                       rdfs:subPropertyOf <https://schema.org/value> ;
+                                       rdfs:domain <https://w3id.org/rdip/Parameter> ;
+                                       rdfs:range xsd:string ;
+                                       rdfs:label "parameter value" .
 
 
 ###  https://w3id.org/rdip/projectEnd
@@ -361,6 +414,10 @@
                              owl:equivalentClass <https://w3id.org/rdip/ResearchProject> .
 
 
+###  https://schema.org/PropertyValue
+<https://schema.org/PropertyValue> rdf:type owl:Class .
+
+
 ###  https://schema.org/ScholarlyArticle
 <https://schema.org/ScholarlyArticle> rdf:type owl:Class .
 
@@ -368,6 +425,18 @@
 ###  https://schema.org/SoftwareApplication
 <https://schema.org/SoftwareApplication> rdf:type owl:Class ;
                                          owl:equivalentClass <https://w3id.org/rdip/SoftwareApplication> .
+
+
+###  https://schema.org/Thing
+<https://schema.org/Thing> rdf:type owl:Class .
+
+
+###  https://w3id.org/rdip/ComputingEnvironment
+<https://w3id.org/rdip/ComputingEnvironment> rdf:type owl:Class ;
+                                             rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ,
+                                                             <https://schema.org/Thing> ;
+                                             rdfs:comment "The hardware and OS context where the software was executed (e.g., GPU model, RAM, OS version)." ;
+                                             rdfs:label "Computing Environment" .
 
 
 ###  https://w3id.org/rdip/DataAnalysisActivity
@@ -418,6 +487,14 @@
                                                <https://schema.org/CreativeWork> ;
                                rdfs:comment "A formal method, protocol, or workflow specification followed by one or more research activities." ;
                                rdfs:label "Research method or protocol" .
+
+
+###  https://w3id.org/rdip/Parameter
+<https://w3id.org/rdip/Parameter> rdf:type owl:Class ;
+                                  rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ,
+                                                  <https://schema.org/PropertyValue> ;
+                                  rdfs:comment "A specific setting, hyperparameter, or configuration value used in an activity." ;
+                                  rdfs:label "Research Parameter" .
 
 
 ###  https://w3id.org/rdip/PlanningActivity
@@ -475,6 +552,9 @@
 #################################################################
 
 <https://w3id.org/rdip/landingPage> rdfs:label "landing page" .
+
+
+<https://w3id.org/rdip/parameterName> rdfs:label "parameter name" .
 
 
 <https://w3id.org/rdip/title> rdfs:label "title" .

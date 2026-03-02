@@ -1,0 +1,975 @@
+@prefix : <https://w3id.org/rdip#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/rdip#> .
+
+<https://w3id.org/rdip> rdf:type owl:Ontology ;
+                         owl:versionIRI <https://w3id.org/rdip/2.0.0/> ;
+                         owl:imports <http://purl.org/ontology/bibo/> ,
+                                     <http://purl.org/spar/cito/> ,
+                                     <http://vivoweb.org/ontology/core> ,
+                                     <http://www.w3.org/ns/dcat#> ,
+                                     <http://www.w3.org/ns/prov-o#> ;
+                         <http://purl.org/dc/elements/1.1/description> "A project-centric ontology for representing the full research lifecycle, provenance chains, agent attribution, software environments, hyperparameters, and contextual links between activities, software, datasets and publications. Version 2 adds qualified PROV-O patterns, dataset derivation chains, activity sequencing, evaluation results, software dependency graphs, and reproducibility-critical metadata."@en ;
+                         <http://purl.org/dc/elements/1.1/title> "RDIP: Research Data Intelligence Platform Ontology"@en ;
+                         <http://purl.org/dc/terms/license> <https://opensource.org/licenses/MIT> ;
+                         <http://purl.org/vocab/vann/preferredNamespacePrefix> "rdip" ;
+                         <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/rdip/" ;
+                         rdfs:comment "v2.0: added qualified PROV-O associations, wasDerivedFrom chain, activity sequencing (wasInformedBy), EvaluationResult, SoftwareDependency, EnvironmentSpec, RandomSeed, fixed hasParticipant subPropertyOf, fixed landingPage range conflict, removed duplicate class declarations." ;
+                         owl:priorVersion <https://w3id.org/rdip/1.0.0/> ;
+                         owl:versionInfo "2.0.0" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  https://w3id.org/rdip/dataLicense
+<https://w3id.org/rdip/dataLicense> rdf:type owl:AnnotationProperty ;
+                                    rdfs:subPropertyOf <http://purl.org/dc/terms/license> .
+
+
+###  https://w3id.org/rdip/softwareLicense
+<https://w3id.org/rdip/softwareLicense> rdf:type owl:AnnotationProperty ;
+                                        rdfs:subPropertyOf <http://purl.org/dc/terms/license> .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://schema.org/contributor
+<https://schema.org/contributor> rdf:type owl:ObjectProperty .
+
+
+###  https://schema.org/isPartOf
+<https://schema.org/isPartOf> rdf:type owl:ObjectProperty .
+
+
+###  https://schema.org/name
+<https://schema.org/name> rdf:type owl:ObjectProperty .
+
+
+###  https://schema.org/result
+<https://schema.org/result> rdf:type owl:ObjectProperty .
+
+
+###  https://schema.org/sponsor
+<https://schema.org/sponsor> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/rdip/citesDataset
+<https://w3id.org/rdip/citesDataset> rdf:type owl:ObjectProperty ;
+                                     rdfs:subPropertyOf <http://purl.org/spar/cito/citesAsDataSource> ;
+                                     rdfs:domain <http://purl.org/ontology/bibo/Document> ;
+                                     rdfs:range <http://www.w3.org/ns/dcat#Dataset> ;
+                                     rdfs:comment "Asserts that a publication cites a particular dataset as a data source. Subproperty of cito:citesAsDataSource."@en ;
+                                     rdfs:label "cites dataset"@en .
+
+
+###  https://w3id.org/rdip/dataFormat
+<https://w3id.org/rdip/dataFormat> rdf:type owl:ObjectProperty ;
+                                   rdfs:subPropertyOf <http://purl.org/dc/terms/format> ;
+                                   rdfs:domain <http://www.w3.org/ns/dcat#Dataset> .
+
+
+###  https://w3id.org/rdip/dependencyName
+<https://w3id.org/rdip/dependencyName> rdf:type owl:ObjectProperty ;
+                                       rdfs:subPropertyOf <https://schema.org/name> ;
+                                       rdfs:domain <https://w3id.org/rdip/SoftwareDependency> .
+
+
+###  https://w3id.org/rdip/derivedFrom
+<https://w3id.org/rdip/derivedFrom> rdf:type owl:ObjectProperty ;
+                                    rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasDerivedFrom> ;
+                                    rdfs:domain <http://www.w3.org/ns/dcat#Dataset> ;
+                                    rdfs:range <http://www.w3.org/ns/dcat#Dataset> ;
+                                    rdfs:comment "Direct dataset-level derivation link. Subproperty of prov:wasDerivedFrom. Use this to close the provenance chain between an input dataset and the dataset produced by a DataProcessingActivity or DataAnalysisActivity. Without this link, PROV-O reasoners cannot infer the artifact-to-artifact lineage."@en ;
+                                    rdfs:label "derived from"@en .
+
+
+###  https://w3id.org/rdip/executedIn
+<https://w3id.org/rdip/executedIn> rdf:type owl:ObjectProperty ;
+                                   rdfs:domain <https://w3id.org/rdip/ResearchActivity> ;
+                                   rdfs:range <https://w3id.org/rdip/ComputingEnvironment> ;
+                                   rdfs:comment "Links a computational ResearchActivity to the ComputingEnvironment in which it was executed. Essential for computational reproducibility."@en ;
+                                   rdfs:label "executed in"@en .
+
+
+###  https://w3id.org/rdip/follows
+<https://w3id.org/rdip/follows> rdf:type owl:ObjectProperty ;
+                                rdfs:domain <https://w3id.org/rdip/ResearchActivity> ;
+                                rdfs:range <https://w3id.org/rdip/ResearchActivity> ;
+                                rdfs:comment "Inverse of rdip:precedes. An activity that directly follows another in the workflow."@en ;
+                                rdfs:label "follows"@en .
+
+
+###  https://w3id.org/rdip/generatesDataset
+<https://w3id.org/rdip/generatesDataset> rdf:type owl:ObjectProperty ;
+                                         rdfs:subPropertyOf <http://www.w3.org/ns/prov#generated> ;
+                                         rdfs:domain <https://w3id.org/rdip/ResearchActivity> ;
+                                         rdfs:range <http://www.w3.org/ns/dcat#Dataset> ;
+                                         rdfs:comment "Records that a ResearchActivity produced a dcat:Dataset as output. Subproperty of prov:generated."@en ;
+                                         rdfs:label "generates dataset"@en .
+
+
+###  https://w3id.org/rdip/generatesPublication
+<https://w3id.org/rdip/generatesPublication> rdf:type owl:ObjectProperty ;
+                                             rdfs:subPropertyOf <http://www.w3.org/ns/prov#generated> ;
+                                             rdfs:domain <https://w3id.org/rdip/PublicationActivity> ;
+                                             rdfs:range <http://purl.org/ontology/bibo/Document> ;
+                                             rdfs:comment "Links a PublicationActivity to the bibo:Document it produces."@en ;
+                                             rdfs:label "generates publication"@en .
+
+
+###  https://w3id.org/rdip/generatesResult
+<https://w3id.org/rdip/generatesResult> rdf:type owl:ObjectProperty ;
+                                        rdfs:subPropertyOf <http://www.w3.org/ns/prov#generated> ;
+                                        rdfs:domain <https://w3id.org/rdip/DataAnalysisActivity> ;
+                                        rdfs:range <https://w3id.org/rdip/EvaluationResult> ;
+                                        rdfs:comment "Links a DataAnalysisActivity to an EvaluationResult it produces (e.g. a test-set accuracy, F1 score, RMSE). Essential for verifying reproduction: a reproducer compares their re-run results against these stored values."@en ;
+                                        rdfs:label "generates result"@en .
+
+
+###  https://w3id.org/rdip/generatesSoftware
+<https://w3id.org/rdip/generatesSoftware> rdf:type owl:ObjectProperty ;
+                                          rdfs:subPropertyOf <http://www.w3.org/ns/prov#generated> ;
+                                          rdfs:domain <https://w3id.org/rdip/SoftwareDevelopmentActivity> ;
+                                          rdfs:range <https://w3id.org/rdip/SoftwareApplication> ;
+                                          rdfs:comment "Links a SoftwareDevelopmentActivity to the SoftwareApplication it produces."@en ;
+                                          rdfs:label "generates software"@en .
+
+
+###  https://w3id.org/rdip/hasActivity
+<https://w3id.org/rdip/hasActivity> rdf:type owl:ObjectProperty ;
+                                    owl:inverseOf <https://w3id.org/rdip/isPartOfProject> ;
+                                    rdfs:domain <https://w3id.org/rdip/ResearchProject> ;
+                                    rdfs:range <https://w3id.org/rdip/ResearchActivity> ;
+                                    rdfs:comment "Links a ResearchProject to one of its constituent ResearchActivity instances."@en ;
+                                    rdfs:label "has activity"@en .
+
+
+###  https://w3id.org/rdip/hasActivityRole
+<https://w3id.org/rdip/hasActivityRole> rdf:type owl:ObjectProperty ;
+                                        rdfs:domain <https://w3id.org/rdip/ResearchActivity> ;
+                                        rdfs:range <https://w3id.org/rdip/RoleInActivity> ;
+                                        rdfs:comment "Simple (unqualified) link from an activity to a RoleInActivity node. For full PROV-O qualified attribution use prov:qualifiedAssociation → rdip:ActivityAssociation instead."@en ;
+                                        rdfs:label "has activity role"@en .
+
+
+###  https://w3id.org/rdip/hasEnvironmentSpec
+<https://w3id.org/rdip/hasEnvironmentSpec> rdf:type owl:ObjectProperty ;
+                                           rdfs:domain <https://w3id.org/rdip/ComputingEnvironment> ;
+                                           rdfs:range <https://w3id.org/rdip/EnvironmentSpec> ;
+                                           rdfs:comment "Links a ComputingEnvironment to a machine-actionable EnvironmentSpec (Docker image digest, conda YAML, Nix flake, etc.) that fully describes how to recreate the environment."@en ;
+                                           rdfs:label "has environment specification"@en .
+
+
+###  https://w3id.org/rdip/hasLeadOrganization
+<https://w3id.org/rdip/hasLeadOrganization> rdf:type owl:ObjectProperty ;
+                                            rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasAssociatedWith> ,
+                                                               <https://schema.org/sponsor> ;
+                                            rdfs:domain <https://w3id.org/rdip/ResearchProject> ;
+                                            rdfs:range <http://vivoweb.org/ontology/core#Organization> ;
+                                            rdfs:comment "Links a ResearchProject to the Organisation that leads or funds it."@en ;
+                                            rdfs:label "has lead organization"@en .
+
+
+###  https://w3id.org/rdip/hasOutput
+<https://w3id.org/rdip/hasOutput> rdf:type owl:ObjectProperty ;
+                                  rdfs:subPropertyOf <http://www.w3.org/ns/prov#generated> ,
+                                                     <https://schema.org/result> ;
+                                  owl:inverseOf <https://w3id.org/rdip/isOutputOf> ;
+                                  rdfs:domain <https://w3id.org/rdip/ResearchProject> ;
+                                  rdfs:range <http://www.w3.org/ns/prov#Entity> ;
+                                  rdfs:comment "Links a ResearchProject directly to a top-level output entity (dataset, software, publication). For activity-level generation use rdip:generatesDataset / rdip:generatesSoftware / rdip:generatesPublication."@en ;
+                                  rdfs:label "has output"@en .
+
+
+###  https://w3id.org/rdip/hasParameter
+<https://w3id.org/rdip/hasParameter> rdf:type owl:ObjectProperty ;
+                                     rdfs:domain <https://w3id.org/rdip/ResearchActivity> ;
+                                     rdfs:range <https://w3id.org/rdip/Parameter> ;
+                                     rdfs:comment "Links a ResearchActivity to a Parameter (hyperparameter, config value, or random seed). Use rdip:RandomSeed for random seeds specifically."@en ;
+                                     rdfs:label "has parameter"@en .
+
+
+###  https://w3id.org/rdip/hasParticipant
+<https://w3id.org/rdip/hasParticipant> rdf:type owl:ObjectProperty ;
+                                       rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasAssociatedWith> ,
+                                                          <https://schema.org/contributor> ;
+                                       rdfs:domain <https://w3id.org/rdip/ResearchProject> ;
+                                       rdfs:range <http://vivoweb.org/ontology/core#Person> ;
+                                       rdfs:comment "Links a ResearchProject to a participating Person. For finer-grained role attribution at the activity level, use prov:qualifiedAssociation with rdip:ActivityAssociation."@en ;
+                                       rdfs:label "has participant"@en .
+
+
+###  https://w3id.org/rdip/isDocumentedBy
+<https://w3id.org/rdip/isDocumentedBy> rdf:type owl:ObjectProperty ;
+                                       rdfs:domain <https://w3id.org/rdip/ResearchActivity> ;
+                                       rdfs:range <http://purl.org/ontology/bibo/Document> ;
+                                       rdfs:comment "Links a ResearchActivity to a Document (e.g. lab notebook entry, preprint, technical note) that describes it."@en ;
+                                       rdfs:label "is documented by"@en .
+
+
+###  https://w3id.org/rdip/isOutputOf
+<https://w3id.org/rdip/isOutputOf> rdf:type owl:ObjectProperty ;
+                                   rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasGeneratedBy> ,
+                                                      <https://schema.org/isPartOf> ;
+                                   rdfs:domain <http://www.w3.org/ns/prov#Entity> ;
+                                   rdfs:range <https://w3id.org/rdip/ResearchProject> ;
+                                   rdfs:comment "Inverse of rdip:hasOutput."@en ;
+                                   rdfs:label "is output of"@en .
+
+
+###  https://w3id.org/rdip/isPartOfProject
+<https://w3id.org/rdip/isPartOfProject> rdf:type owl:ObjectProperty ;
+                                        rdfs:domain <https://w3id.org/rdip/ResearchActivity> ;
+                                        rdfs:range <https://w3id.org/rdip/ResearchProject> ;
+                                        rdfs:comment "Inverse of rdip:hasActivity. Asserts that a ResearchActivity belongs to a given ResearchProject."@en ;
+                                        rdfs:label "is part of project"@en .
+
+
+###  https://w3id.org/rdip/isVersionOf
+<https://w3id.org/rdip/isVersionOf> rdf:type owl:ObjectProperty ;
+                                    rdfs:subPropertyOf <http://purl.org/dc/terms/isVersionOf> ,
+                                                       <http://www.w3.org/ns/prov#wasRevisionOf> ;
+                                    rdfs:domain <http://www.w3.org/ns/prov#Entity> ;
+                                    rdfs:range <http://www.w3.org/ns/prov#Entity> ;
+                                    rdfs:comment "Links a specific versioned entity (dataset, software) to the entity it revises. Subproperty of prov:wasRevisionOf. Use together with rdip:version (data property) to form a complete version chain."@en ;
+                                    rdfs:label "is version of"@en .
+
+
+###  https://w3id.org/rdip/metricName
+<https://w3id.org/rdip/metricName> rdf:type owl:ObjectProperty ;
+                                   rdfs:subPropertyOf <https://schema.org/name> ;
+                                   rdfs:domain <https://w3id.org/rdip/EvaluationResult> .
+
+
+###  https://w3id.org/rdip/parameterName
+<https://w3id.org/rdip/parameterName> rdf:type owl:ObjectProperty ;
+                                      rdfs:subPropertyOf <https://schema.org/name> ;
+                                      rdfs:domain <https://w3id.org/rdip/Parameter> .
+
+
+###  https://w3id.org/rdip/precedes
+<https://w3id.org/rdip/precedes> rdf:type owl:ObjectProperty ;
+                                 rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasInformedBy> ;
+                                 owl:inverseOf <https://w3id.org/rdip/follows> ;
+                                 rdfs:domain <https://w3id.org/rdip/ResearchActivity> ;
+                                 rdfs:range <https://w3id.org/rdip/ResearchActivity> ;
+                                 rdfs:comment "Asserts that one ResearchActivity directly precedes another in execution order. Subproperty of prov:wasInformedBy, ensuring PROV-O reasoners can infer the full dependency chain. Use this to sequence DataProcessingActivity → DataAnalysisActivity, etc."@en ;
+                                 rdfs:label "precedes"@en .
+
+
+###  https://w3id.org/rdip/roleLabel
+<https://w3id.org/rdip/roleLabel> rdf:type owl:ObjectProperty ;
+                                  rdfs:subPropertyOf <https://schema.org/name> ;
+                                  rdfs:domain <https://w3id.org/rdip/RoleInActivity> .
+
+
+###  https://w3id.org/rdip/rolePerformedBy
+<https://w3id.org/rdip/rolePerformedBy> rdf:type owl:ObjectProperty ;
+                                        rdfs:domain <https://w3id.org/rdip/RoleInActivity> ;
+                                        rdfs:range <http://vivoweb.org/ontology/core#Person> ;
+                                        rdfs:comment "Links a RoleInActivity to the Person performing it. Part of the simple role pattern; for qualified attribution use rdip:ActivityAssociation."@en ;
+                                        rdfs:label "role performed by"@en .
+
+
+###  https://w3id.org/rdip/softwareDependency
+<https://w3id.org/rdip/softwareDependency> rdf:type owl:ObjectProperty ;
+                                           rdfs:domain <https://w3id.org/rdip/SoftwareApplication> ;
+                                           rdfs:range <https://w3id.org/rdip/SoftwareDependency> ;
+                                           rdfs:comment "Links a SoftwareApplication to a versioned SoftwareDependency it requires. Record all direct dependencies (library name + version) to enable environment reconstruction."@en ;
+                                           rdfs:label "software dependency"@en .
+
+
+###  https://w3id.org/rdip/title
+<https://w3id.org/rdip/title> rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf <http://purl.org/dc/terms/title> ,
+                                                 <https://schema.org/name> ;
+                              rdfs:domain <http://www.w3.org/ns/prov#Entity> .
+
+
+###  https://w3id.org/rdip/usedDataset
+<https://w3id.org/rdip/usedDataset> rdf:type owl:ObjectProperty ;
+                                    rdfs:subPropertyOf <http://www.w3.org/ns/prov#used> ;
+                                    rdfs:domain <https://w3id.org/rdip/ResearchActivity> ;
+                                    rdfs:range <http://www.w3.org/ns/dcat#Dataset> ;
+                                    rdfs:comment "Records that a ResearchActivity consumed a given dcat:Dataset as input. Subproperty of prov:used."@en ;
+                                    rdfs:label "used dataset"@en .
+
+
+###  https://w3id.org/rdip/usedMethod
+<https://w3id.org/rdip/usedMethod> rdf:type owl:ObjectProperty ;
+                                   rdfs:subPropertyOf <http://www.w3.org/ns/prov#used> ;
+                                   rdfs:domain <https://w3id.org/rdip/ResearchActivity> ;
+                                   rdfs:range <https://w3id.org/rdip/Method> ;
+                                   rdfs:comment "Links a ResearchActivity to the formal Method or protocol it followed."@en ;
+                                   rdfs:label "used method"@en .
+
+
+###  https://w3id.org/rdip/usedSoftware
+<https://w3id.org/rdip/usedSoftware> rdf:type owl:ObjectProperty ;
+                                     rdfs:subPropertyOf <http://www.w3.org/ns/prov#used> ;
+                                     rdfs:domain <https://w3id.org/rdip/ResearchActivity> ;
+                                     rdfs:range <https://w3id.org/rdip/SoftwareApplication> ;
+                                     rdfs:comment "Records that a ResearchActivity used a particular SoftwareApplication. Subproperty of prov:used."@en ;
+                                     rdfs:label "used software"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://schema.org/codeRepository
+<https://schema.org/codeRepository> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/conditionsOfAccess
+<https://schema.org/conditionsOfAccess> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/description
+<https://schema.org/description> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/endDate
+<https://schema.org/endDate> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/identifier
+<https://schema.org/identifier> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/license
+<https://schema.org/license> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/startDate
+<https://schema.org/startDate> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/url
+<https://schema.org/url> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/value
+<https://schema.org/value> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/version
+<https://schema.org/version> rdf:type owl:DatatypeProperty .
+
+
+###  https://w3id.org/rdip/accessLevel
+<https://w3id.org/rdip/accessLevel> rdf:type owl:DatatypeProperty ;
+                                    rdfs:subPropertyOf <https://schema.org/conditionsOfAccess> ;
+                                    rdfs:domain <http://www.w3.org/ns/dcat#Dataset> ;
+                                    rdfs:range xsd:string ;
+                                    rdfs:comment "Access classification of the dataset. Recommended controlled vocabulary: 'open', 'restricted', 'embargoed', 'closed'."@en ;
+                                    rdfs:label "access level"@en .
+
+
+###  https://w3id.org/rdip/activityDescription
+<https://w3id.org/rdip/activityDescription> rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain <https://w3id.org/rdip/ResearchActivity> ;
+                                            rdfs:range xsd:string ;
+                                            rdfs:comment "A prose description of what this research activity involved."@en ;
+                                            rdfs:label "activity description"@en .
+
+
+###  https://w3id.org/rdip/activityEnd
+<https://w3id.org/rdip/activityEnd> rdf:type owl:DatatypeProperty ;
+                                    rdfs:subPropertyOf <http://www.w3.org/ns/prov#endedAtTime> ,
+                                                       <https://schema.org/endDate> ;
+                                    rdfs:domain <https://w3id.org/rdip/ResearchActivity> ;
+                                    rdfs:range xsd:dateTime ;
+                                    rdfs:comment "ISO 8601 datetime at which this activity ended."@en ;
+                                    rdfs:label "activity end"@en .
+
+
+###  https://w3id.org/rdip/activityStart
+<https://w3id.org/rdip/activityStart> rdf:type owl:DatatypeProperty ;
+                                      rdfs:subPropertyOf <http://www.w3.org/ns/prov#startedAtTime> ,
+                                                         <https://schema.org/startDate> ;
+                                      rdfs:domain <https://w3id.org/rdip/ResearchActivity> ;
+                                      rdfs:range xsd:dateTime ;
+                                      rdfs:comment "ISO 8601 datetime at which this activity began."@en ;
+                                      rdfs:label "activity start"@en .
+
+
+###  https://w3id.org/rdip/checksum
+<https://w3id.org/rdip/checksum> rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain <http://www.w3.org/ns/dcat#Dataset> ;
+                                 rdfs:range xsd:string ;
+                                 rdfs:comment "A cryptographic checksum (e.g. SHA-256) of the dataset file to enable integrity verification during reproduction. Format: '<algorithm>:<hex>', e.g. 'sha256:e3b0c44298fc1c149afb...'."@en ;
+                                 rdfs:label "checksum"@en .
+
+
+###  https://w3id.org/rdip/commitHash
+<https://w3id.org/rdip/commitHash> rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain <https://w3id.org/rdip/SoftwareApplication> ;
+                                   rdfs:range xsd:string ;
+                                   rdfs:comment "The exact VCS commit SHA at which this software version was recorded, e.g. 'a3f9b2c'. More precise than a semantic version tag for reproducibility."@en ;
+                                   rdfs:label "commit hash"@en .
+
+
+###  https://w3id.org/rdip/cpuCores
+<https://w3id.org/rdip/cpuCores> rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain <https://w3id.org/rdip/ComputingEnvironment> ;
+                                 rdfs:range xsd:integer ;
+                                 rdfs:comment "Number of CPU cores available in this environment."@en ;
+                                 rdfs:label "CPU cores"@en .
+
+
+###  https://w3id.org/rdip/cudaVersion
+<https://w3id.org/rdip/cudaVersion> rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain <https://w3id.org/rdip/ComputingEnvironment> ;
+                                    rdfs:range xsd:string ;
+                                    rdfs:comment "CUDA toolkit version string, e.g. '12.2.2'. Required when GPU acceleration is used; different CUDA versions can alter numerical results."@en ;
+                                    rdfs:label "CUDA version"@en .
+
+
+###  https://w3id.org/rdip/dataFormat
+<https://w3id.org/rdip/dataFormat> rdf:type owl:DatatypeProperty ;
+                                   rdfs:range xsd:string .
+
+
+###  https://w3id.org/rdip/dataLicense
+<https://w3id.org/rdip/dataLicense> rdf:type owl:DatatypeProperty ;
+                                    rdfs:subPropertyOf <https://schema.org/license> ;
+                                    rdfs:domain <http://www.w3.org/ns/dcat#Dataset> ;
+                                    rdfs:range xsd:anyURI .
+
+
+###  https://w3id.org/rdip/datasetLandingPage
+<https://w3id.org/rdip/datasetLandingPage> rdf:type owl:DatatypeProperty ;
+                                           rdfs:subPropertyOf <https://schema.org/url> ;
+                                           rdfs:domain <http://www.w3.org/ns/dcat#Dataset> ;
+                                           rdfs:range xsd:anyURI ;
+                                           rdfs:comment "A URI pointing to the human-readable landing page for this dataset in its repository. Kept as a DatatypeProperty with xsd:anyURI range to avoid the range conflict between dcat:landingPage (foaf:Document) and xsd:anyURI."@en ;
+                                           rdfs:label "dataset landing page"@en .
+
+
+###  https://w3id.org/rdip/dependencyName
+<https://w3id.org/rdip/dependencyName> rdf:type owl:DatatypeProperty ;
+                                       rdfs:range xsd:string .
+
+
+###  https://w3id.org/rdip/dependencyType
+<https://w3id.org/rdip/dependencyType> rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain <https://w3id.org/rdip/SoftwareDependency> ;
+                                       rdfs:range xsd:string ;
+                                       rdfs:comment "The role of this dependency. Recommended values: 'runtime', 'build', 'optional', 'test'."@en ;
+                                       rdfs:label "dependency type"@en .
+
+
+###  https://w3id.org/rdip/dependencyVersion
+<https://w3id.org/rdip/dependencyVersion> rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain <https://w3id.org/rdip/SoftwareDependency> ;
+                                          rdfs:range xsd:string ;
+                                          rdfs:comment "The exact (pinned) version string of this dependency, e.g. '2.1.0', '1.24.3'. Pin to the exact version for reproducibility, not a range."@en ;
+                                          rdfs:label "dependency version"@en .
+
+
+###  https://w3id.org/rdip/description
+<https://w3id.org/rdip/description> rdf:type owl:DatatypeProperty ;
+                                    rdfs:subPropertyOf <http://purl.org/dc/terms/description> ,
+                                                       <https://schema.org/description> ;
+                                    rdfs:domain <http://www.w3.org/ns/prov#Entity> ;
+                                    rdfs:range xsd:string ;
+                                    rdfs:comment "A free-text description of the entity."@en ;
+                                    rdfs:label "description"@en .
+
+
+###  https://w3id.org/rdip/evaluationDate
+<https://w3id.org/rdip/evaluationDate> rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain <https://w3id.org/rdip/EvaluationResult> ;
+                                       rdfs:range xsd:dateTime ;
+                                       rdfs:comment "ISO 8601 datetime at which this evaluation was performed."@en ;
+                                       rdfs:label "evaluation date"@en .
+
+
+###  https://w3id.org/rdip/fundingReference
+<https://w3id.org/rdip/fundingReference> rdf:type owl:DatatypeProperty ;
+                                         rdfs:domain <https://w3id.org/rdip/ResearchProject> ;
+                                         rdfs:range xsd:string ;
+                                         rdfs:comment "Grant or award identifier(s) funding this project, e.g. 'NSF-2012345' or 'ERC-StG-123456'."@en ;
+                                         rdfs:label "funding reference"@en .
+
+
+###  https://w3id.org/rdip/gpuModel
+<https://w3id.org/rdip/gpuModel> rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain <https://w3id.org/rdip/ComputingEnvironment> ;
+                                 rdfs:range xsd:string ;
+                                 rdfs:comment "GPU model name and VRAM, e.g. 'NVIDIA A100 80GB', '4x NVIDIA RTX 4090 24GB'."@en ;
+                                 rdfs:label "GPU model"@en .
+
+
+###  https://w3id.org/rdip/hardwareSpec
+<https://w3id.org/rdip/hardwareSpec> rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain <https://w3id.org/rdip/ComputingEnvironment> ;
+                                     rdfs:range xsd:string ;
+                                     rdfs:comment "Human-readable hardware description, e.g. 'NVIDIA A100 80GB SXM4, Intel Xeon Gold 6338, 512 GB RAM'."@en ;
+                                     rdfs:label "hardware specification"@en .
+
+
+###  https://w3id.org/rdip/identifier
+<https://w3id.org/rdip/identifier> rdf:type owl:DatatypeProperty ;
+                                   rdfs:subPropertyOf <http://purl.org/dc/terms/identifier> ,
+                                                      <https://schema.org/identifier> ;
+                                   rdfs:domain <http://www.w3.org/ns/prov#Entity> ;
+                                   rdfs:range xsd:string ;
+                                   rdfs:comment "A persistent identifier string for any prov:Entity, e.g. a DOI, ORCID, ROR, Handle, or local UUID."@en ;
+                                   rdfs:label "identifier"@en .
+
+
+###  https://w3id.org/rdip/imageDigest
+<https://w3id.org/rdip/imageDigest> rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain <https://w3id.org/rdip/EnvironmentSpec> ;
+                                    rdfs:range xsd:string ;
+                                    rdfs:comment "The content-addressable digest of a container image, e.g. 'sha256:a7f3b2c...' for a Docker image. Guarantees bit-for-bit environment identity."@en ;
+                                    rdfs:label "image digest"@en .
+
+
+###  https://w3id.org/rdip/methodDoi
+<https://w3id.org/rdip/methodDoi> rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain <https://w3id.org/rdip/Method> ;
+                                  rdfs:range xsd:anyURI ;
+                                  rdfs:comment "A DOI or URL pointing to an externally published description of this method or protocol (e.g. a protocols.io entry, a paper describing the workflow)."@en ;
+                                  rdfs:label "method DOI"@en .
+
+
+###  https://w3id.org/rdip/metricDataType
+<https://w3id.org/rdip/metricDataType> rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain <https://w3id.org/rdip/EvaluationResult> ;
+                                       rdfs:range xsd:string ;
+                                       rdfs:comment "XSD type of the metric value, e.g. 'xsd:float'. Allows consumers to parse rdip:metricValue correctly."@en ;
+                                       rdfs:label "metric data type"@en .
+
+
+###  https://w3id.org/rdip/metricName
+<https://w3id.org/rdip/metricName> rdf:type owl:DatatypeProperty ;
+                                   rdfs:range xsd:string .
+
+
+###  https://w3id.org/rdip/metricValue
+<https://w3id.org/rdip/metricValue> rdf:type owl:DatatypeProperty ;
+                                    rdfs:subPropertyOf <https://schema.org/value> ;
+                                    rdfs:domain <https://w3id.org/rdip/EvaluationResult> ;
+                                    rdfs:range xsd:string ;
+                                    rdfs:comment "The numeric value of the metric as a string, e.g. '0.9432'. Use string to preserve significant figures; rdip:metricDataType declares the actual type."@en ;
+                                    rdfs:label "metric value"@en .
+
+
+###  https://w3id.org/rdip/orcidId
+<https://w3id.org/rdip/orcidId> rdf:type owl:DatatypeProperty ;
+                                rdfs:domain <http://vivoweb.org/ontology/core#Person> ;
+                                rdfs:range xsd:anyURI ;
+                                rdfs:comment "The ORCID persistent identifier URI for a researcher, e.g. <https://orcid.org/0000-0002-1825-0097>."@en ;
+                                rdfs:label "ORCID iD"@en .
+
+
+###  https://w3id.org/rdip/osVersion
+<https://w3id.org/rdip/osVersion> rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain <https://w3id.org/rdip/ComputingEnvironment> ;
+                                  rdfs:range xsd:string ;
+                                  rdfs:comment "Operating system name and version, e.g. 'Ubuntu 22.04.3 LTS', 'macOS 14.2.1'."@en ;
+                                  rdfs:label "OS version"@en .
+
+
+###  https://w3id.org/rdip/parameterDataType
+<https://w3id.org/rdip/parameterDataType> rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain <https://w3id.org/rdip/Parameter> ;
+                                          rdfs:range xsd:string ;
+                                          rdfs:comment "The XSD datatype or informal type of the parameter value, e.g. 'xsd:float', 'xsd:integer', 'xsd:string'. Allows consumers to correctly parse rdip:parameterValue."@en ;
+                                          rdfs:label "parameter data type"@en .
+
+
+###  https://w3id.org/rdip/parameterName
+<https://w3id.org/rdip/parameterName> rdf:type owl:DatatypeProperty ;
+                                      rdfs:range xsd:string .
+
+
+###  https://w3id.org/rdip/parameterValue
+<https://w3id.org/rdip/parameterValue> rdf:type owl:DatatypeProperty ;
+                                       rdfs:subPropertyOf <https://schema.org/value> ;
+                                       rdfs:domain <https://w3id.org/rdip/Parameter> ;
+                                       rdfs:range xsd:string ;
+                                       rdfs:comment "The value of the parameter as a string to accommodate both numeric ('0.001', '32') and symbolic ('Adam', 'relu') values."@en ;
+                                       rdfs:label "parameter value"@en .
+
+
+###  https://w3id.org/rdip/projectEnd
+<https://w3id.org/rdip/projectEnd> rdf:type owl:DatatypeProperty ;
+                                   rdfs:subPropertyOf <http://www.w3.org/ns/prov#endedAtTime> ,
+                                                      <https://schema.org/endDate> ;
+                                   rdfs:domain <https://w3id.org/rdip/ResearchProject> ;
+                                   rdfs:range xsd:dateTime ;
+                                   rdfs:comment "ISO 8601 datetime at which the project officially ended."@en ;
+                                   rdfs:label "project end"@en .
+
+
+###  https://w3id.org/rdip/projectStart
+<https://w3id.org/rdip/projectStart> rdf:type owl:DatatypeProperty ;
+                                     rdfs:subPropertyOf <http://www.w3.org/ns/prov#startedAtTime> ,
+                                                        <https://schema.org/startDate> ;
+                                     rdfs:domain <https://w3id.org/rdip/ResearchProject> ;
+                                     rdfs:range xsd:dateTime ;
+                                     rdfs:comment "ISO 8601 datetime at which the project officially began."@en ;
+                                     rdfs:label "project start"@en .
+
+
+###  https://w3id.org/rdip/ramGB
+<https://w3id.org/rdip/ramGB> rdf:type owl:DatatypeProperty ;
+                              rdfs:domain <https://w3id.org/rdip/ComputingEnvironment> ;
+                              rdfs:range xsd:decimal ;
+                              rdfs:comment "Total RAM in gigabytes available in this environment."@en ;
+                              rdfs:label "RAM (GB)"@en .
+
+
+###  https://w3id.org/rdip/repositoryUrl
+<https://w3id.org/rdip/repositoryUrl> rdf:type owl:DatatypeProperty ;
+                                      rdfs:subPropertyOf <https://schema.org/codeRepository> ;
+                                      rdfs:domain <https://w3id.org/rdip/SoftwareApplication> ;
+                                      rdfs:range xsd:anyURI ;
+                                      rdfs:comment "URL of the version-controlled source code repository (e.g. GitHub, GitLab) for this software."@en ;
+                                      rdfs:label "repository URL"@en .
+
+
+###  https://w3id.org/rdip/roleLabel
+<https://w3id.org/rdip/roleLabel> rdf:type owl:DatatypeProperty ;
+                                  rdfs:range xsd:string .
+
+
+###  https://w3id.org/rdip/rorId
+<https://w3id.org/rdip/rorId> rdf:type owl:DatatypeProperty ;
+                              rdfs:domain <http://vivoweb.org/ontology/core#Organization> ;
+                              rdfs:range xsd:anyURI ;
+                              rdfs:comment "The Research Organization Registry (ROR) URI for an Organisation, e.g. <https://ror.org/02mhbdp94>."@en ;
+                              rdfs:label "ROR identifier"@en .
+
+
+###  https://w3id.org/rdip/softwareLicense
+<https://w3id.org/rdip/softwareLicense> rdf:type owl:DatatypeProperty ;
+                                        rdfs:subPropertyOf <https://schema.org/license> ;
+                                        rdfs:domain <https://w3id.org/rdip/SoftwareApplication> ;
+                                        rdfs:range xsd:anyURI .
+
+
+###  https://w3id.org/rdip/specType
+<https://w3id.org/rdip/specType> rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain <https://w3id.org/rdip/EnvironmentSpec> ;
+                                 rdfs:range xsd:string ;
+                                 rdfs:comment "The type of environment specification. Recommended values: 'docker', 'conda', 'pip-requirements', 'nix', 'singularity', 'spack'."@en ;
+                                 rdfs:label "specification type"@en .
+
+
+###  https://w3id.org/rdip/specUri
+<https://w3id.org/rdip/specUri> rdf:type owl:DatatypeProperty ;
+                                rdfs:domain <https://w3id.org/rdip/EnvironmentSpec> ;
+                                rdfs:range xsd:anyURI ;
+                                rdfs:comment "A dereferenceable URI pointing to the environment spec file, e.g. a raw GitHub URL to environment.yml or a Docker Hub image reference."@en ;
+                                rdfs:label "specification URI"@en .
+
+
+###  https://w3id.org/rdip/splitLabel
+<https://w3id.org/rdip/splitLabel> rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain <https://w3id.org/rdip/EvaluationResult> ;
+                                   rdfs:range xsd:string ;
+                                   rdfs:comment "The dataset split on which this metric was measured, e.g. 'train', 'validation', 'test', 'hold-out'. Essential context for comparing reproduction results."@en ;
+                                   rdfs:label "split label"@en .
+
+
+###  https://w3id.org/rdip/title
+<https://w3id.org/rdip/title> rdf:type owl:DatatypeProperty ;
+                              rdfs:range xsd:string .
+
+
+###  https://w3id.org/rdip/version
+<https://w3id.org/rdip/version> rdf:type owl:DatatypeProperty ;
+                                rdfs:subPropertyOf <https://schema.org/version> ;
+                                rdfs:domain <http://www.w3.org/ns/prov#Entity> ;
+                                rdfs:range xsd:string ;
+                                rdfs:comment "The version string of this entity, e.g. '1.3.2' (semver) or a Git commit SHA. For full version chains also use rdip:isVersionOf."@en ;
+                                rdfs:label "version"@en .
+
+
+###  https://w3id.org/rdip/workflowLanguage
+<https://w3id.org/rdip/workflowLanguage> rdf:type owl:DatatypeProperty ;
+                                         rdfs:domain <https://w3id.org/rdip/Method> ;
+                                         rdfs:range xsd:string ;
+                                         rdfs:comment "The formal workflow language used to specify this method, e.g. 'CWL', 'Nextflow', 'Snakemake', 'WDL'. Leave empty for informal narrative protocols."@en ;
+                                         rdfs:label "workflow language"@en .
+
+
+###  https://w3id.org/rdip/workflowUri
+<https://w3id.org/rdip/workflowUri> rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain <https://w3id.org/rdip/Method> ;
+                                    rdfs:range xsd:anyURI ;
+                                    rdfs:comment "URI pointing to the formal workflow definition file (CWL, Nextflow, etc.) for this method."@en ;
+                                    rdfs:label "workflow URI"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/ontology/bibo/Article
+<http://purl.org/ontology/bibo/Article> rdf:type owl:Class ;
+                                        rdfs:subClassOf <https://schema.org/ScholarlyArticle> .
+
+
+###  http://vivoweb.org/ontology/core#Organization
+<http://vivoweb.org/ontology/core#Organization> rdf:type owl:Class ;
+                                                owl:equivalentClass <https://schema.org/Organization> .
+
+
+###  http://vivoweb.org/ontology/core#Person
+<http://vivoweb.org/ontology/core#Person> rdf:type owl:Class ;
+                                          owl:equivalentClass <https://schema.org/Person> .
+
+
+###  http://www.w3.org/ns/dcat#Dataset
+<http://www.w3.org/ns/dcat#Dataset> rdf:type owl:Class ;
+                                    owl:equivalentClass <https://schema.org/Dataset> .
+
+
+###  https://schema.org/Action
+<https://schema.org/Action> rdf:type owl:Class .
+
+
+###  https://schema.org/CreativeWork
+<https://schema.org/CreativeWork> rdf:type owl:Class .
+
+
+###  https://schema.org/Dataset
+<https://schema.org/Dataset> rdf:type owl:Class .
+
+
+###  https://schema.org/Observation
+<https://schema.org/Observation> rdf:type owl:Class .
+
+
+###  https://schema.org/Organization
+<https://schema.org/Organization> rdf:type owl:Class .
+
+
+###  https://schema.org/Person
+<https://schema.org/Person> rdf:type owl:Class .
+
+
+###  https://schema.org/Project
+<https://schema.org/Project> rdf:type owl:Class ;
+                             owl:equivalentClass <https://w3id.org/rdip/ResearchProject> .
+
+
+###  https://schema.org/PropertyValue
+<https://schema.org/PropertyValue> rdf:type owl:Class .
+
+
+###  https://schema.org/ScholarlyArticle
+<https://schema.org/ScholarlyArticle> rdf:type owl:Class .
+
+
+###  https://schema.org/SoftwareApplication
+<https://schema.org/SoftwareApplication> rdf:type owl:Class ;
+                                         owl:equivalentClass <https://w3id.org/rdip/SoftwareApplication> .
+
+
+###  https://schema.org/Thing
+<https://schema.org/Thing> rdf:type owl:Class .
+
+
+###  https://w3id.org/rdip/ActivityAssociation
+<https://w3id.org/rdip/ActivityAssociation> rdf:type owl:Class ;
+                                            rdfs:subClassOf <http://www.w3.org/ns/prov#Association> ;
+                                            rdfs:comment "A qualified PROV-O association node linking a ResearchActivity to an agent (Person or Organization) with an explicit RoleInActivity. Use prov:qualifiedAssociation on the activity to point to this node, then prov:agent and prov:hadRole on the node itself. This pattern replaces the simpler rdip:hasActivityRole + rdip:rolePerformedBy chain for full PROV-O compliance."@en ;
+                                            rdfs:label "Activity association"@en .
+
+
+###  https://w3id.org/rdip/ComputingEnvironment
+<https://w3id.org/rdip/ComputingEnvironment> rdf:type owl:Class ;
+                                             rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ,
+                                                             <https://schema.org/Thing> ;
+                                             rdfs:comment "The full hardware and software context in which a computational activity was executed. Records OS version, CPU/GPU hardware, RAM, and links to a machine-actionable environment specification (e.g. a Docker image digest, conda environment.yml, or Nix flake). Essential for computational reproducibility."@en ;
+                                             rdfs:label "Computing environment"@en .
+
+
+###  https://w3id.org/rdip/DataAnalysisActivity
+<https://w3id.org/rdip/DataAnalysisActivity> rdf:type owl:Class ;
+                                             rdfs:subClassOf <https://w3id.org/rdip/ResearchActivity> ;
+                                             rdfs:comment "Activities that analyse datasets to derive results, statistics, models or other derived knowledge artefacts. Use rdip:generatesResult to link to EvaluationResult instances."@en ;
+                                             rdfs:label "Data analysis activity"@en .
+
+
+###  https://w3id.org/rdip/DataCollectionActivity
+<https://w3id.org/rdip/DataCollectionActivity> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://w3id.org/rdip/ResearchActivity> ;
+                                               rdfs:comment "Activities that collect or capture raw data, such as experiments, surveys, interviews, observations or sensor measurements."@en ;
+                                               rdfs:label "Data collection activity"@en .
+
+
+###  https://w3id.org/rdip/DataPreservationActivity
+<https://w3id.org/rdip/DataPreservationActivity> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <https://w3id.org/rdip/ResearchActivity> ;
+                                                 rdfs:comment "Activities that preserve datasets for the long term, including archiving and embargo management."@en ;
+                                                 rdfs:label "Data preservation activity"@en .
+
+
+###  https://w3id.org/rdip/DataProcessingActivity
+<https://w3id.org/rdip/DataProcessingActivity> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://w3id.org/rdip/ResearchActivity> ;
+                                               rdfs:comment "Activities that clean, transform, integrate, anonymise or otherwise modify existing datasets. The input/output datasets should be linked via rdip:derivedFrom."@en ;
+                                               rdfs:label "Data processing activity"@en .
+
+
+###  https://w3id.org/rdip/DataProductionActivity
+<https://w3id.org/rdip/DataProductionActivity> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://w3id.org/rdip/ResearchActivity> ;
+                                               rdfs:comment "Activities that produce one or more datasets from instruments, simulations or integrated data pipelines."@en ;
+                                               rdfs:label "Data production activity"@en .
+
+
+###  https://w3id.org/rdip/DataPublishingActivity
+<https://w3id.org/rdip/DataPublishingActivity> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://w3id.org/rdip/ResearchActivity> ;
+                                               rdfs:comment "Activities that publish or share datasets, e.g. depositing into repositories."@en ;
+                                               rdfs:label "Data publishing activity"@en .
+
+
+###  https://w3id.org/rdip/EnvironmentSpec
+<https://w3id.org/rdip/EnvironmentSpec> rdf:type owl:Class ;
+                                        rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
+                                        rdfs:comment "A machine-actionable specification that fully describes a reproducible software environment: e.g. a Docker image (with SHA256 digest), a conda environment.yml, a requirements.txt, or a Nix flake.lock. Link from rdip:ComputingEnvironment via rdip:hasEnvironmentSpec."@en ;
+                                        rdfs:label "Environment specification"@en .
+
+
+###  https://w3id.org/rdip/EvaluationResult
+<https://w3id.org/rdip/EvaluationResult> rdf:type owl:Class ;
+                                         rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ,
+                                                         <https://schema.org/Observation> ;
+                                         rdfs:comment "A quantitative or qualitative result produced by a DataAnalysisActivity. Captures a named metric and its value so that a reproducer can verify their re-run matches the original (e.g. metricName='accuracy', metricValue='0.9432', splitLabel='test'). Link from activity via rdip:generatesResult."@en ;
+                                         rdfs:label "Evaluation result"@en .
+
+
+###  https://w3id.org/rdip/Method
+<https://w3id.org/rdip/Method> rdf:type owl:Class ;
+                               rdfs:subClassOf <http://www.w3.org/ns/prov#Plan> ,
+                                               <https://schema.org/CreativeWork> ;
+                               rdfs:comment "A formal method, protocol or workflow specification followed by one or more research activities. Should include a reference (DOI or URL) to an external protocol document and, where applicable, a link to a formal workflow language representation (CWL, Nextflow, Snakemake)."@en ;
+                               rdfs:label "Research method or protocol"@en .
+
+
+###  https://w3id.org/rdip/Parameter
+<https://w3id.org/rdip/Parameter> rdf:type owl:Class ;
+                                  rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ,
+                                                  <https://schema.org/PropertyValue> ;
+                                  rdfs:comment "A specific setting, hyperparameter or configuration value used to control an activity. Typical examples: learning_rate=0.001, batch_size=32, optimizer='Adam', num_epochs=100, train_split=0.8. Use rdip:parameterName for the key and rdip:parameterValue for the value."@en ;
+                                  rdfs:label "Research parameter"@en .
+
+
+###  https://w3id.org/rdip/PlanningActivity
+<https://w3id.org/rdip/PlanningActivity> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://w3id.org/rdip/ResearchActivity> ;
+                                         rdfs:comment "Activities concerned with planning and designing research, including study design, protocol development, ethical review preparation and DMP writing."@en ;
+                                         rdfs:label "Planning activity"@en .
+
+
+###  https://w3id.org/rdip/PublicationActivity
+<https://w3id.org/rdip/PublicationActivity> rdf:type owl:Class ;
+                                            rdfs:subClassOf <https://w3id.org/rdip/ResearchActivity> ;
+                                            rdfs:comment "Activities that produce scholarly publications such as journal articles, preprints, book chapters or technical reports."@en ;
+                                            rdfs:label "Publication activity"@en .
+
+
+###  https://w3id.org/rdip/RandomSeed
+<https://w3id.org/rdip/RandomSeed> rdf:type owl:Class ;
+                                   rdfs:subClassOf <https://w3id.org/rdip/Parameter> ;
+                                   rdfs:comment "A special Parameter subclass for random seed values. Explicitly typed because stochastic reproducibility depends critically on recording the exact seed used in all random number generators (NumPy, PyTorch, Python random, CUDA). Set rdip:parameterName='random_seed' and rdip:parameterValue to the integer seed string."@en ;
+                                   rdfs:label "Random seed"@en .
+
+
+###  https://w3id.org/rdip/ResearchActivity
+<https://w3id.org/rdip/ResearchActivity> rdf:type owl:Class ;
+                                         rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> ,
+                                                         <https://schema.org/Action> ;
+                                         rdfs:comment "Any discrete activity in the research lifecycle, including planning, data collection, processing, analysis, publishing and preservation. Subclass of prov:Activity so that all PROV-O properties (wasAssociatedWith, used, generated, wasInformedBy, qualifiedAssociation) are directly applicable."@en ;
+                                         rdfs:label "Research activity"@en .
+
+
+###  https://w3id.org/rdip/ResearchProject
+<https://w3id.org/rdip/ResearchProject> rdf:type owl:Class ;
+                                        rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
+                                        rdfs:comment "A research project that groups together activities, participants and outputs such as datasets, software and publications. Equivalent to schema:Project and treated as a PROV Entity so that provenance can be attributed at project level."@en ;
+                                        rdfs:label "Research project"@en .
+
+
+###  https://w3id.org/rdip/RoleInActivity
+<https://w3id.org/rdip/RoleInActivity> rdf:type owl:Class ;
+                                       rdfs:subClassOf <http://www.w3.org/ns/prov#Role> ;
+                                       rdfs:comment "The specific role that a person plays within a particular research activity, e.g. 'Principal Investigator', 'Data Curator', 'Software Engineer', 'Annotator'. Attach via rdip:ActivityAssociation using the qualified PROV-O pattern."@en ;
+                                       rdfs:label "Role in activity"@en .
+
+
+###  https://w3id.org/rdip/SoftwareApplication
+<https://w3id.org/rdip/SoftwareApplication> rdf:type owl:Class ;
+                                            rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
+                                            rdfs:comment "Software or computational tools used during research activities or produced as outputs. This includes scripts, libraries, ML frameworks, workflow engines and compiled programs. Version is captured via rdip:version; dependencies via rdip:softwareDependency; execution environment via rdip:ComputingEnvironment."@en ;
+                                            rdfs:label "Research software"@en .
+
+
+###  https://w3id.org/rdip/SoftwareDependency
+<https://w3id.org/rdip/SoftwareDependency> rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
+                                           rdfs:comment "A specific versioned library or package required by a SoftwareApplication at runtime or build time (e.g. 'torch==2.1.0', 'numpy>=1.24'). Captures the exact version string and the dependency type (runtime, build, optional) to enable exact environment reconstruction."@en ;
+                                           rdfs:label "Software dependency"@en .
+
+
+###  https://w3id.org/rdip/SoftwareDevelopmentActivity
+<https://w3id.org/rdip/SoftwareDevelopmentActivity> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <https://w3id.org/rdip/ResearchActivity> ;
+                                                    rdfs:comment "Activities that design, implement, test or maintain research software. Links to rdip:SoftwareApplication via rdip:generatesSoftware."@en ;
+                                                    rdfs:label "Software development activity"@en .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+<https://w3id.org/rdip/dataFormat> rdfs:comment "The primary file format of the dataset, e.g. 'CSV', 'Parquet', 'HDF5', 'JSON-L'. Recommended to use IANA media type strings."@en ;
+                                   rdfs:label "data format"@en .
+
+
+<https://w3id.org/rdip/dataLicense> rdfs:comment "URI of the licence under which this dataset is released, e.g. <https://creativecommons.org/licenses/by/4.0/>. Machine-readable licence URIs are required for access validation during reproduction."@en ;
+                                    rdfs:label "data license"@en .
+
+
+<https://w3id.org/rdip/dependencyName> rdfs:comment "The package/library name of this dependency, e.g. 'torch', 'numpy', 'scikit-learn'."@en ;
+                                       rdfs:label "dependency name"@en .
+
+
+<https://w3id.org/rdip/metricName> rdfs:comment "The name of the evaluation metric, e.g. 'accuracy', 'F1-macro', 'RMSE', 'AUC-ROC', 'BLEU', 'perplexity'."@en ;
+                                   rdfs:label "metric name"@en .
+
+
+<https://w3id.org/rdip/parameterName> rdfs:comment "The key/name of the parameter, e.g. 'learning_rate', 'batch_size', 'optimizer', 'num_layers', 'dropout_rate', 'random_seed'."@en ;
+                                      rdfs:label "parameter name"@en .
+
+
+<https://w3id.org/rdip/roleLabel> rdfs:comment "Human-readable label for the role, e.g. 'Principal Investigator', 'Data Curator', 'Annotator', 'Software Engineer'."@en ;
+                                  rdfs:label "role label"@en .
+
+
+<https://w3id.org/rdip/softwareLicense> rdfs:comment "URI of the open-source licence for this software, e.g. <https://opensource.org/licenses/MIT>."@en ;
+                                        rdfs:label "software license"@en .
+
+
+<https://w3id.org/rdip/title> rdfs:comment "The human-readable title or name of the entity."@en ;
+                              rdfs:label "title"@en .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
