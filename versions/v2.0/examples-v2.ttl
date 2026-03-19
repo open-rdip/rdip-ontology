@@ -1,17 +1,10 @@
-#  RDIP — Example Instance Data  v2
-#  Namespace: https://w3id.org/rdip/ 
-#  Three case studies: Computer Science | Business | Medical
-
 @base <https://w3id.org/rdip/examples/> .
-
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl:    <http://www.w3.org/2002/07/owl#> .
 @prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
-
 @prefix rdip:   <https://w3id.org/rdip/> .
 @prefix ex:     <https://w3id.org/rdip/examples/> .
-
 @prefix vivo:   <http://vivoweb.org/ontology/core#> .
 @prefix bibo:   <http://purl.org/ontology/bibo/> .
 @prefix dcat:   <http://www.w3.org/ns/dcat#> .
@@ -20,19 +13,28 @@
 @prefix schema: <https://schema.org/> .
 @prefix dcterms:<http://purl.org/dc/terms/> .
 
+#  RDIP - Example Instance Data  v2
+#  Namespace: https://w3id.org/rdip/ 
+#  Three case studies: Computer Science | Business | Medical
+
+
+
+
+
 <https://w3id.org/rdip/examples/>
     a owl:Ontology ;
-    rdfs:label   "RDIP Example Instance Data – v2"@en ;
+    rdfs:label   "RDIP Example Instance Data - v2"@en ;
     rdfs:comment "Three case studies (CS, Business, Medical) demonstrating the RDIP ontology v2, including activities, roles, software dependencies, hyperparameters, computing environments and evaluation results."@en ;
     owl:versionIRI  <https://w3id.org/rdip/examples/2.0.0> ;
     owl:versionInfo "2.0.0" ;
-    owl:imports     <https://w3id.org/rdip/2.0.0> .
+    owl:imports     <https://w3id.org/rdip/> .
 
 
-#  CASE STUDY 1 — COMPUTER SCIENCE (ChitwanAI)
+#  CASE STUDY 1 - COMPUTER SCIENCE (ChitwanAI)
 #  Deep learning for wildlife detection from camera-trap images, Nepal
 
 # Organization 
+ex:AIT a vivo:Organization ;
     rdfs:label "Asian Institute of Technology" ;
     rdip:rorId <https://ror.org/02mhbdp94> .
 
@@ -55,7 +57,7 @@ ex:Ms_S_Gurung a vivo:Person ;
     rdfs:label    "Ms. S. Gurung" ;
     rdip:orcidId  <https://orcid.org/0000-0000-0000-0002> .
 
-# Software (YOLOv8) ─
+# Software (YOLOv8) -
 ex:YOLOv8_v8_0_1 a rdip:SoftwareApplication ;
     rdip:title          "Ultralytics YOLOv8" ;
     rdip:version        "8.0.1" ;
@@ -94,7 +96,7 @@ ex:COCO_BoundingBox_Protocol a rdip:Method ;
     rdip:description     "Object detection annotation protocol using COCO conventions for class labels and bounding boxes." ;
     rdip:methodDoi       <https://doi.org/10.1007/978-3-319-10602-1_48> .  # [F9] COCO paper
 
-# Computing Environment ─ [F5]
+# Computing Environment - [F5]
 ex:ChitwanAI_Env a rdip:ComputingEnvironment ;
     rdip:osVersion    "Ubuntu 22.04.3 LTS" ;
     rdip:gpuModel     "NVIDIA RTX 3090 24GB" ;
@@ -108,7 +110,7 @@ ex:ChitwanAI_EnvSpec a rdip:EnvironmentSpec ;
     rdip:specType "pip-requirements" ;
     rdip:specUri  <https://github.com/example/chitwanai/blob/main/requirements.txt> .
 
-# Hyperparameters ─ [F4]
+# Hyperparameters - [F4]
 ex:ChitwanAI_Param_LR a rdip:Parameter ;
     rdip:parameterName      "learning_rate" ;
     rdip:parameterValue     "0.01" ;
@@ -150,7 +152,7 @@ ex:AnnotatedTigerRhinoDataset a dcat:Dataset ;
     rdip:isOutputOf   ex:Project_ChitwanAI ;
     rdip:derivedFrom  ex:RawCameraTrapImages .  # [F8] dataset lineage chain
 
-# Evaluation Result ─ [F6]
+# Evaluation Result - [F6]
 ex:ChitwanAI_Result_mAP a rdip:EvaluationResult ;
     rdip:metricName      "mAP@0.5" ;
     rdip:metricValue     "0.873" ;
@@ -205,7 +207,7 @@ ex:ChitwanAI_AnalysisActivity a rdip:DataAnalysisActivity ;
     rdip:activityStart       "2025-07-01T09:00:00"^^xsd:dateTime ;
     rdip:activityEnd         "2025-08-20T17:00:00"^^xsd:dateTime .
 
-# Roles ─
+# Roles -
 ex:Role_ChitwanAI_PI a rdip:RoleInActivity ;
     rdip:roleLabel       "Principal Investigator" ;
     rdip:rolePerformedBy ex:Dr_R_N_Sharma .
@@ -218,7 +220,7 @@ ex:CameraTrapAnnotationActivity
     rdip:hasActivityRole ex:Role_ChitwanAI_PI ,
                          ex:Role_ChitwanAI_Annotator .
 
-# Publication ─
+# Publication -
 ex:ChitwanAI_Article a bibo:Article ;
     rdip:title         "A YOLOv8-based system for wildlife detection from camera-trap images in Nepal" ;
     rdip:identifier    "doi:10.2222/chitwanai.article" ;
@@ -226,7 +228,7 @@ ex:ChitwanAI_Article a bibo:Article ;
     rdip:citesDataset  ex:AnnotatedTigerRhinoDataset ;
     rdip:isOutputOf    ex:Project_ChitwanAI .
 
-# Project summary links ─
+# Project summary links -
 ex:Project_ChitwanAI
     rdip:hasActivity    ex:CameraTrapCollectionActivity ,
                         ex:CameraTrapAnnotationActivity ,
@@ -238,11 +240,11 @@ ex:Project_ChitwanAI
 
 
 ###############################################################################
-#  CASE STUDY 2 — BUSINESS (NepalStartups)
+#  CASE STUDY 2 - BUSINESS (NepalStartups)
 #  Qualitative study of startup failure, Nepal
 ###############################################################################
 
-# Organization ─
+# Organization -
 ex:KathmanduBusinessSchool a vivo:Organization ;
     rdfs:label "Kathmandu Business School" .
 
@@ -294,7 +296,7 @@ ex:RawInterviewTranscripts a dcat:Dataset ;
     rdip:dataFormat  "DOCX" ;
     rdip:dataLicense <https://creativecommons.org/licenses/by-nc/4.0/> .
 
-# Analysis activity  (thematic coding — correctly typed)  [F7]
+# Analysis activity  (thematic coding - correctly typed)  [F7]
 ex:QualitativeAnalysisActivity a rdip:DataAnalysisActivity ;
     rdip:title               "Qualitative thematic coding and analysis" ;
     rdip:activityDescription "Transcribing founder interviews and conducting reflexive thematic analysis on startup failure factors using NVivo." ;
@@ -308,7 +310,7 @@ ex:QualitativeAnalysisActivity a rdip:DataAnalysisActivity ;
     rdip:activityStart       "2025-06-01T09:00:00"^^xsd:dateTime ;
     rdip:activityEnd         "2025-08-31T17:00:00"^^xsd:dateTime .
 
-# Evaluation result (qualitative — theme count) ─ [F6]
+# Evaluation result (qualitative - theme count) - [F6]
 ex:NepalStartups_ThemeCount a rdip:EvaluationResult ;
     rdip:metricName     "identified_themes" ;
     rdip:metricValue    "6" ;
@@ -328,14 +330,14 @@ ex:AnonymizedTranscriptsDataset a dcat:Dataset ;
     rdip:isOutputOf   ex:Project_NepalStartups ;
     rdip:derivedFrom  ex:RawInterviewTranscripts .  # [F8]
 
-# Publication ─
+# Publication -
 ex:NepalStartups_Article a bibo:Article ;
     rdip:title      "Understanding startup failure in Nepal: a thematic analysis" ;
     rdip:identifier "doi:10.6666/nepalstartups.article" ;
     rdip:citesDataset ex:AnonymizedTranscriptsDataset ;
     rdip:isOutputOf ex:Project_NepalStartups .
 
-# Roles ─
+# Roles -
 ex:Role_NepalStartups_PI a rdip:RoleInActivity ;
     rdip:roleLabel       "Principal Investigator" ;
     rdip:rolePerformedBy ex:Dr_L_K_Shrestha .
@@ -348,7 +350,7 @@ ex:QualitativeAnalysisActivity
     rdip:hasActivityRole ex:Role_NepalStartups_PI ,
                          ex:Role_NepalStartups_Assistant .
 
-# Project summary links ─
+# Project summary links -
 ex:Project_NepalStartups
     rdip:hasActivity    ex:InterviewDataCollectionActivity ,
                         ex:QualitativeAnalysisActivity ;
@@ -358,10 +360,10 @@ ex:Project_NepalStartups
                         ex:Mr_S_K_Jha .
 
 
-#  CASE STUDY 3 — MEDICAL (ThaiMedAI)
+#  CASE STUDY 3 - MEDICAL (ThaiMedAI)
 #  AI-assisted diabetic retinopathy screening, Thailand
 
-# Organization ─
+# Organization -
 ex:ThaiUniversityHospital a vivo:Organization ;
     rdfs:label   "Thai University Hospital" ;
     rdip:rorId   <https://ror.org/00000000000> .
@@ -388,7 +390,7 @@ ex:Ms_R_Smith a vivo:Person ;
 ex:Mr_K_Star a vivo:Person ;
     rdfs:label "Mr. K. Star" .
 
-# Software (TensorFlow, OpenCV) ─
+# Software (TensorFlow, OpenCV) -
 ex:TensorFlow_v2_15 a rdip:SoftwareApplication ;
     rdip:title         "TensorFlow" ;
     rdip:version       "2.15.0" ;
@@ -440,7 +442,7 @@ ex:CNN_Segmentation_Method a rdip:Method ;
     rdip:workflowLanguage "Nextflow" ;
     rdip:workflowUri      <https://github.com/example/thaimedai/blob/main/workflow.nf> .
 
-# Computing Environment ─ [F5]
+# Computing Environment - [F5]
 ex:ThaiMedAI_Env a rdip:ComputingEnvironment ;
     rdip:osVersion    "Ubuntu 20.04.6 LTS" ;
     rdip:gpuModel     "NVIDIA A100 80GB SXM4" ;
@@ -455,7 +457,7 @@ ex:ThaiMedAI_EnvSpec a rdip:EnvironmentSpec ;
     rdip:specUri     <https://hub.docker.com/r/example/thaimedai> ;
     rdip:imageDigest "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" .
 
-# Hyperparameters ─ [F4]
+# Hyperparameters - [F4]
 ex:ThaiMedAI_Param_LR a rdip:Parameter ;
     rdip:parameterName     "learning_rate" ;
     rdip:parameterValue    "0.0001" ;
@@ -524,7 +526,7 @@ ex:ThaiMedAI_Result_Specificity a rdip:EvaluationResult ;
 
 # Activities 
 
-# [F7] Preprocessing activity — correctly typed as DataProcessingActivity
+# [F7] Preprocessing activity - correctly typed as DataProcessingActivity
 ex:RetinalImageProcessingActivity a rdip:DataProcessingActivity ;
     rdip:title               "Retinal image CLAHE preprocessing and anonymisation" ;
     rdip:activityDescription "Applying CLAHE contrast enhancement, resizing to 512x512, removing DICOM metadata, and anonymising patient identifiers." ;
@@ -536,7 +538,7 @@ ex:RetinalImageProcessingActivity a rdip:DataProcessingActivity ;
     rdip:activityStart       "2025-05-01T09:00:00"^^xsd:dateTime ;
     rdip:activityEnd         "2025-07-31T17:00:00"^^xsd:dateTime .
 
-# [F3] CNN training — correctly typed as BOTH DataProductionActivity AND SoftwareDevelopmentActivity
+# [F3] CNN training - correctly typed as BOTH DataProductionActivity AND SoftwareDevelopmentActivity
 #       Uses multiple rdf:type to express the dual nature of this activity
 ex:CNNTrainingActivity a rdip:DataProductionActivity , rdip:SoftwareDevelopmentActivity ;
     rdip:title               "CNN model training for diabetic retinopathy classification" ;
@@ -570,7 +572,7 @@ ex:ThaiMedAI_EvalActivity a rdip:DataAnalysisActivity ;
     rdip:activityStart       "2025-11-01T09:00:00"^^xsd:dateTime ;
     rdip:activityEnd         "2025-12-31T17:00:00"^^xsd:dateTime .
 
-# Roles ───
+# Roles ---
 ex:Role_ThaiMedAI_PI a rdip:RoleInActivity ;
     rdip:roleLabel       "Principal Investigator" ;
     rdip:rolePerformedBy ex:Dr_P_Doe .
