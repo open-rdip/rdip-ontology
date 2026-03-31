@@ -168,9 +168,6 @@ rdip:SoftwareDependency
     rdfs:label   "Software dependency"@en ;
     rdfs:comment "A specific versioned library or package required by a SoftwareApplication at runtime or build time (e.g. 'torch==2.1.0', 'numpy>=1.24'). Captures the exact version string and the dependency type (runtime, build, optional) to enable exact environment reconstruction."@en .
 
-# [FIX I1] Removed vacuous rdfs:subClassOf schema:Thing.
-#          No precise Schema.org equivalent exists for a hardware+software
-#          execution context; the PROV-O alignment via prov:Entity is sufficient.
 rdip:ComputingEnvironment
     a owl:Class ;
     rdfs:subClassOf prov:Entity ;
@@ -214,9 +211,6 @@ rdip:Method
 rdip:EvaluationResult
     a owl:Class ;
     rdfs:subClassOf prov:Entity ;
-    # [FIX M3] Changed from schema:Observation to schema:QuantitativeValue.
-    #          schema:Observation is for real-world property observations;
-    #          evaluation metrics (accuracy, F1, etc.) are quantitative values.
     rdfs:subClassOf schema:QuantitativeValue ;
     rdfs:label   "Evaluation result"@en ;
     rdfs:comment "A quantitative or qualitative result produced by a ResearchActivity. Captures a named metric and its value so that a reproducer can verify their re-run matches the original (e.g. metricName='accuracy', metricValue='0.9432', splitLabel='test'). Link from activity via rdip:generatesResult."@en .
@@ -249,10 +243,6 @@ rdip:isPartOfProject
     rdfs:label   "is part of project"@en ;
     rdfs:comment "Inverse of rdip:hasActivity. Asserts that a ResearchActivity belongs to a given ResearchProject."@en .
 
-# [FIX I2] Removed rdfs:subPropertyOf schema:result.
-#          schema:result has rdfs:domain schema:Action; using it on
-#          ResearchProject (a prov:Entity) would infer Project ∈ Action.
-#          Semantic alignment preserved via skos:closeMatch.
 rdip:hasOutput
     a owl:ObjectProperty ;
     owl:inverseOf rdip:isOutputOf ;
@@ -291,12 +281,6 @@ rdip:follows
 
 #  OBJECT PROPERTIES — PEOPLE & ROLES
 
-# [FIX C1] Removed rdfs:subPropertyOf prov:wasAssociatedWith.
-#          prov:wasAssociatedWith has rdfs:domain prov:Activity; using it on
-#          ResearchProject (a prov:Entity) would infer Project ∈ Activity.
-#          Alignment preserved via skos:closeMatch for documentation.
-#          Activity-level agent attribution uses prov:qualifiedAssociation
-#          via rdip:ActivityAssociation instead.
 rdip:hasParticipant
     a owl:ObjectProperty ;
     rdfs:subPropertyOf schema:contributor ;
@@ -307,7 +291,6 @@ rdip:hasParticipant
     skos:closeMatch prov:wasAssociatedWith ;
     rdfs:seeAlso prov:wasAssociatedWith .
 
-# [FIX C2] Same fix as C1.
 rdip:hasLeadOrganization
     a owl:ObjectProperty ;
     rdfs:subPropertyOf schema:sponsor ;
@@ -420,10 +403,6 @@ rdip:hasParameter
 
 #  OBJECT PROPERTIES — RESULTS & EVALUATION
 
-# [FIX I4] Domain broadened from rdip:DataAnalysisActivity to
-#          rdip:ResearchActivity. Training activities (DataProductionActivity)
-#          and other activity types also produce measurable results
-#          (e.g. training loss, sample counts).
 rdip:generatesResult
     a owl:ObjectProperty ;
     rdfs:subPropertyOf prov:generated ;
@@ -598,10 +577,6 @@ rdip:datasetLandingPage
     rdfs:label   "dataset landing page"@en ;
     rdfs:comment "A URI pointing to the human-readable landing page for this dataset in its repository. Kept as a DatatypeProperty with xsd:anyURI range to avoid the range conflict between dcat:landingPage (foaf:Document) and xsd:anyURI."@en .
 
-# [FIX C3] Removed rdfs:subPropertyOf dcterms:license.
-#          dcterms:license is an owl:ObjectProperty (range dcterms:LicenseDocument);
-#          a DatatypeProperty cannot be subPropertyOf an ObjectProperty in OWL 2 DL.
-#          Alignment preserved via skos:closeMatch.
 rdip:dataLicense
     a owl:DatatypeProperty ;
     rdfs:domain dcat:Dataset ;
@@ -642,7 +617,6 @@ rdip:commitHash
     rdfs:label   "commit hash"@en ;
     rdfs:comment "The exact VCS commit SHA at which this software version was recorded, e.g. 'a3f9b2c'. More precise than a semantic version tag for reproducibility."@en .
 
-# [FIX C3] Same fix as dataLicense.
 rdip:softwareLicense
     a owl:DatatypeProperty ;
     rdfs:domain rdip:SoftwareApplication ;
@@ -831,8 +805,6 @@ rdip:workflowUri
 #################################################################
 #  CROSS-VOCABULARY MAPPINGS
 #################################################################
-# Each mapping is declared ONCE. No duplicates of axioms already
-# stated in property/class definitions above.
 
 #  CLASS MAPPINGS — Schema.org equivalences for external consumers
 
@@ -841,8 +813,6 @@ vivo:Organization a owl:Class ; owl:equivalentClass schema:Organization .
 dcat:Dataset      a owl:Class ; owl:equivalentClass schema:Dataset .
 bibo:Article      a owl:Class ; rdfs:subClassOf schema:ScholarlyArticle .
 
-#  [FIX I3] Explicit PROV-O subclass assertions for imported classes
-#  used with prov:wasDerivedFrom, rdip:hasOutput (range prov:Entity), etc.
 dcat:Dataset      rdfs:subClassOf prov:Entity .
 bibo:Document     rdfs:subClassOf prov:Entity .
 
