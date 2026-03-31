@@ -29,7 +29,7 @@
     owl:priorVersion <https://w3id.org/rdip/1.0.0/> ;
     vann:preferredNamespacePrefix "rdip" ;
     vann:preferredNamespaceUri    "https://w3id.org/rdip/" ;
-    rdfs:comment    "v2.0: added qualified PROV-O associations, wasDerivedFrom chain, activity sequencing (wasInformedBy), EvaluationResult, SoftwareDependency, EnvironmentSpec, RandomSeed, fixed hasParticipant subPropertyOf, fixed landingPage range conflict, removed duplicate class declarations." ;
+    rdfs:comment    "v2.0: added qualified PROV-O associations, wasDerivedFrom chain, activity sequencing (wasInformedBy), EvaluationResult, SoftwareDependency, EnvironmentSpec, RandomSeed." ;
     owl:imports
         <http://vivoweb.org/ontology/core> ,
         <http://purl.org/ontology/bibo/> ,
@@ -37,7 +37,9 @@
         <http://www.w3.org/ns/prov-o#> ,
         <http://purl.org/spar/cito/> .
 
-#  CLASSES 
+#################################################################
+#  CLASSES
+#################################################################
 
 #  SECTION 1 — PROJECT & ACTIVITY HIERARCHY
 #  Core structural classes representing the research lifecycle.
@@ -123,13 +125,23 @@ rdip:RoleInActivity
     a owl:Class ;
     rdfs:subClassOf prov:Role ;
     rdfs:label   "Role in activity"@en ;
-    rdfs:comment "The specific role that a person plays within a particular research activity, e.g. 'Principal Investigator', 'Data Curator', 'Software Engineer', 'Annotator'. Attach via rdip:ActivityAssociation using the qualified PROV-O pattern."@en .
+    rdfs:comment "The specific role that a person plays within a particular research activity, e.g. 'Principal Investigator', 'Data Curator', 'Software Engineer', 'Annotator'. Attach via rdip:ActivityAssociation using the qualified PROV-O pattern, or via the simpler rdip:hasActivityRole chain."@en .
 
 rdip:ActivityAssociation
     a owl:Class ;
     rdfs:subClassOf prov:Association ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty prov:agent ;
+        owl:someValuesFrom foaf:Agent
+    ] ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty prov:hadRole ;
+        owl:someValuesFrom rdip:RoleInActivity
+    ] ;
     rdfs:label   "Activity association"@en ;
-    rdfs:comment "A qualified PROV-O association node linking a ResearchActivity to an agent (Person or Organization) with an explicit RoleInActivity. Use prov:qualifiedAssociation on the activity to point to this node, then prov:agent and prov:hadRole on the node itself. This pattern replaces the simpler rdip:hasActivityRole + rdip:rolePerformedBy chain for full PROV-O compliance."@en .
+    rdfs:comment "A qualified PROV-O association node linking a ResearchActivity to an agent (Person or Organization) with an explicit RoleInActivity. Use prov:qualifiedAssociation on the activity to point to this node, then prov:agent and prov:hadRole on the node itself."@en .
 
 # Example pattern (in instance data):
 #   :activity1  prov:qualifiedAssociation  :assoc1 .
@@ -140,7 +152,8 @@ rdip:ActivityAssociation
 
 
 #  SECTION 3 — SOFTWARE
-#  Represents research software artefacts, their versions, dependencies, and the environment in which they execute
+#  Represents research software artefacts, their versions, dependencies,
+#  and the environment in which they execute.
 
 rdip:SoftwareApplication
     a owl:Class ;
@@ -155,10 +168,12 @@ rdip:SoftwareDependency
     rdfs:label   "Software dependency"@en ;
     rdfs:comment "A specific versioned library or package required by a SoftwareApplication at runtime or build time (e.g. 'torch==2.1.0', 'numpy>=1.24'). Captures the exact version string and the dependency type (runtime, build, optional) to enable exact environment reconstruction."@en .
 
+# [FIX I1] Removed vacuous rdfs:subClassOf schema:Thing.
+#          No precise Schema.org equivalent exists for a hardware+software
+#          execution context; the PROV-O alignment via prov:Entity is sufficient.
 rdip:ComputingEnvironment
     a owl:Class ;
     rdfs:subClassOf prov:Entity ;
-    rdfs:subClassOf schema:Thing ;
     rdfs:label   "Computing environment"@en ;
     rdfs:comment "The full hardware and software context in which a computational activity was executed. Records OS version, CPU/GPU hardware, RAM, and links to a machine-actionable environment specification (e.g. a Docker image digest, conda environment.yml, or Nix flake). Essential for computational reproducibility."@en .
 
@@ -199,8 +214,12 @@ rdip:Method
 rdip:EvaluationResult
     a owl:Class ;
     rdfs:subClassOf prov:Entity ;
+    # [FIX M3] Changed from schema:Observation to schema:QuantitativeValue.
+    #          schema:Observation is for real-world property observations;
+    #          evaluation metrics (accuracy, F1, etc.) are quantitative values.
+    rdfs:subClassOf schema:QuantitativeValue ;
     rdfs:label   "Evaluation result"@en ;
-    rdfs:comment "A quantitative or qualitative result produced by a DataAnalysisActivity. Captures a named metric and its value so that a reproducer can verify their re-run matches the original (e.g. metricName='accuracy', metricValue='0.9432', splitLabel='test'). Link from activity via rdip:generatesResult."@en .
+    rdfs:comment "A quantitative or qualitative result produced by a ResearchActivity. Captures a named metric and its value so that a reproducer can verify their re-run matches the original (e.g. metricName='accuracy', metricValue='0.9432', splitLabel='test'). Link from activity via rdip:generatesResult."@en .
 
 #  SECTION 6 — PUBLICATIONS
 #  Scholarly output classes; primarily reuses bibo: and cito:.
@@ -208,7 +227,10 @@ rdip:EvaluationResult
 # cito citation properties imported.
 # No new classes required; rdip:generatesPublication and rdip:citesDataset bridge them.
 
-#  PROPERTIES
+
+#################################################################
+#  OBJECT PROPERTIES
+#################################################################
 
 #  OBJECT PROPERTIES — PROJECT STRUCTURE
 
@@ -227,18 +249,22 @@ rdip:isPartOfProject
     rdfs:label   "is part of project"@en ;
     rdfs:comment "Inverse of rdip:hasActivity. Asserts that a ResearchActivity belongs to a given ResearchProject."@en .
 
+# [FIX I2] Removed rdfs:subPropertyOf schema:result.
+#          schema:result has rdfs:domain schema:Action; using it on
+#          ResearchProject (a prov:Entity) would infer Project ∈ Action.
+#          Semantic alignment preserved via skos:closeMatch.
 rdip:hasOutput
     a owl:ObjectProperty ;
     owl:inverseOf rdip:isOutputOf ;
-    rdfs:subPropertyOf schema:result, prov:generated ;
     rdfs:domain rdip:ResearchProject ;
     rdfs:range  prov:Entity ;
     rdfs:label   "has output"@en ;
-    rdfs:comment "Links a ResearchProject directly to a top-level output entity (dataset, software, publication). For activity-level generation use rdip:generatesDataset / rdip:generatesSoftware / rdip:generatesPublication."@en .
+    rdfs:comment "Links a ResearchProject directly to a top-level output entity (dataset, software, publication). For activity-level generation use rdip:generatesDataset / rdip:generatesSoftware / rdip:generatesPublication."@en ;
+    skos:closeMatch schema:result .
 
 rdip:isOutputOf
     a owl:ObjectProperty ;
-    rdfs:subPropertyOf schema:isPartOf, prov:wasGeneratedBy ;
+    rdfs:subPropertyOf schema:isPartOf ;
     rdfs:domain prov:Entity ;
     rdfs:range  rdip:ResearchProject ;
     rdfs:label   "is output of"@en ;
@@ -249,38 +275,51 @@ rdip:isOutputOf
 rdip:precedes
     a owl:ObjectProperty ;
     owl:inverseOf rdip:follows ;
-    rdfs:subPropertyOf prov:wasInformedBy ;
     rdfs:domain rdip:ResearchActivity ;
     rdfs:range  rdip:ResearchActivity ;
     rdfs:label   "precedes"@en ;
-    rdfs:comment "Asserts that one ResearchActivity directly precedes another in execution order. Subproperty of prov:wasInformedBy, ensuring PROV-O reasoners can infer the full dependency chain. Use this to sequence DataProcessingActivity → DataAnalysisActivity, etc."@en .
+    rdfs:comment "Asserts that one ResearchActivity directly precedes another in execution order. Use this to sequence DataProcessingActivity → DataAnalysisActivity, etc."@en .
 
 rdip:follows
     a owl:ObjectProperty ;
+    owl:inverseOf rdip:precedes ;
+    rdfs:subPropertyOf prov:wasInformedBy ;
     rdfs:domain rdip:ResearchActivity ;
     rdfs:range  rdip:ResearchActivity ;
     rdfs:label   "follows"@en ;
-    rdfs:comment "Inverse of rdip:precedes. An activity that directly follows another in the workflow."@en .
+    rdfs:comment "Inverse of rdip:precedes. An activity that directly follows another in the workflow. Subproperty of prov:wasInformedBy: if B follows A, then B was informed by A, correctly capturing the execution dependency in PROV-O."@en .
 
 #  OBJECT PROPERTIES — PEOPLE & ROLES
 
+# [FIX C1] Removed rdfs:subPropertyOf prov:wasAssociatedWith.
+#          prov:wasAssociatedWith has rdfs:domain prov:Activity; using it on
+#          ResearchProject (a prov:Entity) would infer Project ∈ Activity.
+#          Alignment preserved via skos:closeMatch for documentation.
+#          Activity-level agent attribution uses prov:qualifiedAssociation
+#          via rdip:ActivityAssociation instead.
 rdip:hasParticipant
     a owl:ObjectProperty ;
-    rdfs:subPropertyOf schema:contributor, prov:wasAssociatedWith ;
+    rdfs:subPropertyOf schema:contributor ;
     rdfs:domain rdip:ResearchProject ;
     rdfs:range  vivo:Person ;
     rdfs:label   "has participant"@en ;
-    rdfs:comment "Links a ResearchProject to a participating Person. For finer-grained role attribution at the activity level, use prov:qualifiedAssociation with rdip:ActivityAssociation."@en .
+    rdfs:comment "Links a ResearchProject to a participating Person. For finer-grained role attribution at the activity level, use prov:qualifiedAssociation with rdip:ActivityAssociation."@en ;
+    skos:closeMatch prov:wasAssociatedWith ;
+    rdfs:seeAlso prov:wasAssociatedWith .
 
+# [FIX C2] Same fix as C1.
 rdip:hasLeadOrganization
     a owl:ObjectProperty ;
-    rdfs:subPropertyOf schema:sponsor, prov:wasAssociatedWith ;
+    rdfs:subPropertyOf schema:sponsor ;
     rdfs:domain rdip:ResearchProject ;
     rdfs:range  vivo:Organization ;
     rdfs:label   "has lead organization"@en ;
-    rdfs:comment "Links a ResearchProject to the Organisation that leads or funds it."@en .
+    rdfs:comment "Links a ResearchProject to the Organisation that leads or funds it."@en ;
+    skos:closeMatch prov:wasAssociatedWith .
 
-# --- Kept for backward compatibility; qualified pattern preferred for new data ---
+# --- Simple role pattern (kept for backward compatibility) ---
+# The qualified PROV-O pattern via prov:qualifiedAssociation →
+# rdip:ActivityAssociation is preferred for new data.
 rdip:hasActivityRole
     a owl:ObjectProperty ;
     rdfs:domain rdip:ResearchActivity ;
@@ -381,13 +420,17 @@ rdip:hasParameter
 
 #  OBJECT PROPERTIES — RESULTS & EVALUATION
 
+# [FIX I4] Domain broadened from rdip:DataAnalysisActivity to
+#          rdip:ResearchActivity. Training activities (DataProductionActivity)
+#          and other activity types also produce measurable results
+#          (e.g. training loss, sample counts).
 rdip:generatesResult
     a owl:ObjectProperty ;
     rdfs:subPropertyOf prov:generated ;
-    rdfs:domain rdip:DataAnalysisActivity ;
+    rdfs:domain rdip:ResearchActivity ;
     rdfs:range  rdip:EvaluationResult ;
     rdfs:label   "generates result"@en ;
-    rdfs:comment "Links a DataAnalysisActivity to an EvaluationResult it produces (e.g. a test-set accuracy, F1 score, RMSE). Essential for verifying reproduction: a reproducer compares their re-run results against these stored values."@en .
+    rdfs:comment "Links a ResearchActivity to an EvaluationResult it produces (e.g. a test-set accuracy, F1 score, RMSE, training loss). Essential for verifying reproduction: a reproducer compares their re-run results against these stored values."@en .
 
 #  OBJECT PROPERTIES — METHODS & DOCUMENTATION
 
@@ -424,7 +467,10 @@ rdip:citesDataset
     rdfs:label   "cites dataset"@en ;
     rdfs:comment "Asserts that a publication cites a particular dataset as a data source. Subproperty of cito:citesAsDataSource."@en .
 
+
+#################################################################
 #  DATA PROPERTIES
+#################################################################
 
 #  DATA PROPERTIES — GENERAL ENTITY METADATA
 
@@ -464,7 +510,7 @@ rdip:version
 
 rdip:projectStart
     a owl:DatatypeProperty ;
-    rdfs:subPropertyOf schema:startDate, prov:startedAtTime ;
+    rdfs:subPropertyOf schema:startDate ;
     rdfs:domain rdip:ResearchProject ;
     rdfs:range  xsd:dateTime ;
     rdfs:label   "project start"@en ;
@@ -472,7 +518,7 @@ rdip:projectStart
 
 rdip:projectEnd
     a owl:DatatypeProperty ;
-    rdfs:subPropertyOf schema:endDate, prov:endedAtTime ;
+    rdfs:subPropertyOf schema:endDate ;
     rdfs:domain rdip:ResearchProject ;
     rdfs:range  xsd:dateTime ;
     rdfs:label   "project end"@en ;
@@ -525,14 +571,14 @@ rdip:orcidId
     rdfs:domain vivo:Person ;
     rdfs:range  xsd:anyURI ;
     rdfs:label   "ORCID iD"@en ;
-    rdfs:comment "The ORCID persistent identifier URI for a researcher, e.g. <https://orcid.org/0000-0002-1825-0097>."@en .
+    rdfs:comment "The ORCID persistent identifier URI for a researcher, e.g. 'https://orcid.org/0000-0002-1825-0097'. Use xsd:anyURI typed literals in instance data."@en .
 
 rdip:rorId
     a owl:DatatypeProperty ;
     rdfs:domain vivo:Organization ;
     rdfs:range  xsd:anyURI ;
     rdfs:label   "ROR identifier"@en ;
-    rdfs:comment "The Research Organization Registry (ROR) URI for an Organisation, e.g. <https://ror.org/02mhbdp94>."@en .
+    rdfs:comment "The Research Organization Registry (ROR) URI for an Organisation, e.g. 'https://ror.org/02mhbdp94'. Use xsd:anyURI typed literals in instance data."@en .
 
 #  DATA PROPERTIES — DATASETS
 
@@ -552,13 +598,17 @@ rdip:datasetLandingPage
     rdfs:label   "dataset landing page"@en ;
     rdfs:comment "A URI pointing to the human-readable landing page for this dataset in its repository. Kept as a DatatypeProperty with xsd:anyURI range to avoid the range conflict between dcat:landingPage (foaf:Document) and xsd:anyURI."@en .
 
+# [FIX C3] Removed rdfs:subPropertyOf dcterms:license.
+#          dcterms:license is an owl:ObjectProperty (range dcterms:LicenseDocument);
+#          a DatatypeProperty cannot be subPropertyOf an ObjectProperty in OWL 2 DL.
+#          Alignment preserved via skos:closeMatch.
 rdip:dataLicense
     a owl:DatatypeProperty ;
-    rdfs:subPropertyOf dcterms:license ;
     rdfs:domain dcat:Dataset ;
     rdfs:range  xsd:anyURI ;
     rdfs:label   "data license"@en ;
-    rdfs:comment "URI of the licence under which this dataset is released, e.g. <https://creativecommons.org/licenses/by/4.0/>. Machine-readable licence URIs are required for access validation during reproduction."@en .
+    rdfs:comment "URI of the licence under which this dataset is released, e.g. 'https://creativecommons.org/licenses/by/4.0/'. Machine-readable licence URIs are required for access validation during reproduction."@en ;
+    skos:closeMatch dcterms:license .
 
 rdip:dataFormat
     a owl:DatatypeProperty ;
@@ -579,6 +629,7 @@ rdip:checksum
 
 rdip:repositoryUrl
     a owl:DatatypeProperty ;
+    rdfs:subPropertyOf schema:codeRepository ;
     rdfs:domain rdip:SoftwareApplication ;
     rdfs:range  xsd:anyURI ;
     rdfs:label   "repository URL"@en ;
@@ -591,18 +642,20 @@ rdip:commitHash
     rdfs:label   "commit hash"@en ;
     rdfs:comment "The exact VCS commit SHA at which this software version was recorded, e.g. 'a3f9b2c'. More precise than a semantic version tag for reproducibility."@en .
 
+# [FIX C3] Same fix as dataLicense.
 rdip:softwareLicense
     a owl:DatatypeProperty ;
-    rdfs:subPropertyOf dcterms:license ;
     rdfs:domain rdip:SoftwareApplication ;
     rdfs:range  xsd:anyURI ;
     rdfs:label   "software license"@en ;
-    rdfs:comment "URI of the open-source licence for this software, e.g. <https://opensource.org/licenses/MIT>."@en .
+    rdfs:comment "URI of the open-source licence for this software, e.g. 'https://opensource.org/licenses/MIT'."@en ;
+    skos:closeMatch dcterms:license .
 
 #  DATA PROPERTIES — SOFTWARE DEPENDENCY
 
 rdip:dependencyName
     a owl:DatatypeProperty ;
+    rdfs:subPropertyOf schema:name ;
     rdfs:domain rdip:SoftwareDependency ;
     rdfs:range  xsd:string ;
     rdfs:label   "dependency name"@en ;
@@ -775,50 +828,22 @@ rdip:workflowUri
     rdfs:comment "URI pointing to the formal workflow definition file (CWL, Nextflow, etc.) for this method."@en .
 
 
-#  MAPPINGS
+#################################################################
+#  CROSS-VOCABULARY MAPPINGS
+#################################################################
+# Each mapping is declared ONCE. No duplicates of axioms already
+# stated in property/class definitions above.
 
-#  CLASS EQUIVALENCES & SUBCLASS MAPPINGS — Schema.org
+#  CLASS MAPPINGS — Schema.org equivalences for external consumers
 
 vivo:Person       a owl:Class ; owl:equivalentClass schema:Person .
 vivo:Organization a owl:Class ; owl:equivalentClass schema:Organization .
 dcat:Dataset      a owl:Class ; owl:equivalentClass schema:Dataset .
 bibo:Article      a owl:Class ; rdfs:subClassOf schema:ScholarlyArticle .
 
-rdip:ResearchActivity    rdfs:subClassOf schema:Action .
-rdip:SoftwareApplication owl:equivalentClass schema:SoftwareApplication .
-rdip:Method              rdfs:subClassOf schema:CreativeWork .
-rdip:ResearchProject     owl:equivalentClass schema:Project .
-rdip:Parameter           rdfs:subClassOf schema:PropertyValue .
-rdip:ComputingEnvironment rdfs:subClassOf schema:Thing .
-rdip:EvaluationResult    rdfs:subClassOf schema:Observation .
-
-#  PROPERTY MAPPINGS — Schema.org
-
-rdip:hasParticipant      rdfs:subPropertyOf schema:contributor .
-rdip:hasLeadOrganization rdfs:subPropertyOf schema:sponsor .
-rdip:hasOutput           rdfs:subPropertyOf schema:result .
-rdip:isOutputOf          rdfs:subPropertyOf schema:isPartOf .
-rdip:parameterName       rdfs:subPropertyOf schema:name .
-rdip:parameterValue      rdfs:subPropertyOf schema:value .
-rdip:metricName          rdfs:subPropertyOf schema:name .
-rdip:metricValue         rdfs:subPropertyOf schema:value .
-rdip:dependencyName      rdfs:subPropertyOf schema:name .
-rdip:repositoryUrl       rdfs:subPropertyOf schema:codeRepository .
-rdip:softwareLicense     rdfs:subPropertyOf schema:license .
-rdip:dataLicense         rdfs:subPropertyOf schema:license .
-
-#  PROPERTY MAPPINGS — PROV-O
-
-rdip:hasParticipant      rdfs:subPropertyOf prov:wasAssociatedWith .
-rdip:hasLeadOrganization rdfs:subPropertyOf prov:wasAssociatedWith .
-rdip:hasOutput           rdfs:subPropertyOf prov:generated .
-rdip:isOutputOf          rdfs:subPropertyOf prov:wasGeneratedBy .
-rdip:projectStart        rdfs:subPropertyOf prov:startedAtTime .
-rdip:projectEnd          rdfs:subPropertyOf prov:endedAtTime .
-rdip:activityStart       rdfs:subPropertyOf prov:startedAtTime .
-rdip:activityEnd         rdfs:subPropertyOf prov:endedAtTime .
-rdip:derivedFrom         rdfs:subPropertyOf prov:wasDerivedFrom .
-rdip:isVersionOf         rdfs:subPropertyOf prov:wasRevisionOf .
-rdip:precedes            rdfs:subPropertyOf prov:wasInformedBy .
+#  [FIX I3] Explicit PROV-O subclass assertions for imported classes
+#  used with prov:wasDerivedFrom, rdip:hasOutput (range prov:Entity), etc.
+dcat:Dataset      rdfs:subClassOf prov:Entity .
+bibo:Document     rdfs:subClassOf prov:Entity .
 
 #  END OF ONTOLOGY
