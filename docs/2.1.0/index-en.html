@@ -17,7 +17,7 @@
 
 
 <!-- SCHEMA.ORG METADATA -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/rdip/","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/rdip/","name":"RDIP: Research Data Intelligence Platform Ontology", "headline":"Document describing the ontology https://w3id.org/rdip/", "dateReleased":"Tue Sep 29 16:36:03 ICT 2026", "version":"2.1.0", "license":"https://opensource.org/licenses/MIT"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/rdip/","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/rdip/","name":"RDIP: Research Data Intelligence Platform Ontology", "headline":"Document describing the ontology https://w3id.org/rdip/", "dateReleased":"Tue Sep 29 16:35:25 ICT 2026", "version":"2.1.0", "license":"https://opensource.org/licenses/MIT"}</script>
 
 <script src="resources/jquery.js"></script> 
 <script src="resources/marked.min.js"></script> 
@@ -41405,7 +41405,7 @@ See also core:localAwardId.
      has super-properties
     </dt>
     <dd>
-     <a href="http://purl.org/dc/terms/contributor" target="_blank" title="http://purl.org/dc/terms/contributor">Contributor</a> <sup class="type-op" title="object property">op</sup>, <a href="http://purl.org/dc/elements/1.1/creator" target="_blank" title="http://purl.org/dc/elements/1.1/creator">creator</a> <sup class="type-ap" title="annotation property">ap</sup>
+     <a href="http://purl.org/dc/terms/contributor" target="_blank" title="http://purl.org/dc/terms/contributor">contributor</a> <sup class="type-op" title="object property">op</sup>, <a href="http://purl.org/dc/elements/1.1/creator" target="_blank" title="http://purl.org/dc/elements/1.1/creator">creator</a> <sup class="type-ap" title="annotation property">ap</sup>
     </dd>
    </dl>
   </div>
@@ -42727,8 +42727,8 @@ can be alternatively described as follows
         cito:agreesWith :paper-b .
     "^^xsd:string</li>
 <li>Added: rdfs:isDefinedBy http://purl.org/spar/cito/</li>
-<li>Added: rdfs:comment "A relation according to which the citing entity agrees with statements, ideas or conclusions presented in the cited entity."@en</li>
 <li>Added: <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> http://purl.org/linked-data/registry#statusStable</li>
+<li>Added: rdfs:comment "A relation according to which the citing entity agrees with statements, ideas or conclusions presented in the cited entity."@en</li>
 </ul>
 <ul>
 <li>Deleted: <http://purl.org/dc/elements/1.1/description> "Example: We share Galileo's opinion: the Earth moves [X]."@en</li>
@@ -42768,11 +42768,11 @@ can be alternatively described as follows
 </li>
 <li><a href="#http://purl.org/spar/cito/citesAsDataSource">http://purl.org/spar/cito/citesAsDataSource</a>
 <ul>
+<li>Added: rdfs:comment "A relation according to which the citing entity cites the cited entity as source of data."@en</li>
 <li>Added: <http://purl.org/vocab/vann/example> "
     :paper-a a fabio:JournalArticle ;
         cito:citesAsDataSource :paper-b .
     "^^xsd:string</li>
-<li>Added: rdfs:comment "A relation according to which the citing entity cites the cited entity as source of data."@en</li>
 <li>Added: <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> http://purl.org/linked-data/registry#statusStable</li>
 <li>Added: rdfs:isDefinedBy http://purl.org/spar/cito/</li>
 <li>Added: <http://www.w3.org/2004/02/skos/core#note> "Example: Italy has more than ten thousand kilometers of shoreline: see [X]."@en</li>
@@ -42905,8 +42905,8 @@ This property can be used, for example, to describe references in a lecture read
     :paper-a a fabio:JournalArticle ;
         cito:compiles :paper-b .
     "^^xsd:string</li>
-<li>Added: <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> http://purl.org/linked-data/registry#statusStable</li>
 <li>Added: rdfs:isDefinedBy http://purl.org/spar/cito/</li>
+<li>Added: <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> http://purl.org/linked-data/registry#statusStable</li>
 <li>Added: rdfs:comment "A relation according to which the citing entity is used to create or compile the cited entity."@en</li>
 <li>Added: <http://www.w3.org/2004/02/skos/core#note> "
 Example: This book gathers interviews with academic researchers of several disciplines [X].
@@ -43070,8 +43070,8 @@ This object property is designed to be used to relate a separate abstract, summa
 </li>
 <li><a href="#http://purl.org/spar/cito/disputes">http://purl.org/spar/cito/disputes</a>
 <ul>
-<li>Added: <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> http://purl.org/linked-data/registry#statusStable</li>
 <li>Added: <http://www.w3.org/2004/02/skos/core#note> "Example: We doubt that Galileo is right when he writes [X] that the Earth moves."@en</li>
+<li>Added: <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> http://purl.org/linked-data/registry#statusStable</li>
 <li>Added: rdfs:comment "A relation according to which the citing entity disputes statements, ideas or conclusions presented in the cited entity."@en</li>
 <li>Added: rdfs:isDefinedBy http://purl.org/spar/cito/</li>
 <li>Added: <http://purl.org/vocab/vann/example> "
@@ -43103,11 +43103,11 @@ This object property is designed to be used to relate a separate abstract, summa
 <li><a href="#http://purl.org/spar/cito/extends">http://purl.org/spar/cito/extends</a>
 <ul>
 <li>Added: rdfs:comment "A relation according to which the citing entity extends facts, ideas or understandings presented in the cited entity."@en</li>
+<li>Added: rdfs:isDefinedBy http://purl.org/spar/cito/</li>
 <li>Added: <http://purl.org/vocab/vann/example> "
     :paper-a a fabio:JournalArticle ;
         cito:extends :paper-b .
     "^^xsd:string</li>
-<li>Added: rdfs:isDefinedBy http://purl.org/spar/cito/</li>
 <li>Added: <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> http://purl.org/linked-data/registry#statusStable</li>
 <li>Added: <http://www.w3.org/2004/02/skos/core#note> "Example: We add to Galileo's findings concerning the Earth [X] that also the Moon moves."@en</li>
 </ul>
@@ -43154,11 +43154,11 @@ This usage involved [OWL2 punning](http://www.w3.org/TR/2009/WD-owl2-new-feature
 
 In such cases of OWL punning, the CiTO object properties are simultaneously considered both as normal object properties and also as proper named individuals of the class `owl:Thing`.
     "@en</li>
-<li>Added: rdfs:comment "A relation between a citation and its characterization, made by using a CiTO citation characterization property."@en</li>
 <li>Added: <http://purl.org/vocab/vann/example> "
     :my-citation a cito:Citation ;
         cito:hasCitationCharacterization cito:extends .
     "^^xsd:string</li>
+<li>Added: rdfs:comment "A relation between a citation and its characterization, made by using a CiTO citation characterization property."@en</li>
 <li>Added: <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> http://purl.org/linked-data/registry#statusStable</li>
 </ul>
 <ul>
@@ -43293,8 +43293,8 @@ On June 4th 1940, Winston Churchill made a speech on the radio that has since be
 <li><a href="#http://purl.org/spar/cito/isCitedAsAuthorityBy">http://purl.org/spar/cito/isCitedAsAuthorityBy</a>
 <ul>
 <li>Added: <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> http://purl.org/linked-data/registry#statusStable</li>
-<li>Added: rdfs:isDefinedBy http://purl.org/spar/cito/</li>
 <li>Added: rdfs:comment "A relation according to which the cited entity is cited as providing an authoritative description or definition of the subject under discussion in the citing entity."@en</li>
+<li>Added: rdfs:isDefinedBy http://purl.org/spar/cito/</li>
 <li>Added: <http://purl.org/vocab/vann/example> "
     :paper-a a fabio:JournalArticle ;
         cito:isCitedAsAuthorityBy :paper-b .
@@ -43395,8 +43395,8 @@ Similarly, it could be used to describe items in a 'Suggested further reading' l
     :paper-a a fabio:JournalArticle ;
         cito:isCitedBy :paper-b .
     "^^xsd:string</li>
-<li>Added: rdfs:isDefinedBy http://purl.org/spar/cito/</li>
 <li>Added: <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> http://purl.org/linked-data/registry#statusStable</li>
+<li>Added: rdfs:isDefinedBy http://purl.org/spar/cito/</li>
 <li>Added: rdfs:comment "A relation according to which the cited entity is cited by the citing entity."@en</li>
 </ul>
 <ul>
@@ -43587,11 +43587,11 @@ Similarly, it could be used to describe items in a 'Suggested further reading' l
 <ul>
 <li>Added: <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> http://purl.org/linked-data/registry#statusStable</li>
 <li>Added: rdfs:comment "A relation according to which the cited entity is the target for an HTTP Uniform Resource Locator (URL) link within the citing entity."@en</li>
+<li>Added: rdfs:isDefinedBy http://purl.org/spar/cito/</li>
 <li>Added: <http://purl.org/vocab/vann/example> "
     :paper-a a fabio:JournalArticle ;
         cito:isLinkedToBy :paper-b .
     "^^xsd:string</li>
-<li>Added: rdfs:isDefinedBy http://purl.org/spar/cito/</li>
 </ul>
 <ul>
 <li>Deleted: rdfs:comment "The cited entity is the target for an HTTP Uniform Resource Locator (URL) link within the citing entity."@en</li>
@@ -43613,8 +43613,8 @@ Similarly, it could be used to describe items in a 'Suggested further reading' l
     :paper-a a fabio:JournalArticle ;
         cito:isPlagiarizedBy :paper-b .
     "^^xsd:string</li>
-<li>Added: rdfs:comment "A relation according to which the cited entity is plagiarized by the author of the citing entity, who includes within the citing entity textual or other elements from the cited entity without formal acknowledgement of their source. The cited entity is thus not explicitly cited from within the citing entity, according to the norms of scholarly practice, but is cited implicitly."@en</li>
 <li>Added: rdfs:isDefinedBy http://purl.org/spar/cito/</li>
+<li>Added: rdfs:comment "A relation according to which the cited entity is plagiarized by the author of the citing entity, who includes within the citing entity textual or other elements from the cited entity without formal acknowledgement of their source. The cited entity is thus not explicitly cited from within the citing entity, according to the norms of scholarly practice, but is cited implicitly."@en</li>
 <li>Added: <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> http://purl.org/linked-data/registry#statusStable</li>
 </ul>
 <ul>
@@ -43915,8 +43915,8 @@ Use of this property does NOT imply the existence of a formal citation of the en
 </li>
 <li><a href="#http://purl.org/spar/cito/qualifies">http://purl.org/spar/cito/qualifies</a>
 <ul>
-<li>Added: rdfs:comment "A relation according to which the citing entity qualifies or places conditions or restrictions upon statements, ideas or conclusions presented in the cited entity."@en</li>
 <li>Added: rdfs:isDefinedBy http://purl.org/spar/cito/</li>
+<li>Added: rdfs:comment "A relation according to which the citing entity qualifies or places conditions or restrictions upon statements, ideas or conclusions presented in the cited entity."@en</li>
 <li>Added: <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> http://purl.org/linked-data/registry#statusStable</li>
 <li>Added: <http://purl.org/vocab/vann/example> "
     :paper-a a fabio:JournalArticle ;
@@ -43949,11 +43949,11 @@ Use of this property does NOT imply the existence of a formal citation of the en
 <ul>
 <li>Added: rdfs:comment "A relation according to which the citing entity replies to statements, ideas or criticisms presented in the cited entity."@en</li>
 <li>Added: <http://www.w3.org/2004/02/skos/core#note> "Example: We will not investigate the issues of the approach proposed in [X] here, but rather we introduce yet another alternative."@en</li>
+<li>Added: <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> http://purl.org/linked-data/registry#statusStable</li>
 <li>Added: <http://purl.org/vocab/vann/example> "
     :paper-a a fabio:JournalArticle ;
         cito:repliesTo :paper-b .
     "^^xsd:string</li>
-<li>Added: <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> http://purl.org/linked-data/registry#statusStable</li>
 <li>Added: rdfs:isDefinedBy http://purl.org/spar/cito/</li>
 </ul>
 <ul>
@@ -44011,11 +44011,11 @@ Use of this property does NOT imply the existence of a formal citation of the en
 </li>
 <li><a href="#http://purl.org/spar/cito/sharesAuthorInstitutionWith">http://purl.org/spar/cito/sharesAuthorInstitutionWith</a>
 <ul>
-<li>Added: rdfs:isDefinedBy http://purl.org/spar/cito/</li>
 <li>Added: <http://purl.org/vocab/vann/example> "
     :paper-a a fabio:JournalArticle ;
         cito:sharesAuthorInstitutionWith :paper-b .
     "^^xsd:string</li>
+<li>Added: rdfs:isDefinedBy http://purl.org/spar/cito/</li>
 <li>Added: rdfs:comment "A relation according to which each entity has at least one author that shares a common institutional affiliation with an author of the other entity."@en</li>
 <li>Added: <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> http://purl.org/linked-data/registry#statusStable</li>
 </ul>
@@ -44069,11 +44069,11 @@ Use of this property does NOT imply the existence of a formal citation of the en
 <ul>
 <li>Added: rdfs:isDefinedBy http://purl.org/spar/cito/</li>
 <li>Added: <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> http://purl.org/linked-data/registry#statusStable</li>
-<li>Added: rdfs:comment "A relation according to which the citing and cited bibliographic resources are published in same publication venue."@en</li>
 <li>Added: <http://purl.org/vocab/vann/example> "
     :paper-a a fabio:JournalArticle ;
         cito:sharesPublicationVenueWith :paper-b .
     "^^xsd:string</li>
+<li>Added: rdfs:comment "A relation according to which the citing and cited bibliographic resources are published in same publication venue."@en</li>
 </ul>
 <ul>
 <li>Deleted: rdfs:comment "The citing and cited bibliographic resources are published in same publication venue."@en</li>
@@ -44116,11 +44116,11 @@ Use of this property does NOT imply the existence of a formal citation of the en
 <li>Added: <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> http://purl.org/linked-data/registry#statusStable</li>
 <li>Added: rdfs:isDefinedBy http://purl.org/spar/cito/</li>
 <li>Added: rdfs:comment "A relation according to which the citing entity updates statements, ideas, hypotheses or understanding presented in the cited entity."@en</li>
-<li>Added: <http://www.w3.org/2004/02/skos/core#note> "Example: Earth moves, said Galileo [X]; in addition, we can say now it moves very fast."@en</li>
 <li>Added: <http://purl.org/vocab/vann/example> "
     :paper-a a fabio:JournalArticle ;
         cito:updates :paper-b .
     "^^xsd:string</li>
+<li>Added: <http://www.w3.org/2004/02/skos/core#note> "Example: Earth moves, said Galileo [X]; in addition, we can say now it moves very fast."@en</li>
 </ul>
 <ul>
 <li>Deleted: rdfs:comment "The citing entity updates statements, ideas, hypotheses or understanding presented in the cited entity."@en</li>
@@ -44145,11 +44145,11 @@ Use of this property does NOT imply the existence of a formal citation of the en
 </li>
 <li><a href="#http://purl.org/spar/cito/usesDataFrom">http://purl.org/spar/cito/usesDataFrom</a>
 <ul>
-<li>Added: <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> http://purl.org/linked-data/registry#statusStable</li>
 <li>Added: <http://purl.org/vocab/vann/example> "
     :paper-a a fabio:JournalArticle ;
         cito:usesDataFrom :paper-b .
     "^^xsd:string</li>
+<li>Added: <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> http://purl.org/linked-data/registry#statusStable</li>
 <li>Added: rdfs:isDefinedBy http://purl.org/spar/cito/</li>
 <li>Added: <http://www.w3.org/2004/02/skos/core#note> "Example: Using the information collected from our recent study [X], we can estimate that there are tens of millions of HTML forms with potentially useful deep-web content."@en</li>
 <li>Added: rdfs:comment "A relation according to which the citing entity describes work that uses data presented in the cited entity."@en</li>
@@ -44162,11 +44162,11 @@ Use of this property does NOT imply the existence of a formal citation of the en
 <li><a href="#http://purl.org/spar/cito/usesMethodIn">http://purl.org/spar/cito/usesMethodIn</a>
 <ul>
 <li>Added: <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> http://purl.org/linked-data/registry#statusStable</li>
-<li>Added: <http://www.w3.org/2004/02/skos/core#note> "Example: We follow [X] in using design patterns for testing."@en</li>
 <li>Added: <http://purl.org/vocab/vann/example> "
     :paper-a a fabio:JournalArticle ;
         cito:usesMethodIn :paper-b .
     "^^xsd:string</li>
+<li>Added: <http://www.w3.org/2004/02/skos/core#note> "Example: We follow [X] in using design patterns for testing."@en</li>
 <li>Added: rdfs:isDefinedBy http://purl.org/spar/cito/</li>
 <li>Added: rdfs:comment "A relation according to which the citing entity describes work that uses a method detailed in the cited entity."@en</li>
 </ul>

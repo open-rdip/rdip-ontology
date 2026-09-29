@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+    <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+        <uri name="http://vivoweb.org/ontology/core" uri="../../imports/vivo-core.owl"/>
+        <uri name="http://purl.org/ontology/bibo/" uri="../../imports/bibo.owl"/>
+        <uri name="http://www.w3.org/ns/dcat#" uri="../../imports/dcat.ttl"/>
+        <uri name="http://www.w3.org/ns/prov-o#" uri="../../imports/prov-o.ttl"/>
+        <uri name="http://purl.org/spar/cito/" uri="../../imports/cito.ttl"/>
+    </catalog>
